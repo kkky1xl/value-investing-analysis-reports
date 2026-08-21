@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中际旭创（300308.SZ）巴芒价值投资分析报告</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+:root {
+  --primary: #1a3a5c; --accent: #c8951e; --bg: #fafafa; --card-bg: #ffffff;
+  --text: #2c2c2c; --text-light: #666; --border: #e0e0e0;
+  --green: #2d7d46; --red: #c0392b; --blue: #2980b9;
+  --table-header: #1a3a5c; --table-row-alt: #f5f7fa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 15px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.header { background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 100%); color: white; padding: 40px 30px; border-radius: 12px; margin-bottom: 30px; }
+.header h1 { font-size: 28px; margin-bottom: 10px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 15px; }
+.header .framework-tag { display: inline-block; background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 6px; font-size: 13px; margin-right: 8px; margin-bottom: 6px; }
+.section { background: var(--card-bg); border-radius: 10px; padding: 30px; margin-bottom: 25px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.section h2 { color: var(--primary); font-size: 22px; border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 20px; }
+.section h3 { color: var(--primary); font-size: 17px; margin: 20px 0 10px; }
+.section h4 { color: var(--text); font-size: 15px; margin: 15px 0 8px; font-weight: 600; }
+p { margin-bottom: 12px; text-align: justify; }
+ul, ol { margin: 10px 0 12px 24px; }
+li { margin: 4px 0; }
+.dialogue { background: #f0f6fc; border-left: 4px solid var(--blue); padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.dialogue .speaker { font-weight: 700; color: var(--blue); margin-bottom: 5px; }
+.dialogue.munger { background: #fdf2f0; border-left-color: var(--red); }
+.dialogue.munger .speaker { color: var(--red); }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; display: block; overflow-x: auto; }
+table th { background: var(--table-header); color: white; padding: 10px 8px; text-align: center; font-weight: 600; white-space: nowrap; }
+table td { padding: 8px; text-align: center; border-bottom: 1px solid var(--border); white-space: nowrap; }
+table tr:nth-child(even) td { background: var(--table-row-alt); }
+table tr:hover td { background: #e8f0fe; }
+.highlight-box { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.alert-box { background: #ffebee; border: 1px solid #ef9a9a; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.success-box { background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.info-box { background: #e3f2fd; border: 1px solid #90caf9; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0; }
+.metric-card { background: #f5f7fa; border-radius: 8px; padding: 15px; text-align: center; border: 1px solid var(--border); }
+.metric-card .label { font-size: 12px; color: var(--text-light); margin-bottom: 5px; }
+.metric-card .value { font-size: 24px; font-weight: 700; color: var(--primary); }
+.metric-card .unit { font-size: 14px; color: var(--text-light); }
+.metric-card .sub { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+.chart-container { width: 100%; height: 400px; margin: 20px 0; }
+.verdict-box { text-align: center; padding: 30px; border-radius: 12px; margin: 20px 0; }
+.verdict-buy { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid #4caf50; }
+.verdict-hold { background: linear-gradient(135deg, #fff8e1, #ffecb3); border: 2px solid #ffc107; }
+.verdict-sell { background: linear-gradient(135deg, #ffebee, #ffcdd2); border: 2px solid #e53935; }
+.verdict-box h3 { font-size: 28px; margin-bottom: 10px; }
+.verdict-box .price-target { font-size: 32px; font-weight: 700; color: var(--primary); }
+.review-record { background: #f8f9fa; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 15px 0; font-size: 13px; }
+.review-record h4 { color: var(--red); margin-bottom: 10px; }
+.review-record .check-item { display: flex; align-items: flex-start; margin: 6px 0; }
+.review-record .check-icon { margin-right: 8px; font-weight: 700; }
+.check-pass { color: var(--green); } .check-fail { color: var(--red); } .check-warn { color: #e65100; }
+.footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 13px; border-top: 1px solid var(--border); margin-top: 30px; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-right: 4px; }
+.tag-green { background: #e8f5e9; color: var(--green); }
+.tag-red { background: #ffebee; color: var(--red); }
+.tag-blue { background: #e3f2fd; color: var(--blue); }
+.tag-yellow { background: #fff8e1; color: #e65100; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>中际旭创（300308.SZ）巴芒价值投资深度分析报告</h1>
+  <div class="subtitle">Zhongji Innolight Co., Ltd. — 沃伦·巴菲特 & 查理·芒格视角的内在价值评估</div>
+  <div>
+    <span class="framework-tag">分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）</span>
+    <span class="framework-tag">原创作者：Br7uce（br7）</span>
+  </div>
+  <div style="margin-top: 10px; font-size: 13px; opacity: 0.85;">
+    分析时间基准：2026年8月21日 ｜ 最新财报：2025年年度报告 + 2026年半年度报告（2026年8月21日披露）｜ 数据来源：同花顺iFinD、巨潮资讯、深交所
+  </div>
+</div>
+
+<!-- 执行摘要 -->
+<div class="section">
+  <h2>执行摘要</h2>
+  <div class="metric-grid">
+    <div class="metric-card"><div class="label">当前股价</div><div class="value">943<span class="unit"> 元</span></div><div class="sub">2026年8月21日收盘</div></div>
+    <div class="metric-card"><div class="label">总市值</div><div class="value">1.10<span class="unit"> 万亿</span></div><div class="sub">总股本11.70亿股</div></div>
+    <div class="metric-card"><div class="label">静态PE(2025)</div><div class="value" style="color:var(--red);">102<span class="unit"> x</span></div><div class="sub">TTM PE约54x</div></div>
+    <div class="metric-card"><div class="label">PB</div><div class="value" style="color:var(--red);">27.7<span class="unit"> x</span></div><div class="sub">每股净资产35.74元</div></div>
+    <div class="metric-card"><div class="label">ROE (2025)</div><div class="value" style="color:var(--green);">44.2<span class="unit"> %</span></div><div class="sub">3年从16.6%升至44.2%</div></div>
+    <div class="metric-card"><div class="label">2026H1归母</div><div class="value" style="color:var(--green);">136.5<span class="unit"> 亿</span></div><div class="sub">同比+241.7%</div></div>
+  </div>
+  <div class="highlight-box">
+    <p><strong>核心结论：</strong>中际旭创是AI算力时代全球光模块绝对龙头，全球市占率23.4%连续三年第一，深度绑定英伟达及北美头部云厂商，800G市占超40%、1.6T全球独家量产（英伟达GB200独家供应商，份额50%-70%）。公司具备极强的技术护城河与规模壁垒——但这是一门强周期、强客户集中、技术迭代极快的生意，本质是"AI资本开支的放大器"。2025年营收382.40亿（+60.3%），归母107.97亿（+108.8%）；2026H1营收417.78亿（+182.5%）、归母136.51亿（+241.7%），业绩处于超级周期顶点。</p>
+  </div>
+  <div class="alert-box">
+    <p><strong>估值警示：</strong>按BR7-VIA-V10.1高回报成长型FCFF三情景，内在价值为 152 / 234 / 333 元/股。当前股价 943 元，<strong>较合理价值溢价 303%，较乐观情景仍溢价 183%</strong>。静态PE 102倍、PB 27.7倍。价格已透支未来多年高增长，且未对AI资本开支周期性回落、客户集中风险、技术迭代替代风险给出安全边际。</p>
+  </div>
+  <div class="info-box">
+    <p><strong>估值路由锁定：</strong>高回报成长型（ROE 44% + 高增长 + 强护城河），但叠加强周期属性（AI capex周期 + 光模块技术代际周期）。采用驱动因素FCFF DCF，折现率12.5%（含3%特定风险溢价）。</p>
+  </div>
+</div>
+
+<!-- Prompt 1 -->
+<div class="section">
+  <h2>Prompt 1：业务与行业理解</h2>
+  <h3>一、公司概况</h3>
+  <p>中际旭创（300308.SZ）前身为电机装备企业，2017年通过并购苏州旭创跨界切入高速光模块领域，现已成长为全球数通高速光模块龙头。公司核心产品为800G、1.6T高速光模块，以及3.2T、CPO/LPO等前沿技术储备，深度绑定英伟达及北美头部云厂商（谷歌、Meta、微软、亚马逊），海外收入占比85%-90%。</p>
+
+  <h3>二、行业格局与竞争地位</h3>
+  <table>
+    <thead><tr><th>维度</th><th>数据</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">全球光模块市占率</td><td>23.4%（2025），连续三年第一</td><td>领先第二名Coherent约7个百分点</td></tr>
+      <tr><td style="text-align:left;">800G市占率</td><td>超40%</td><td>英伟达800G时代核心供应商</td></tr>
+      <tr><td style="text-align:left;">1.6T地位</td><td>全球独家量产，良率95%</td><td>英伟达GB200独家供应商，份额50%-70%</td></tr>
+      <tr><td style="text-align:left;">客户结构</td><td>前五大：英伟达/谷歌/微软/Meta/亚马逊</td><td>海外收入占比85%-90%，高度集中</td></tr>
+      <tr><td style="text-align:left;">技术储备</td><td>CPO核心专利超200项；布局3.2T/CPO/LPO</td><td>代际持续领先</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>这是一门我从没见过的生意——毛利率从25%跃升到42%、ROE从11%冲到44%，同时营收三年翻了近6倍。这背后只有一个解释：英伟达把价值几十万的GPU塞进机柜，光互连成了瓶颈，而中际旭创是那个唯一能量产1.6T的供应商。真正的护城河是"规模—良率—成本—技术"的正向循环，一旦领先，追赶者要烧掉巨额资本和时间。但我要说清楚——这门生意的毛利和增长，本质不取决于中际旭创自己，而取决于英伟达和北美云厂商明年下多少资本开支订单。</p>
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>我按你的逻辑推演三遍，找出三个必须回答的问题：第一，23.4%的市占率、50%-70%的1.6T独家份额，这些数字越漂亮，越说明客户集中风险越致命——如果英伟达明年把1.6T订单切一部分给第二供应商做压力测试，中际旭创的量和价会怎么走？第二，光模块是"一代技术、一代王"，历史上100G→400G→800G每次代际切换都死过一批厂商,这次3.2T/CPO会不会轮到别人？第三，2026H1净利136亿，半年干了去年一年还多,这种斜率在半导体周期史上从没有连续维持超过三四年。这不是"稳定现金牛"，这是"周期顶部的放大器"。</p>
+  </div>
+
+  <div class="info-box">
+    <p><strong>估值路由初判：</strong>高回报成长型（主体），置信度高；但必须作为"强周期成长"处理，利润不设永续高增长，增长假设随AI capex周期衰减。备选：强周期资源型（若AI capex出现明确见顶信号则切换）。</p>
+  </div>
+</div>
+
+<!-- Prompt 2 -->
+<div class="section">
+  <h2>Prompt 2：逐年财报深度审查（2020-2025）</h2>
+  <h3>一、利润表核心数据</h3>
+  <table>
+    <thead><tr><th>项目（亿元RMB）</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">营业收入</td><td>70.50</td><td>76.95</td><td>96.42</td><td>107.18</td><td>238.62</td><td style="color:var(--green);">382.40</td></tr>
+      <tr><td style="text-align:left;">同比增长</td><td>+48.2%</td><td>+9.2%</td><td>+25.3%</td><td>+11.2%</td><td>+122.6%</td><td style="color:var(--green);">+60.3%</td></tr>
+      <tr><td style="text-align:left;">归母净利润</td><td>8.65</td><td>8.77</td><td>12.24</td><td>21.74</td><td>51.71</td><td style="color:var(--green);">107.97</td></tr>
+      <tr><td style="text-align:left;">归母同比增长</td><td>+68.6%</td><td>+1.3%</td><td>+39.6%</td><td>+77.6%</td><td>+137.9%</td><td style="color:var(--green);">+108.8%</td></tr>
+      <tr><td style="text-align:left;">扣非归母</td><td>7.64</td><td>7.28</td><td>10.37</td><td>21.24</td><td>50.68</td><td>107.10</td></tr>
+      <tr><td style="text-align:left;">毛利率</td><td>25.4%</td><td>25.6%</td><td>29.3%</td><td>33.0%</td><td>33.8%</td><td style="color:var(--green);">42.0%</td></tr>
+      <tr><td style="text-align:left;">净利率</td><td>12.4%</td><td>11.5%</td><td>12.8%</td><td>20.6%</td><td>22.5%</td><td>30.3%</td></tr>
+      <tr><td style="text-align:left;">ROE</td><td>11.7%</td><td>9.1%</td><td>10.4%</td><td>16.6%</td><td>31.0%</td><td style="color:var(--green);">44.2%</td></tr>
+    </tbody>
+  </table>
+  <div id="chart-rev-profit" class="chart-container"></div>
+
+  <h3>二、关键发现</h3>
+  <h4>1. 毛利率是核心变量（25.4% → 42.0%）</h4>
+  <p>中际旭创的利润弹性几乎全部来自毛利率扩张。2023-2025年毛利率从33%跃升至42%，主因是1.6T独家供应带来的溢价定价权 + 规模效应摊薄成本。42%的毛利率在硬件代工行业极度罕见，但这高度依赖"独家供货"地位，一旦竞争加剧或客户压价，毛利率有显著回落风险。</p>
+  <h4>2. 2026H1业绩呈爆发式加速</h4>
+  <p>2026H1营收417.78亿（+182.5%）、归母136.51亿（+241.7%）、扣非130.92亿（+229.3%），Q2单季归母79亿。这标志着1.6T大规模放量的超级周期已到顶点斜率。核心问题是：这种斜率能否延续？</p>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>这六年财务报表最打动我的是ROE：从11.7%一路到44.2%，而且不是靠加杠杆——资产负债率反而从41%降到30%。这是真实盈利能力的提升，不是财务工程。毛利率42%说明产品有真定价权。</p>
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>我做了口径毒性测试：<br>
+    ① <strong>2024年OCF仅31.65亿，而归母51.71亿，OCF/净利仅0.61倍</strong>——为什么利润高增但现金没跟上？查资产负债表：存货从43亿暴增至71亿、应收账款从26亿增至46亿。高增长期疯狂备货+账期拉长，这是光模块生意的常态，但它意味着"账面利润"里有相当部分变成了趴在仓库里的存货和账期里的应收。2025年OCF回升到108.96亿（OCF/净利≈1.0），暂时正常。<br>
+    ② <strong>少数股东权益18.56亿</strong>——2017年并购苏州旭创留下少数股东，估值时必须单独扣减，不能只算归母。<br>
+    ③ 毛利率42%是好，但扣除研发16.15亿后净利率30%——研发费率仅4.2%，对一个自称"技术护城河"的公司，4.2%的研发费率比我见过的真科技公司低太多。它的护城河到底是"原创技术"还是"英伟达供应商地位"？这决定了护城河的寿命。</p>
+  </div>
+</div>
+
+<!-- Prompt 3 -->
+<div class="section">
+  <h2>Prompt 3：多年财务汇总与趋势分析</h2>
+  <h3>一、资产负债表与现金流摘要</h3>
+  <table>
+    <thead><tr><th>指标（亿元）</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">经营活动现金流</td><td>0.22</td><td>8.13</td><td>24.49</td><td>18.97</td><td style="color:var(--red);">31.65</td><td style="color:var(--green);">108.96</td></tr>
+      <tr><td style="text-align:left;">资本开支</td><td>—</td><td>8.40</td><td>7.92</td><td>17.04</td><td>28.66</td><td>27.60</td></tr>
+      <tr><td style="text-align:left;">研发费用</td><td>—</td><td>5.41</td><td>7.67</td><td>7.39</td><td>12.44</td><td>16.15</td></tr>
+      <tr><td style="text-align:left;">货币资金</td><td>16.79</td><td>35.15</td><td>28.31</td><td>33.17</td><td>50.54</td><td>109.87</td></tr>
+      <tr><td style="text-align:left;">有息负债</td><td>28.55</td><td>25.86</td><td>19.72</td><td>9.78</td><td>35.79</td><td>25.71</td></tr>
+      <tr><td style="text-align:left;">归母权益</td><td>—</td><td>114.89</td><td>119.45</td><td>142.61</td><td>191.34</td><td>297.65</td></tr>
+      <tr><td style="text-align:left;">少数股东权益</td><td>—</td><td>1.14</td><td>1.24</td><td>5.13</td><td>11.59</td><td>18.56</td></tr>
+      <tr><td style="text-align:left;">资产负债率</td><td>41.3%</td><td>30.0%</td><td>27.1%</td><td>26.2%</td><td>29.7%</td><td>30.2%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>二、核心趋势判断</h3>
+  <div id="chart-margins" class="chart-container"></div>
+  <table>
+    <thead><tr><th>指标</th><th>2020</th><th>2022</th><th>2024</th><th>2025</th><th>趋势</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">毛利率</td><td>25.4%</td><td>29.3%</td><td>33.8%</td><td>42.0%</td><td><span class="tag tag-green">强扩张</span></td></tr>
+      <tr><td style="text-align:left;">净利率</td><td>12.4%</td><td>12.8%</td><td>22.5%</td><td>30.3%</td><td><span class="tag tag-green">强扩张</span></td></tr>
+      <tr><td style="text-align:left;">ROE</td><td>11.7%</td><td>10.4%</td><td>31.0%</td><td>44.2%</td><td><span class="tag tag-green">爆发式</span></td></tr>
+      <tr><td style="text-align:left;">营收CAGR(6年)</td><td colspan="4">约32.5%</td><td><span class="tag tag-blue">高增长</span></td></tr>
+      <tr><td style="text-align:left;">利润波动性</td><td colspan="4">归母8.65亿→107.97亿（12.5倍）</td><td><span class="tag tag-yellow">强周期</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>资产负债表很健康：账上货币资金109.87亿，有息负债25.71亿，净现金约84亿。资产负债率30%，处于安全区间。即便周期回落，这家公司不会破产，反而有弹药逆周期扩张。</p>
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>财务健康是真的，但别被净现金迷惑。看2024年：营收翻倍、利润翻倍，OCF却只有利润的六成，钱都堆在存货71亿和应收46亿里。光模块的存货贬值极快——一代产品淘汰，仓库里上一代芯片和物料就按废品打折。这就是为什么我说要对"净现金84亿"打个折再进估值：那84亿不是你随时能拿出来的自由现金，其中一部分永远被营运资本锁死在周期里。所以我在估值里给净现金只按60%折价计入，约50亿。</p>
+  </div>
+</div>
+
+<!-- Prompt 4 -->
+<div class="section">
+  <h2>Prompt 4：经济护城河评估</h2>
+  <table>
+    <thead><tr><th>护城河来源</th><th>强弱</th><th>关键证据</th><th>可持续性判断</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">技术代际领先</td><td><span class="tag tag-green">强</span></td><td>1.6T独家量产、良率95%、CPO专利200+</td><td>3.2T/CPO切换期可能被挑战</td></tr>
+      <tr><td style="text-align:left;">规模-良率-成本循环</td><td><span class="tag tag-green">强</span></td><td>市占率23.4%领先第二7pp</td><td>随规模扩大自我强化</td></tr>
+      <tr><td style="text-align:left;">客户联合定义绑定</td><td><span class="tag tag-green">强</span></td><td>英伟达GB200独家供应商</td><td>双刃剑：既是壁垒也是集中风险</td></tr>
+      <tr><td style="text-align:left;">品牌/转换成本</td><td><span class="tag tag-yellow">中</span></td><td>数据中心认证周期长</td><td>认证壁垒存在但非永久</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>护城河是真实的、宽的，但我不确定它有多深。它更像"窗口期垄断"——在1.6T这个代际里，中际旭创领先对手一两年良率和产能，享受超额毛利。问题是这扇窗会不会关上。我的结论：护城河评级为"宽护城河，但周期性窗口性质显著"。</p>
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>别用"宽护城河"这种词自我安慰。光通信行业50年历史反复证明：没有一个供应商能连续跨越三个技术代际保持独家。Coherent、II-VI、新易盛都在拿英伟达的下一代订单试产。真实的风险不是"今天有没有护城河"，而是"42%的毛利率本身就是竞争对手的靶子"。42%毛利在硬件行业是邀请函，会招来资本和技术。我的评级：强护城河，但持久性存疑，需持续跟踪3.2T客户分配格局。</p>
+  </div>
+</div>
+
+<!-- Prompt 5 -->
+<div class="section">
+  <h2>Prompt 5：管理层与资本配置</h2>
+  <p>管理层以刘圣博士为核心，2017年主导跨界并购苏州旭创是本世纪A股最成功的转型之一。资本配置行为：持续扩产（苏州基地扩产、泰国二期爬坡）、研发投入（CPO专利布局）、保持低负债。2026H1拟每10股派12元，开始加大现金分红。</p>
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>刘圣团队展现了优秀的技术远见——在800G周期就提前卡位1.6T和CPO，这是真本事。资本配置纪律也不错：净现金状态、低负债、逆周期扩产。</p>
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>管理层的技术判断力我不质疑，但资本配置有一个隐患：在周期顶点大规模扩产（Capex从8亿增到28亿），如果AI capex见顶，新增产能会变成折旧负担和价格战弹药。所有周期股管理层都会在顶部最乐观的时候扩产——这是人性的普遍规律，刘圣博士也未必能免疫。我需要看到他有没有在2026年这个顶点上克制扩产、留存现金。</p>
+  </div>
+</div>
+
+<!-- Prompt 6 -->
+<div class="section">
+  <h2>Prompt 6：品质评级与估值资格</h2>
+  <div class="success-box">
+    <p><strong>品质评级：A-（优秀，但含周期扣分）</strong></p>
+    <p><strong>估值资格：Go（高回报成长型路由适格）</strong></p>
+  </div>
+  <p>品质维度：盈利能力（A+，ROE 44%）｜财务健康（A，净现金）｜护城河（A-，窗口期垄断）｜管理层（A-，技术远见佳、周期纪律待验证）｜增长质量（B，高增长但OCF质量波动）。综合扣分项：强周期、客户集中、技术迭代风险。</p>
+  <p><strong>关键提醒：</strong>Go仅代表"可以用DCF估值"，不代表当前价格合理。对强周期成长股，Go之后的估值必须把周期顶点利润正常化，不做永续高增长外推。</p>
+</div>
+
+<!-- Prompt 7 -->
+<div class="section">
+  <h2>Prompt 7：保守估值与内在价值</h2>
+  <h3>一、方法选择与现金流边界</h3>
+  <p>采用<strong>驱动因素FCFF DCF</strong>（企业价值口径），因为公司含少数股东权益18.56亿需显式扣减，且净现金84亿需加回。NOPAT起点 = 归母净利 + 少数股东损益 + 税后净利息。</p>
+
+  <h3>二、三情景正常化基期</h3>
+  <table>
+    <thead><tr><th>情景</th><th>NOPAT基期（亿）</th><th>前5年g</th><th>增量ROIC</th><th>核心假设</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">悲观</td><td>214</td><td>0%</td><td>15%</td><td>AI capex 2026见顶后停滞/回落</td></tr>
+      <tr><td style="text-align:left;">合理</td><td>278</td><td>8%</td><td>20%</td><td>2026高基数后增速骤降至8%</td></tr>
+      <tr><td style="text-align:left;">乐观</td><td>320</td><td>15%</td><td>25%</td><td>1.6T/3.2T持续放量</td></tr>
+    </tbody>
+  </table>
+  <p><em>折现率12.5% = Rf 2.5% + ERP 6.5% + 特定风险溢价3%（强周期 + 客户集中 + 技术迭代）。终值 g=2%，稳定期增量回报15%。</em></p>
+
+  <h3>三、确定性计算结果（BR7-VIA-V10.1 估值引擎）</h3>
+  <table>
+    <thead><tr><th>情景</th><th>显性期现值（亿）</th><th>终值现值（亿）</th><th>经营价值（亿）</th><th>每股价值（元）</th><th>终值占比</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">悲观</td><td>746.1</td><td>999.8</td><td>1745.9</td><td><strong>151.99</strong></td><td>56.2%</td></tr>
+      <tr><td style="text-align:left;">合理</td><td>799.5</td><td>1908.4</td><td>2707.9</td><td><strong>234.23</strong></td><td>69.7%</td></tr>
+      <tr><td style="text-align:left;">乐观</td><td>850.6</td><td>3007.0</td><td>3857.7</td><td><strong>332.52</strong></td><td>77.3%</td></tr>
+    </tbody>
+  </table>
+  <p><em>价值桥：净现金84.16亿×60%（保守折价）=50.50亿，减少数股东权益18.56亿，净桥31.94亿。股本11.6973亿股。</em></p>
+
+  <h3>四、交叉验证</h3>
+  <table>
+    <thead><tr><th>方法</th><th>悲观</th><th>合理</th><th>乐观</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">FCFF DCF（主体）</td><td>152</td><td>234</td><td>333</td></tr>
+      <tr><td style="text-align:left;">正常化PE法（10/13/16倍）</td><td>183-220</td><td>309-356</td><td>438-492</td></tr>
+    </tbody>
+  </table>
+
+  <div class="review-record">
+    <h4>芒格复核记录</h4>
+    <div class="check-item"><span class="check-icon check-pass">✓</span> FCFE/FCFF口径：采用FCFF，合法价值桥组件（净现金+少数股东），非经营资产已折价60%</div>
+    <div class="check-item"><span class="check-icon check-pass">✓</span> r=12.5% ≥ g=2%，终值再投资率=2%/15%=13.3%，模型有效</div>
+    <div class="check-item"><span class="check-icon check-warn">!</span> 乐观情景终值占股权价值77.3%，超75%阈值，触发警报——乐观价值高度依赖永续假设</div>
+    <div class="check-item"><span class="check-icon check-warn">!</span> 少数股东权益18.56亿为2025年报数，2026H1并购扩张后可能上升，属动态参数</div>
+    <div class="check-item"><span class="check-icon check-pass">✓</span> 现金流的D类假设（NOPAT基期、增长率、折现率）均已单列并注明依据</div>
+    <div class="check-item"><span class="check-icon check-info">结论</span> 本模块复核通过（乐观情景有条件通过，已在预警中标注）</div>
+  </div>
+</div>
+
+<!-- Prompt 8 -->
+<div class="section">
+  <h2>Prompt 8：价格保护与机会成本</h2>
+  <div class="verdict-box verdict-sell">
+    <h3 style="color:var(--red);">最终评级：不买入（Avoid / 严重高估）</h3>
+    <div class="price-target">内在价值区间：152 - 333 元</div>
+    <div class="price-target" style="font-size:24px;">合理价值中枢：234 元</div>
+    <p style="margin-top:15px;">当前股价：943元 ｜ 相对合理价值溢价 303%</p>
+    <p>即便按乐观情景333元，现价仍溢价183%</p>
+  </div>
+  <table>
+    <thead><tr><th>入场价格参考</th><th>相对合理价值</th><th>对应安全边际</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:left;">≤ 187元</td><td>-20%</td><td>20%安全边际</td></tr>
+      <tr><td style="text-align:left;">≤ 164元</td><td>-30%</td><td>30%安全边际</td></tr>
+    </tbody>
+  </table>
+  <p><strong>机会成本判断：</strong>当前价隐含的是"AI capex永续高增长 + 中际旭创永久保持独家垄断 + 毛利率永久42%"三重乐观假设同时成立。任何一项落空，估值都面临戴维斯双杀。现价不提供任何安全边际。</p>
+</div>
+
+<!-- Prompt 9 -->
+<div class="section">
+  <h2>Prompt 9：情景展望与监控清单</h2>
+  <h3>关键监控指标</h3>
+  <ul>
+    <li><strong>AIcapex指引：</strong>英伟达/北美四大云厂商季度资本开支指引（先行指标，最重要）</li>
+    <li><strong>1.6T/3.2T份额：</strong>英伟达是否引入第二供应商，中际旭创份额是否从50-70%松动</li>
+    <li><strong>毛利率：</strong>42%能否维持还是回落（竞争加剧的最早信号）</li>
+    <li><strong>OCF/净利：</strong>是否重新跌回0.6倍以下（存货/应收恶化信号）</li>
+    <li><strong>少数股东权益：</strong>并购扩张对归母利润的稀释</li>
+  </ul>
+  <div class="alert-box">
+    <p><strong>下行触发器：</strong>任一云厂商削减2027年AI capex指引、英伟达1.6T订单切分给第二供应商、毛利率降至35%以下——三者任一出现，合理价值需重新下修。</p>
+  </div>
+</div>
+
+<!-- Prompt 10 -->
+<div class="section">
+  <h2>Prompt 10：最终结论与行动计划</h2>
+  <p><strong>一句话结论：</strong>中际旭创是AI时代的明星企业、光模块当之无愧的龙头，拥有真实而强劲的护城河与爆发力——但943元的股价已经把这门强周期生意当作"永续高成长"定价，透支了所有乐观预期且没有留安全边际。好公司 ≠ 好股票，当前价格下不构成巴菲特-芒格式的买入机会。</p>
+  <p><strong>行动计划：</strong>① 不买入、不追高；② 建立监控清单，重点跟踪AI capex见顶信号与1.6T/3.2T客户份额变化；③ 若股价回落至234元合理价值附近并配合基本面确认（而非周期见顶），重新评估。</p>
+</div>
+
+<div class="footer">
+  <p>分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）｜原创作者：Br7uce（br7）</p>
+  <p>数据来源：同花顺iFinD、巨潮资讯、深圳证券交易所官方披露。2025年年报、2026年半年度报告。</p>
+  <p style="margin-top:10px;">Copyright © 2026 Br7uce. All Rights Reserved. 本报告基于 BR7-VIA-V10.1 生成，不构成投资建议。</p>
+</div>
+
+</div>
+<script>
+// 营收与利润
+var chart1 = echarts.init(document.getElementById('chart-rev-profit'));
+chart1.setOption({
+  title: { text: '营收与归母净利润（亿元）', left: 'center', textStyle: { fontSize: 14 } },
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['营业收入', '归母净利润'], bottom: 0 },
+  grid: { left: 60, right: 30, bottom: 50, top: 40 },
+  xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025'] },
+  yAxis: { type: 'value' },
+  series: [
+    { name: '营业收入', type: 'bar', data: [70.50,76.95,96.42,107.18,238.62,382.40], itemStyle: { color: '#1a3a5c' } },
+    { name: '归母净利润', type: 'line', smooth: true, data: [8.65,8.77,12.24,21.74,51.71,107.97], itemStyle: { color: '#c8951e' } }
+  ]
+});
+// 毛利率与ROE
+var chart2 = echarts.init(document.getElementById('chart-margins'));
+chart2.setOption({
+  title: { text: '毛利率与ROE趋势（%）', left: 'center', textStyle: { fontSize: 14 } },
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['毛利率', 'ROE', '净利率'], bottom: 0 },
+  grid: { left: 60, right: 30, bottom: 50, top: 40 },
+  xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025'] },
+  yAxis: { type: 'value' },
+  series: [
+    { name: '毛利率', type: 'line', smooth: true, data: [25.4,25.6,29.3,33.0,33.8,42.0], itemStyle: { color: '#2d7d46' } },
+    { name: 'ROE', type: 'line', smooth: true, data: [11.7,9.1,10.4,16.6,31.0,44.2], itemStyle: { color: '#c8951e' } },
+    { name: '净利率', type: 'line', smooth: true, data: [12.4,11.5,12.8,20.6,22.5,30.3], itemStyle: { color: '#2980b9' } }
+  ]
+});
+window.addEventListener('resize', function(){ chart1.resize(); chart2.resize(); });
+</script>
+</body>
+</html>
