@@ -1,9 +1,9 @@
 # BR7UCE 价值投资分析报告库
 
-> 分析框架：BR7UCE Value Investing Analysis Framework V9（BR7-VIA-V9）
+> 分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）
 > 原创作者：Br7uce（br7）
 
-本仓库收录基于 BR7UCE V9 价值投资分析框架生成的深度分析报告。
+本仓库收录基于 BR7UCE V10.1 价值投资分析框架生成的深度分析报告。
 
 ## 报告目录
 
@@ -12,6 +12,7 @@
 | 1 | 羚锐制药 | 600285.SH | 谨慎买入 | [查看报告](lingrui-600285-buffett-munger-analysis.html) |
 | 2 | 兖矿能源 | 600188.SH | 谨慎买入 | [查看报告](yankuang-energy-analysis/yankuang-energy-analysis.html) |
 | 3 | 云路股份 | — | — | [查看报告](yunlu_analysis_report.html) |
+| 4 | 中际旭创 | 300308.SZ | 不买入 | [查看报告](zhongji-xc-300308-buffett-munger-analysis.html) |
 
 ## 免责声明
 
