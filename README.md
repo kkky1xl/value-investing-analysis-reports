@@ -13,6 +13,7 @@
 | 2 | 兖矿能源 | 600188.SH | 谨慎买入 | [查看报告](yankuang-energy-analysis/yankuang-energy-analysis.html) |
 | 3 | 云路股份 | — | — | [查看报告](yunlu_analysis_report.html) |
 | 4 | 中际旭创 | 300308.SZ | 不买入 | [查看报告](zhongji-xc-300308-buffett-munger-analysis.html) |
+| 5 | 赛轮轮胎 | 601058.SH | 观察等待 | [查看报告](sailun-601058-buffett-munger-analysis.html) |
 
 ## 免责声明
 
