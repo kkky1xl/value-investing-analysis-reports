@@ -23,3 +23,4 @@
 Copyright © 2026 Br7uce. All Rights Reserved.
 
 | 天孚通信 (300394.SZ) | [查看报告](reports/tianfu-300394-buffett-munger-analysis.html) | 2026-09-08 | A. 观察等待 | 光通信器件/光模块 |
+| 松发股份 (603268.SH) | [查看报告](reports/songfa-603268-buffett-munger-analysis.html) | 2026-09-23 | D. 远离/不买入 | 船舶制造/造船 |
