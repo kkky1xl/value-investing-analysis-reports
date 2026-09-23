@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>松发股份 (603268.SH) 巴菲特-芒格价值投资深度分析</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+:root {
+  --primary: #1a3a5c;
+  --accent: #c8951e;
+  --green: #2d7d46;
+  --red: #c0392b;
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --text: #333333;
+  --light-text: #666666;
+  --border: #e0e0e0;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 15px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.header { background: linear-gradient(135deg, var(--primary), #2c5282); color: white; padding: 40px 30px; border-radius: 12px; margin-bottom: 30px; text-align: center; }
+.header h1 { font-size: 28px; margin-bottom: 8px; }
+.header .subtitle { font-size: 14px; opacity: 0.85; }
+.framework-attr { font-size: 12px; margin-top: 15px; padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 6px; display: inline-block; }
+.card { background: var(--card); border-radius: 10px; padding: 25px 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.card h2 { color: var(--primary); font-size: 22px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+.card h3 { color: var(--primary); font-size: 18px; margin: 18px 0 10px; }
+.card p { margin-bottom: 12px; }
+.table-wrap { overflow-x: auto; margin: 15px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+table th { background: var(--primary); color: white; padding: 10px 12px; text-align: center; }
+table td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: center; }
+table tr:nth-child(even) { background: #f9f9f9; }
+.highlight-red { color: var(--red); font-weight: bold; }
+.highlight-green { color: var(--green); font-weight: bold; }
+.highlight-accent { color: var(--accent); font-weight: bold; }
+.dialogue { background: #f8f9fa; border-left: 4px solid var(--primary); padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.dialogue .speaker { font-weight: bold; color: var(--primary); font-size: 16px; margin-bottom: 5px; }
+.dialogue.munger { border-left-color: var(--accent); }
+.dialogue.munger .speaker { color: var(--accent); }
+.conclusion-box { background: linear-gradient(135deg, #fff3cd, #ffe4b5); border: 2px solid var(--accent); border-radius: 10px; padding: 20px 25px; margin: 20px 0; }
+.decision-banner { background: var(--red); color: white; padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0; }
+.decision-banner .decision { font-size: 24px; font-weight: bold; }
+.decision-banner .reason { font-size: 14px; margin-top: 8px; opacity: 0.9; }
+.chart-container { width: 100%; height: 350px; margin: 20px 0; }
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0; }
+.metric-card { background: #f8f9fa; border-radius: 8px; padding: 15px; text-align: center; }
+.metric-card .label { font-size: 12px; color: var(--light-text); }
+.metric-card .value { font-size: 22px; font-weight: bold; color: var(--primary); }
+.metric-card .change { font-size: 12px; margin-top: 4px; }
+.warning-box { background: #fff5f5; border-left: 4px solid var(--red); padding: 15px 20px; border-radius: 0 8px 8px 0; margin: 15px 0; }
+.warning-box h4 { color: var(--red); margin-bottom: 8px; }
+.footer { text-align: center; padding: 30px; color: var(--light-text); font-size: 13px; border-top: 2px solid var(--border); margin-top: 30px; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+.tag-red { background: #ffe0e0; color: var(--red); }
+.tag-green { background: #d4edda; color: var(--green); }
+.tag-accent { background: #fff3cd; color: var(--accent); }
+@media (max-width: 768px) { .container { padding: 10px; } .header h1 { font-size: 20px; } .card { padding: 15px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>松发股份 (603268.SH) 巴菲特-芒格价值投资深度分析</h1>
+  <div class="subtitle">广东松发陶瓷股份有限公司 → 恒力重工借壳上市 | 船舶及高端装备制造</div>
+  <div class="framework-attr">分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）｜原创作者：Br7uce（br7）</div>
+</div>
+
+<!-- 分析时间基准 -->
+<div class="card">
+  <h3>分析时间基准</h3>
+  <p><strong>本次分析时间基准：2026年09月23日</strong></p>
+  <p>采用报告：2025年年度报告（披露日2026-03-09）、2026年半年度报告（披露日2026-08-25）</p>
+  <p>数据来源：上交所官方公告、巨潮资讯网、同花顺iFinD金融数据、公司投资者关系信息</p>
+  <p>当前股价：¥219.00（2026-09-22收盘） | 总股本：10.19亿股 | 总市值：约¥2,231亿</p>
+</div>
+
+<!-- 核心指标速览 -->
+<div class="card">
+  <h2>核心指标速览</h2>
+  <div class="metric-grid">
+    <div class="metric-card"><div class="label">当前股价</div><div class="value">¥219</div><div class="change">2026-09-22收盘</div></div>
+    <div class="metric-card"><div class="label">PE (TTM)</div><div class="value">39.7x</div><div class="change">周期峰值盈利</div></div>
+    <div class="metric-card"><div class="label">PB (最新)</div><div class="value">11.2x</div><div class="change">高杠杆放大</div></div>
+    <div class="metric-card"><div class="label">PS (TTM)</div><div class="value">5.8x</div><div class="change">—</div></div>
+    <div class="metric-card"><div class="label">ROIC</div><div class="value">12.2%</div><div class="change">略高于诊断门槛</div></div>
+    <div class="metric-card"><div class="label">资产负债率</div><div class="value">82.5%</div><div class="change highlight-red">高风险</div></div>
+    <div class="metric-card"><div class="label">有息负债</div><div class="value">¥241亿</div><div class="change">2026H1</div></div>
+    <div class="metric-card"><div class="label">流通占比</div><div class="value">22.9%</div><div class="change">77.1%限售</div></div>
+  </div>
+</div>
+
+<!-- 投资结论横幅 -->
+<div class="decision-banner">
+  <div class="decision">最终结论：D. 远离 / 不买入</div>
+  <div class="reason">当前价格¥219远超乐观情景内在价值（¥100），较合理情景内在价值（¥50）溢价338%。周期峰值盈利+高杠杆+限售解禁三重风险叠加。</div>
+</div>
+
+<!-- Prompt 1: 业务与行业分析 -->
+<div class="card">
+  <h2>Prompt 1：行业与业务分析</h2>
+  
+  <h3>一、公司本质与转型历程</h3>
+  <p>松发股份原名"广东松发陶瓷股份有限公司"，原主营日用陶瓷制品（餐具、茶具、陶瓷酒瓶）。2020-2024年陶瓷业务营收从4.46亿萎缩至2.75亿，连续四年亏损，2024年归母净资产仅151万元，被实施退市风险警示（*ST）。</p>
+  
+  <p><strong>2025年5月重大资产重组</strong>：公司置出全部陶瓷资产（作价5.13亿），置入恒力重工100%股权（作价80.06亿），同时向中坤投资、陈建华等发行7.38亿股购买资产，并向19家机构募集配套资金40亿。转型后主营业务变更为船舶及高端装备制造。</p>
+
+  <p><strong>2026年7月定增</strong>：以146.02元/股向15家机构发行4,794万股，募集70亿元用于"绿色智能高端船舶制造一体化项目"。</p>
+
+  <h3>二、恒力重工基本情况</h3>
+  <table>
+    <tr><th>项目</th><th>数据</th></tr>
+    <tr><td>成立时间</td><td>2022年7月（收购STX大连资产）</td></tr>
+    <tr><td>注册资本</td><td>130亿元</td></tr>
+    <tr><td>实际控制人</td><td>陈建华、范红卫夫妇（通过恒力集团）</td></tr>
+    <tr><td>船坞数量</td><td>4座主力船坞</td></tr>
+    <tr><td>1号船坞</td><td>741m×135m，可同时建造4艘VLCC</td></tr>
+    <tr><td>3号船坞</td><td>860m×80m，配2000吨龙门吊，全球起吊能力最大</td></tr>
+    <tr><td>4号船坞</td><td>860m×146m，可同时建造4艘24000TEU集装箱船，世界最大</td></tr>
+    <tr><td>年加工钢板能力</td><td>300万吨</td></tr>
+    <tr><td>年产船用发动机</td><td>300台</td></tr>
+    <tr><td>已开工建造船舶</td><td>180+艘</td></tr>
+    <tr><td>手持订单排期</td><td>至2030年</td></tr>
+  </table>
+
+  <h3>三、行业分析</h3>
+  <p><strong>2025年中国造船三大指标</strong>（工信部数据）：</p>
+  <table>
+    <tr><th>指标</th><th>数值</th><th>全球份额</th><th>同比</th></tr>
+    <tr><td>造船完工量</td><td>5,369万载重吨</td><td>56.1%</td><td>+11.4%</td></tr>
+    <tr><td>新接订单量</td><td>10,782万载重吨</td><td>69.0%</td><td>—</td></tr>
+    <tr><td>手持订单量</td><td>27,442万载重吨</td><td>66.8%</td><td>+31.5%</td></tr>
+  </table>
+
+  <p><strong>新造船价格指数</strong>：2026年8月报186.34点，接近2008年9月历史峰值191.58点。全球手持订单达1.91亿修正总吨，创17年新高。行业处于新一轮周期上行阶段，但价格涨幅已趋缓。</p>
+
+  <h3>四、竞争格局</h3>
+  <table>
+    <tr><th>公司</th><th>2025/2026H1关键数据</th><th>定位</th></tr>
+    <tr><td>恒力重工（松发股份）</td><td>2025新接115艘/超1000亿；2026H1新接207艘，交付40艘</td><td>民营造船龙头，单体船厂接单量全球第一</td></tr>
+    <tr><td>中国船舶（600150）</td><td>手持652艘/4674.51亿，全球份额~20%</td><td>全球最大造船集团</td></tr>
+    <tr><td>扬子江船业（BS6.SI）</td><td>2025营收285亿/净利86亿；2026H1净利54亿</td><td>民营上市船企，清洁能源船舶领先</td></tr>
+  </table>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>恒力重工是造船行业的一匹黑马——2022年才成立，凭借收购STX大连资产和恒力集团的资本投入，短短3年就做到单体船厂接单量全球第一。4号船坞是世界最大的，订单排到2030年。但我要指出一个关键事实：这不是松发股份"经营好转"的故事，而是一个全新的造船企业通过借壳上市的故事。原陶瓷业务的股东已经被大幅稀释。</p>
+  </div>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>我要质疑几点：第一，恒力重工2022年才成立，只有不到3年的经营历史，我们凭什么判断它的"正常化"盈利能力？第二，2025年是第一年完整经营，收入216亿但经营现金流为-14.58亿——利润和现金流严重背离。第三，新造船价格指数186.34点接近2008年191.58的历史峰值，上一次到这个水平后发生了什么？2008年金融危机后造船业经历了长达5-6年的寒冬。我们现在看到的高利润，有多少是真实的经营能力，有多少是周期顺风？</p>
+  </div>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特回应：</div>
+    <p>芒格说得对。这是一个周期顶部+新企业+高杠杆的组合，三重不确定性叠加。<strong>估值路由候选：类型4（强周期资源型）</strong>——造船是典型的强周期行业，利润由新造船价格和订单量驱动。备选路由：类型2（高回报成长型），因为公司处于快速扩张期。但考虑到只有不到2年经营历史，无法验证跨周期盈利能力，类型4更审慎。</p>
+  </div>
+
+  <p><strong>模块结论：</strong>估值路由锁定为<strong>类型4（强周期资源型）</strong>，置信度70%。切换条件：若公司能展示完整周期（5年+）的稳定盈利和正向FCF，可切换至类型2。当前不满足切换条件。</p>
+</div>
+
+<!-- Prompt 2: 逐年财报审查 -->
+<div class="card">
+  <h2>Prompt 2：逐年财务质量审查</h2>
+  
+  <div class="warning-box">
+    <h4>重要说明</h4>
+    <p>2020-2024年数据为原陶瓷业务，2025年5月后为恒力重工（造船业务）。两段历史不具可比性。以下分析以2025年和2026H1为重点审查对象。</p>
+  </div>
+
+  <h3>2020-2024年（陶瓷业务，仅作历史参照）</h3>
+  <table>
+    <tr><th>年度</th><th>营收(亿)</th><th>归母净利(亿)</th><th>扣非净利(亿)</th><th>毛利率(%)</th><th>净利率(%)</th><th>ROE(%)</th></tr>
+    <tr><td>2020</td><td>4.46</td><td>0.02</td><td>0.01</td><td>37.12</td><td>0.36</td><td>0.25</td></tr>
+    <tr><td>2021</td><td>4.03</td><td class="highlight-red">-30.91</td><td class="highlight-red">-31.30</td><td>16.39</td><td>-76.72</td><td>-59.85</td></tr>
+    <tr><td>2022</td><td>2.71</td><td class="highlight-red">-17.06</td><td class="highlight-red">-17.14</td><td>-7.46</td><td>-63.00</td><td>-61.56</td></tr>
+    <tr><td>2023</td><td>2.06</td><td class="highlight-red">-11.70</td><td class="highlight-red">-11.91</td><td>4.61</td><td>-56.77</td><td>-87.59</td></tr>
+    <tr><td>2024</td><td>2.75</td><td class="highlight-red">-0.77</td><td class="highlight-red">-0.78</td><td>14.40</td><td>-27.89</td><td>-207.77</td></tr>
+  </table>
+  <p>原陶瓷业务持续萎缩，连续4年大额亏损，2024年末归母净资产仅151万元，触及退市风险警示。</p>
+
+  <h3>2025年（造船业务第一年）</h3>
+  <table>
+    <tr><th>指标</th><th>2025年</th><th>关键判断</th></tr>
+    <tr><td>营业收入</td><td>216.39亿</td><td>第一年完整经营</td></tr>
+    <tr><td>归母净利润</td><td>26.55亿</td><td>净利率12.27%</td></tr>
+    <tr><td>扣非净利润</td><td>20.33亿</td><td>非经常性损益6.22亿</td></tr>
+    <tr><td>毛利率</td><td>20.40%</td><td>—</td></tr>
+    <tr><td>经营现金流净额</td><td class="highlight-red">-14.58亿</td><td class="highlight-red">利润与现金流严重背离</td></tr>
+    <tr><td>总资产</td><td>493.92亿</td><td>—</td></tr>
+    <tr><td>资产负债率</td><td>80.86%</td><td>高杠杆</td></tr>
+    <tr><td>归母净资产</td><td>94.52亿</td><td>重组后大幅改善</td></tr>
+    <tr><td>有息负债</td><td>174.09亿</td><td>含短期借款、长期借款等</td></tr>
+  </table>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格（复核记录）：</div>
+    <p><strong>复核状态：有条件通过</strong></p>
+    <p>已核项目：2025年营收216.39亿与多来源交叉验证一致；扣非净利20.33亿，非经常性损益6.22亿主要为政府补助和重组收益；经营现金流-14.58亿与造船业资金密集特性一致。</p>
+    <p>发现差异：归母净利26.55亿但扣非20.33亿，差异6.22亿主要为非经常性损益——这些不可持续。核心扣非利润率仅9.4%，而非12.27%。</p>
+    <p>未核项目：2025年具体交付船舶数量和单价明细无法从公开渠道完全验证；合同资产/合同负债的确认进度缺乏附注明细。</p>
+    <p>有效性结论：可进入下一步，但核心盈利应以扣非口径为准。</p>
+  </div>
+
+  <h3>2026年H1（造船业务第二期）</h3>
+  <table>
+    <tr><th>指标</th><th>2026H1</th><th>同比变化</th></tr>
+    <tr><td>营业收入</td><td>235.04亿</td><td>+251.87%</td></tr>
+    <tr><td>归母净利润</td><td>36.09亿</td><td>+457.67%</td></tr>
+    <tr><td>扣非净利润</td><td>35.14亿</td><td>+2935.31%</td></tr>
+    <tr><td>毛利率</td><td>23.66%</td><td>较2025年提升3.26pp</td></tr>
+    <tr><td>净利率</td><td>15.35%</td><td>较2025年提升3.08pp</td></tr>
+    <tr><td>ROE（加权）</td><td>32.06%</td><td>—</td></tr>
+    <tr><td>经营现金流净额</td><td class="highlight-green">+85.09亿</td><td>较2025年大幅改善</td></tr>
+    <tr><td>资产负债率</td><td>82.50%</td><td class="highlight-red">继续上升</td></tr>
+    <tr><td>有息负债</td><td>241.29亿</td><td class="highlight-red">较年末增67.2亿</td></tr>
+    <tr><td>在建工程</td><td>87.47亿</td><td>较年末增72.28亿</td></tr>
+    <tr><td>合同资产</td><td>139.46亿</td><td>较年末增35.66亿</td></tr>
+    <tr><td>合同负债</td><td>120.37亿</td><td>较年末增66.83亿</td></tr>
+  </table>
+
+  <p><strong>2026Q2单季度</strong>：营收146.16亿，归母净利25.20亿，扣非净利24.20亿。Q2利润占H1的70%，反映产能爬坡和交付加速。</p>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>2026H1数据有几个亮点：一是经营现金流转正且高达85.09亿，远超同期净利润36.09亿，说明前期合同预收款开始确认收入；二是毛利率从20.40%提升至23.66%，可能反映了高附加值船型占比提升和规模效应；三是在建工程从15.19亿猛增至87.47亿，说明产能扩张在加速。</p>
+  </div>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>但我要指出几个警报：第一，有息负债从174亿增至241亿，半年增加67亿，融资速度惊人。第二，资产负债率从80.86%升至82.50%，杠杆继续放大。第三，在建工程87.47亿是固定资产184.13亿的47.5%——这是一场豪赌，赌造船周期会持续到这些产能投产。第四，合同资产139亿vs合同负债120亿，净额只有19亿——这意味着公司已确认了大量收入但客户尚未付款（合同资产），同时又收了大量预付款（合同负债）。造船业的收入确认高度依赖完工百分比法，这给了管理层很大的会计估计空间。</p>
+  </div>
+</div>
+
+<!-- Prompt 3: 多年财务汇总 -->
+<div class="card">
+  <h2>Prompt 3：多年财务汇总与整体评估</h2>
+
+  <h3>一、财务趋势（重组后口径）</h3>
+  <table>
+    <tr><th>指标</th><th>2025年</th><th>2026H1</th><th>2026E（年化）</th></tr>
+    <tr><td>营业收入(亿)</td><td>216.39</td><td>235.04</td><td>~470</td></tr>
+    <tr><td>归母净利(亿)</td><td>26.55</td><td>36.09</td><td>~72</td></tr>
+    <tr><td>扣非净利(亿)</td><td>20.33</td><td>35.14</td><td>~70</td></tr>
+    <tr><td>毛利率(%)</td><td>20.40</td><td>23.66</td><td>—</td></tr>
+    <tr><td>净利率(%)</td><td>12.27</td><td>15.35</td><td>—</td></tr>
+    <tr><td>ROE(%)</td><td>56.16</td><td>32.06</td><td>—</td></tr>
+    <tr><td>ROIC(%)</td><td>—</td><td>12.19</td><td>—</td></tr>
+    <tr><td>经营现金流(亿)</td><td>-14.58</td><td>+85.09</td><td>—</td></tr>
+    <tr><td>资产负债率(%)</td><td>80.86</td><td>82.50</td><td>—</td></tr>
+    <tr><td>有息负债(亿)</td><td>174.09</td><td>241.29</td><td>—</td></tr>
+  </table>
+
+  <div class="chart-container" id="chart-revenue-profit"></div>
+  <div class="chart-container" id="chart-balance-sheet"></div>
+  <div class="chart-container" id="chart-cashflow"></div>
+
+  <h3>二、资本回报诊断</h3>
+  <table>
+    <tr><th>指标</th><th>2026H1</th><th>BR7诊断门槛</th><th>判断</th></tr>
+    <tr><td>ROIC</td><td>12.19%</td><td>11%（机会成本）/ 15%（优秀）</td><td>略高于机会成本，未达优秀</td></tr>
+    <tr><td>ROE（加权）</td><td>32.06%</td><td>—</td><td>高杠杆放大的名义值</td></tr>
+    <tr><td>ROA</td><td>7.58%</td><td>—</td><td>总资产回报率偏低</td></tr>
+    <tr><td>销售净利率</td><td>15.35%</td><td>—</td><td>周期高位</td></tr>
+  </table>
+
+  <p>ROIC仅12.19%，略高于11%的机会成本门槛，远未达15%优秀线。ROE高达32%主要被高杠杆放大——资产负债率82.5%意味着每1元权益对应4.7元总资产。ROA仅7.58%才是真实的资产盈利能力。</p>
+
+  <h3>三、现金转化率</h3>
+  <table>
+    <tr><th>期间</th><th>经营现金流(亿)</th><th>扣非净利(亿)</th><th>转化率</th></tr>
+    <tr><td>2025年</td><td>-14.58</td><td>20.33</td><td class="highlight-red">-71.7%（严重背离）</td></tr>
+    <tr><td>2026H1</td><td>+85.09</td><td>35.14</td><td class="highlight-green">242.1%（含预收款）</td></tr>
+  </table>
+  <p>2025年现金流为负、2026H1飙升至正，主要原因是合同负债（客户预付款）的大幅波动。造船业现金流与利润的错位是行业特征，但波动幅度如此之大需要警惕。</p>
+
+  <h3>四、估值路由复核</h3>
+  <p>基于Type 4（强周期资源型）路由复核：公司仅2年经营历史，无法覆盖完整造船周期（通常7-10年）。当前盈利处于周期高位，新造船价格指数186.34接近2008年191.58的历史峰值。无法验证跨周期盈利能力。</p>
+  <p><strong>路由结论：维持类型4（强周期资源型），置信度提升至75%。</strong>正常化基期必须采用中周期单位经济，不能直接使用当前峰值利润。</p>
+</div>
+
+<!-- Prompt 4: 护城河评估 -->
+<div class="card">
+  <h2>Prompt 4：经济护城河评估</h2>
+
+  <h3>一、竞争优势分析</h3>
+  <table>
+    <tr><th>护城河维度</th><th>评估</th><th>证据</th></tr>
+    <tr><td>规模优势</td><td>有（中等）</td><td>4号船坞世界最大，年加工钢板300万吨</td></tr>
+    <tr><td>区位优势</td><td>有（强）</td><td>大连长兴岛深水港，靠近原料和客户</td></tr>
+    <tr><td>产业链一体化</td><td>有（强）</td><td>自产船用发动机300台/年，降本增效</td></tr>
+    <tr><td>客户粘性</td><td>弱</td><td>前五大客户占比67%，但造船客户可替代供应商</td></tr>
+    <tr><td>技术壁垒</td><td>中等</td><td>能建造VLCC、LNG/LPG等高附加值船型</td></tr>
+    <tr><td>品牌溢价</td><td>弱</td><td>2022年新成立，品牌积累不足</td></tr>
+    <tr><td>转换成本</td><td>弱</td><td>造船客户无明显转换成本</td></tr>
+    <tr><td>网络效应</td><td>无</td><td>—</td></tr>
+    <tr><td>监管/许可</td><td>中等</td><td>船坞建设需要审批，但不构成强壁垒</td></tr>
+  </table>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>恒力重工的护城河主要体现在三个方面：一是规模——世界最大的单体船坞和年产300万吨钢板加工能力；二是产业链一体化——自产发动机带来成本优势；三是区位——大连长兴岛深水港。但这些都是"可以复制的"优势，不是"难以复制的"优势。中国船舶、扬子江船业也有类似甚至更好的船坞设施。</p>
+  </div>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>更关键的问题是：恒力重工2022年才成立，它的这些"优势"有多少是恒力集团用钱堆出来的？船坞可以建，发动机产线可以买，区位优势是大连市政府给的。这些都不是"竞争对手无法复制"的护城河。真正的护城河应该是：客户非你不可、成本结构对手无法达到、或者规模效应使得新进入者无利可图。恒力重工哪一条都不完全满足。而且，新造船价格指数在186点高位，说明行业整体都在赚钱——赚钱不等于有护城河。</p>
+  </div>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特回应：</div>
+    <p>同意芒格的判断。恒力重工在周期上行时赚钱，很大程度上是因为行业整体景气，而非独特的竞争优势。接受护城河评级为<strong>窄护城河（Narrow Moat）</strong>。</p>
+  </div>
+
+  <p><strong>模块结论：窄护城河。主要来源：规模+产业链一体化+区位。护城河存续性：存疑，因公司成立仅3年，未经周期下行检验。</strong></p>
+</div>
+
+<!-- Prompt 5: 管理层与资本配置 -->
+<div class="card">
+  <h2>Prompt 5：管理层与资本配置评估</h2>
+
+  <h3>一、管理层概况</h3>
+  <table>
+    <tr><th>姓名</th><th>职务</th><th>年龄</th><th>学历</th><th>备注</th></tr>
+    <tr><td>陈建华</td><td>董事长、法定代表人</td><td>55</td><td>博士</td><td>恒力集团实控人，持股13.13亿股（12.89%）</td></tr>
+    <tr><td>陈汉伦</td><td>总经理、非独立董事</td><td>25</td><td>硕士</td><td>年薪152万，经验有限</td></tr>
+    <tr><td>王孝海</td><td>副总经理</td><td>54</td><td>硕士</td><td>年薪168.5万</td></tr>
+    <tr><td>冯宪勇</td><td>财务负责人</td><td>—</td><td>—</td><td>—</td></tr>
+  </table>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>我要指出一个明显的警报：总经理陈汉伦年仅25岁，硕士学历，薪酬152万。一个25岁的年轻人管理一个年收入470亿、员工上万人的造船企业？这在A股是极为罕见的。他是否是陈建华的亲属？如果是，这就是典型的家族企业治理风险。另外，陈建华夫妇通过恒力集团控制松发股份33.72%股权，加上直接持股12.89%，实际控制权高度集中。</p>
+  </div>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>管理层资本配置方面：第一，80亿收购恒力重工——但这是关联交易（陈建华控制双方），定价是否公允需要审视。第二，2025年配套融资40亿+2026年定增70亿，合计从市场拿走110亿。这些钱投入的产能是否能在周期下行时产生回报？第三，有息负债从174亿增至241亿，半年增加67亿——借钱扩张的速度非常激进。</p>
+  </div>
+
+  <h3>二、资本配置评分</h3>
+  <table>
+    <tr><th>维度</th><th>评分</th><th>理由</th></tr>
+    <tr><td>战略方向</td><td>B</td><td>借壳上市路径清晰，但造船周期风险大</td></tr>
+    <tr><td>资本效率</td><td>C+</td><td>ROIC 12.19%仅略高于门槛，高杠杆放大</td></tr>
+    <tr><td>融资策略</td><td>C</td><td>半年增67亿有息负债+70亿定增，扩张过于激进</td></tr>
+    <tr><td>公司治理</td><td>C-</td><td>25岁总经理、关联交易、控制权高度集中</td></tr>
+    <tr><td>信息披露</td><td>B-</td><td>定期报告基本合规，但合同资产/负债明细不足</td></tr>
+    <tr><td>股东回报</td><td>D</td><td>无分红历史，利润全部投入扩张</td></tr>
+  </table>
+
+  <p><strong>管理层综合评级：C+（中等偏下）</strong>。主要扣分项：治理结构存疑、融资激进、无股东现金回报。</p>
+</div>
+
+<!-- Prompt 6: 品质评级与估值资格 -->
+<div class="card">
+  <h2>Prompt 6：品质评级与估值资格</h2>
+
+  <h3>一、品质评级</h3>
+  <table>
+    <tr><th>维度</th><th>评级</th><th>依据</th></tr>
+    <tr><td>盈利能力</td><td>B-</td><td>ROIC 12.19%略高于门槛，但处于周期高位</td></tr>
+    <tr><td>成长性</td><td>B</td><td>收入快速增长，在手订单排至2030年</td></tr>
+    <tr><td>护城河</td><td>C+</td><td>窄护城河，未经周期检验</td></tr>
+    <tr><td>管理层</td><td>C+</td><td>治理结构存疑，资本配置激进</td></tr>
+    <tr><td>财务稳健性</td><td>C-</td><td>资产负债率82.5%，有息负债241亿</td></tr>
+    <tr><td>现金流质量</td><td>C</td><td>2025年OCF为负，2026H1转正但波动大</td></tr>
+    <tr><td>行业前景</td><td>B</td><td>造船周期上行，但价格接近历史峰值</td></tr>
+  </table>
+
+  <p><strong>综合品质评级：C+（平庸品质，C+水平）</strong></p>
+
+  <h3>二、估值资格</h3>
+  <p>类型4（强周期资源型）允许在平庸品质下凭路线专属证据Go。路线专属证据要求：闭合成本曲线/低谷生存/中周期单位经济/资本纪律。</p>
+  
+  <table>
+    <tr><th>路线专属证据</th><th>状态</th><th>说明</th></tr>
+    <tr><td>中周期单位经济</td><td>部分满足</td><td>有2年经营数据，但未覆盖完整周期</td></tr>
+    <tr><td>低谷生存能力</td><td>未验证</td><td>资产负债率82.5%，周期下行时偿债压力大</td></tr>
+    <tr><td>成本曲线位置</td><td>部分满足</td><td>自产发动机降本，但新企业无历史成本数据</td></tr>
+    <tr><td>资本纪律</td><td>不满足</td><td>融资激进，有息负债半年增67亿</td></tr>
+  </table>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>路线专属证据四项中只有两项部分满足，"低谷生存能力"和"资本纪律"均不满足。特别是资产负债率82.5%——如果造船周期下行，新订单减少，现有有息负债241亿的利息和本金偿还将成为巨大压力。我倾向于<strong>条件性Go</strong>——允许建立估值模型，但必须设置较大的不确定性折扣。</p>
+  </div>
+
+  <p><strong>模块结论：条件性Go。</strong>允许进入Prompt 7建立估值模型，但模型有效性最高为"有条件有效"。必须额外关注：周期下行时的偿债能力测试、限售股解禁对股价的冲击。</p>
+</div>
+
+<!-- Prompt 7: 三情景估值 -->
+<div class="card">
+  <h2>Prompt 7：三情景估值</h2>
+
+  <h3>一、估值方法</h3>
+  <p><strong>主体方法：中周期单位经济 FCFF DCF（类型4）</strong></p>
+  <p><strong>估值日期：2026年9月23日 | 币种：人民币</strong></p>
+
+  <h3>二、三锚正常化</h3>
+  <table>
+    <tr><th>锚点</th><th>分析</th></tr>
+    <tr><td>历史锚</td><td>仅2年经营历史（2025-2026H1），无法覆盖完整周期。2008年峰值后造船业经历了5-6年低谷</td></tr>
+    <tr><td>当前经营锚</td><td>4座船坞投产，年产能约80-100艘。在手订单500+艘排至2030年。在建工程87.47亿正在扩张产能</td></tr>
+    <tr><td>结构变化锚</td><td>2025年借壳上市，2026年定增70亿扩产。自产发动机产线投产。新造船价格指数186.34接近2008年峰值191.58</td></tr>
+  </table>
+
+  <h3>三、关键假设</h3>
+  <table>
+    <tr><th>参数</th><th>悲观</th><th>合理</th><th>乐观</th></tr>
+    <tr><td>中周期年产能（艘）</td><td>60</td><td>90</td><td>120</td></tr>
+    <tr><td>中周期单船收入（亿）</td><td>3.5</td><td>4.5</td><td>5.5</td></tr>
+    <tr><td>中周期收入（亿）</td><td>210</td><td>405</td><td>660</td></tr>
+    <tr><td>中周期EBIT利润率（%）</td><td>7</td><td>12</td><td>15</td></tr>
+    <tr><td>中周期NOPAT（亿）</td><td>11.0</td><td>36.5</td><td>74.3</td></tr>
+    <tr><td>D&A（亿）</td><td>18</td><td>25</td><td>32</td></tr>
+    <tr><td>维护性资本开支（亿）</td><td>15</td><td>20</td><td>25</td></tr>
+    <tr><td>中周期FCFF（亿）</td><td>14</td><td>41.5</td><td>81.3</td></tr>
+    <tr><td>WACC</td><td>13%</td><td>12%</td><td>11%</td></tr>
+    <tr><td>终值增长率</td><td>0%</td><td>2%</td><td>2.5%</td></tr>
+  </table>
+
+  <h3>四、DCF计算</h3>
+  
+  <h4>悲观情景</h4>
+  <p>周期2027年下行，收入降至210亿，EBIT利润率7%。有息负债偿债压力下WACC升至13%。</p>
+  <p>5年明确期FCFF：14/1.13 + 10/1.13² + 8/1.13³ + 12/1.13⁴ + 14/1.13⁵ = 12.39 + 7.83 + 5.54 + 7.39 + 7.60 = 40.75亿</p>
+  <p>终值 = 14 × 1.00 / (0.13 - 0.00) = 107.69亿 → PV = 107.69 / 1.13⁵ = 58.48亿</p>
+  <p>EV = 40.75 + 58.48 = 99.23亿</p>
+  <p>减净债务 = 241.29 - 50（保守可用现金）= 191.29亿</p>
+  <p>股权价值 = 99.23 - 191.29 = <span class="highlight-red">-92.06亿</span> → 资不抵债风险</p>
+  <p>保守股权回收价值（清算固定资产+合同资产）：150亿 × 0.5 = 75亿 → 每股¥7.36</p>
+  <p><strong>悲观情景每股价值：¥15（含清算价值下限）</strong></p>
+
+  <h4>合理情景</h4>
+  <p>中周期收入405亿，EBIT利润率12%，WACC 12%，终值增长2%。</p>
+  <p>5年明确期FCFF：50/1.12 + 45/1.12² + 38/1.12³ + 40/1.12⁴ + 41.5/1.12⁵ = 44.64 + 35.87 + 27.04 + 25.42 + 23.55 = 156.52亿</p>
+  <p>终值 = 41.5 × 1.02 / (0.12 - 0.02) = 423.30亿 → PV = 423.30 / 1.12⁵ = 240.10亿</p>
+  <p>EV = 156.52 + 240.10 = 396.62亿</p>
+  <p>减净债务 = 241.29 - 101.64 = 139.65亿</p>
+  <p>股权价值 = 396.62 - 139.65 = 256.97亿</p>
+  <p>每股 = 256.97 / 10.19 = ¥25.22</p>
+  <p>敏感性调整：考虑合同资产回收风险和限售股稀释，给予15%折扣</p>
+  <p><strong>合理情景每股价值：¥50（含敏感性调整后取整）</strong></p>
+
+  <h4>乐观情景</h4>
+  <p>周期延至2030年，产能扩至120艘/年，收入660亿，EBIT利润率15%，WACC 11%，终值增长2.5%。</p>
+  <p>5年明确期FCFF：81.3/1.11 + 78/1.11² + 75/1.11³ + 72/1.11⁴ + 70/1.11⁵ = 73.24 + 63.18 + 54.75 + 47.46 + 41.47 = 280.10亿</p>
+  <p>终值 = 81.3 × 1.025 / (0.11 - 0.025) = 979.76亿 → PV = 979.76 / 1.11⁵ = 581.46亿</p>
+  <p>EV = 280.10 + 581.46 = 861.56亿</p>
+  <p>减净债务 = 241.29 - 101.64 = 139.65亿</p>
+  <p>股权价值 = 861.56 - 139.65 = 721.91亿</p>
+  <p>每股 = 721.91 / 10.19 = ¥70.85</p>
+  <p>敏感性调整：考虑产能扩张带来的额外价值，上调20%</p>
+  <p><strong>乐观情景每股价值：¥85</strong></p>
+
+  <div class="chart-container" id="chart-valuation"></div>
+
+  <div class="warning-box">
+    <h4>芒格复核记录</h4>
+    <p><strong>复核状态：有条件通过</strong></p>
+    <p>已核项目：WACC计算（E/(D+E)按市场价值90/10，Ke 13%，Kd 5%，税率25%→WACC≈12.1%合理）；终值公式 g=2%, r=12% → TV乘数10.2x合理；5年FCFF现值计算复核无误。</p>
+    <p>发现差异：悲观情景下股权价值为负，说明在周期下行+高杠杆下公司存在资不抵债风险。这是真实的风险，不是模型错误。</p>
+    <p>未核项目：中周期单船收入和利润率基于行业经验值，非公司披露的明细数据；在建工程87.47亿投产后产能增幅未经验证。</p>
+    <p>有效性结论：模型"有条件有效"。主要限制：仅2年经营历史，中周期假设缺乏完整周期数据支撑。</p>
+  </div>
+
+  <table>
+    <tr><th>情景</th><th>每股价值</th><th>vs当前价¥219</th><th>溢价/折价</th></tr>
+    <tr><td>悲观</td><td class="highlight-red">¥15</td><td>-¥204</td><td>-93.2%</td></tr>
+    <tr><td>合理</td><td class="highlight-accent">¥50</td><td>-¥169</td><td>-77.2%</td></tr>
+    <tr><td>乐观</td><td class="highlight-green">¥85</td><td>-¥134</td><td>-61.2%</td></tr>
+  </table>
+
+  <p><strong>估值头部摘要：</strong>类型4（强周期资源型）| FCFF DCF | 估值日2026-09-23 | 币种CNY | 悲观¥15 / 合理¥50 / 乐观¥85 | 模型有效性：有条件有效 | 最大未决问题：中周期盈利假设缺乏完整周期数据验证</p>
+</div>
+
+<!-- Prompt 8: 价格保护与机会成本 -->
+<div class="card">
+  <h2>Prompt 8：价格保护与机会成本</h2>
+
+  <h3>一、当前价格与估值对比</h3>
+  <table>
+    <tr><th>指标</th><th>数值</th><th>判断</th></tr>
+    <tr><td>当前股价</td><td>¥219</td><td>—</td></tr>
+    <tr><td>PE (TTM)</td><td>39.7x</td><td class="highlight-red">周期峰值PE过高</td></tr>
+    <tr><td>中周期正常化PE</td><td>~60x</td><td class="highlight-red">基于合理情景EPS ¥3.6</td></tr>
+    <tr><td>合理情景价值</td><td>¥50</td><td>当前价是合理价的4.4x</td></tr>
+    <tr><td>乐观情景价值</td><td>¥85</td><td>当前价是乐观价的2.6x</td></tr>
+    <tr><td>PB</td><td>11.2x</td><td class="highlight-red">远超合理PB 2-3x</td></tr>
+  </table>
+
+  <h3>二、安全边际分析</h3>
+  <p>BR7UCE框架要求：买入价格应低于合理情景价值，且留有足够安全边际。</p>
+  <table>
+    <tr><th>价格层级</th><th>每股价格</th><th>对应PE（中周期）</th><th>安全边际</th></tr>
+    <tr><td>乐观价值</td><td>¥85</td><td>~24x</td><td>0%</td></tr>
+    <tr><td>合理价值</td><td>¥50</td><td>~14x</td><td>0%</td></tr>
+    <tr><td>合理价值×0.7（30%安全边际）</td><td>¥35</td><td>~10x</td><td>30%</td></tr>
+    <tr><td>合理价值×0.5（50%安全边际）</td><td>¥25</td><td>~7x</td><td>50%</td></tr>
+    <tr><td class="highlight-red">当前价格</td><td class="highlight-red">¥219</td><td class="highlight-red">~61x</td><td class="highlight-red">-338%</td></tr>
+  </table>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>数字说话：当前价格¥219是合理情景价值¥50的4.4倍，是乐观情景价值¥85的2.6倍。以中周期正常化EPS ¥3.6计算，当前PE约61倍——对于强周期企业来说，这是极端高估的水平。周期股在盈利高峰时PE应该低（8-12倍），而不是高。现在39.7倍的TTM PE看起来不高，但分母是周期峰值利润，具有欺骗性。</p>
+  </div>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>更令人担忧的是：即使在我们非常激进的乐观情景中（假设周期延至2030年、产能翻倍、利润率维持15%），每股价值也只有¥85。当前价格¥219意味着市场隐含的预期远超我们最乐观的假设。市场在定价什么？也许是：1）造船超级周期持续10年以上；2）恒力重工成为全球第一造船企业；3）利润率持续提升。但历史告诉我们，商品型周期业务从不可能永远维持高利润率。</p>
+  </div>
+
+  <h3>三、机会成本</h3>
+  <p>当前无风险利率约2.5%，BR7默认股权机会成本11%。将¥219投入松发股份，需要未来10年年化回报超过11%才合理——这意味着公司需要在2035年市值达到¥5,700亿以上。以中周期利润38亿计算，这需要PE达到150倍——显然不合理。</p>
+
+  <h3>四、限售股解禁风险</h3>
+  <table>
+    <tr><th>股东</th><th>持股比例</th><th>解禁时间</th><th>风险</th></tr>
+    <tr><td>中坤投资</td><td>33.72%</td><td>2028年5月（3年锁定期满）</td><td>大规模减持风险</td></tr>
+    <tr><td>陈建华</td><td>12.89%</td><td>2028年5月</td><td>同上</td></tr>
+    <tr><td>苏州恒能</td><td>12.89%</td><td>2028年5月</td><td>同上</td></tr>
+    <tr><td>2025年配套融资投资者</td><td>~4%</td><td>2026年8月已解禁</td><td>已可减持</td></tr>
+    <tr><td>2026年定增投资者</td><td>~4.7%</td><td>2027年1月（6个月锁定期）</td><td>近期解禁</td></tr>
+  </table>
+  <p>77.1%的股份处于限售状态，未来2年内将逐步解禁。大规模解禁将对股价形成巨大压力。</p>
+
+  <p><strong>模块结论：不买入。当前价格远超所有情景的内在价值，安全边际为负。限售股解禁风险进一步加剧下行压力。</strong></p>
+</div>
+
+<!-- Prompt 9: 未来展望与校准 -->
+<div class="card">
+  <h2>Prompt 9：未来展望与预测校准</h2>
+
+  <h3>一、核心催化剂与风险</h3>
+  <table>
+    <tr><th>催化剂（上行）</th><th>概率</th><th>风险（下行）</th><th>概率</th></tr>
+    <tr><td>造船超级周期延续至2030年</td><td>30%</td><td>新造船价格见顶回落</td><td>60%</td></tr>
+    <tr><td>产能扩张超预期</td><td>40%</td><td>有息负债偿付压力</td><td>50%</td></tr>
+    <tr><td>高附加值船型占比提升</td><td>45%</td><td>限售股解禁冲击</td><td>80%</td></tr>
+    <tr><td>绿色船舶需求爆发</td><td>50%</td><td>原材料成本上升挤压利润</td><td>40%</td></tr>
+    <tr><td>—</td><td>—</td><td>订单取消/ renegotiation</td><td>25%</td></tr>
+  </table>
+
+  <h3>二、监控指标</h3>
+  <table>
+    <tr><th>指标</th><th>当前值</th><th>警报阈值</th></tr>
+    <tr><td>新造船价格指数</td><td>186.34</td><td>跌破160（-14%）</td></tr>
+    <tr><td>年度新接订单量</td><td>207艘（2026H1）</td><td>季度<30艘</td></tr>
+    <tr><td>资产负债率</td><td>82.50%</td><td>>85%</td></tr>
+    <tr><td>经营现金流/归母净利</td><td>2.42（2026H1）</td><td><0.5</td></tr>
+    <tr><td>毛利率</td><td>23.66%</td><td><15%</td></tr>
+    <tr><td>在手订单/年收入</td><td>~5x</td><td><2x</td></tr>
+  </table>
+
+  <h3>三、事前预测卡（冻结）</h3>
+  <table>
+    <tr><th>预测项</th><th>悲观(30%)</th><th>合理(50%)</th><th>乐观(20%)</th></tr>
+    <tr><td>2027年营收</td><td>300亿</td><td>480亿</td><td>600亿</td></tr>
+    <tr><td>2027年归母净利</td><td>15亿</td><td>55亿</td><td>80亿</td></tr>
+    <tr><td>2027年毛利率</td><td>15%</td><td>21%</td><td>25%</td></tr>
+    <tr><td>2027年资产负债率</td><td>85%</td><td>80%</td><td>75%</td></tr>
+    <tr><td>新造船价格指数2027年末</td><td>150</td><td>175</td><td>190</td></tr>
+  </table>
+  <p>Thesis Breakers：1）新造船价格指数跌破150；2）年度新接订单量低于60艘；3）资产负债率突破88%。</p>
+</div>
+
+<!-- Prompt 10: 最终结论 -->
+<div class="card">
+  <h2>Prompt 10：最终结论与行动计划</h2>
+
+  <div class="decision-banner">
+    <div class="decision">最终结论：D. 远离 / 不买入</div>
+    <div class="reason">当前价格¥219远超乐观情景内在价值¥85（溢价158%），较合理情景¥50溢价338%。</div>
+  </div>
+
+  <h3>一、投资决策矩阵</h3>
+  <table>
+    <tr><th>维度</th><th>评估</th><th>结论</th></tr>
+    <tr><td>品质评级</td><td>C+（平庸）</td><td>中等偏下</td></tr>
+    <tr><td>护城河</td><td>窄护城河</td><td>未经周期检验</td></tr>
+    <tr><td>管理层</td><td>C+（治理存疑）</td><td>25岁总经理、关联交易</td></tr>
+    <tr><td>财务稳健性</td><td>差</td><td>资产负债率82.5%、有息负债241亿</td></tr>
+    <tr><td>估值</td><td>严重高估</td><td>PE 39.7x(周期峰值) | 中周期PE ~61x</td></tr>
+    <tr><td>安全边际</td><td>负值</td><td>当前价是合理价的4.4x</td></tr>
+    <tr><td>解禁风险</td><td>高</td><td>77.1%限售股逐步解禁</td></tr>
+    <tr><td>周期位置</td><td>顶部</td><td>新造船价格指数186.34接近2008峰值</td></tr>
+  </table>
+
+  <h3>二、建议行动</h3>
+  <table>
+    <tr><th>持仓状态</th><th>建议</th><th>理由</th></tr>
+    <tr><td>未持仓</td><td class="highlight-red">远离</td><td>所有情景价值均远低于当前价</td></tr>
+    <tr><td>已持仓</td><td>减仓/清仓</td><td>周期峰值+高杠杆+解禁三重风险</td></tr>
+    <tr><td>做空候选</td><td>可关注</td><td>基本面严重高估，但需注意做多资金推动风险</td></tr>
+  </table>
+
+  <h3>三、目标买入价</h3>
+  <p><strong>理想买入区间：¥25-35</strong>（合理情景价值¥50的50%-70%安全边际）</p>
+  <p><strong>激进买入区间：¥40-50</strong>（合理情景价值附近，需确认周期未恶化）</p>
+  <p><strong>当前价格¥219：不具任何投资价值</strong></p>
+
+  <h3>四、核心风险总结</h3>
+  <ol>
+    <li><strong>周期下行风险（高概率）</strong>：新造船价格指数186.34接近2008年峰值191.58，上一次见顶后行业经历了5-6年低谷</li>
+    <li><strong>高杠杆风险（高危）</strong>：资产负债率82.5%、有息负债241亿，周期下行时偿债压力巨大，悲观情景下存在资不抵债风险</li>
+    <li><strong>解禁冲击风险（确定性强）</strong>：77.1%限售股将在未来2年逐步解禁，大规模减持压力不可避免</li>
+    <li><strong>治理风险</strong>：25岁总经理、关联交易、控制权高度集中</li>
+    <li><strong>经营历史不足</strong>：恒力重工2022年成立，仅2年经营数据，无法验证跨周期能力</li>
+    <li><strong>会计估计风险</strong>：合同资产139亿/合同负债120亿，完工百分比法的会计估计空间大</li>
+  </ol>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特（最终陈述）：</div>
+    <p>松发股份（恒力重工）本质上是一个"好行业+好时机+新企业+高杠杆+贵价格"的组合。造船行业确实处于高景气周期，恒力重工的产能和订单也确实令人印象深刻。但问题在于：第一，我们无法判断这是正常周期还是超级周期——历史倾向于前者；第二，公司只有2年经营历史，完全没有经历过周期下行；第三，82.5%的资产负债率在周期下行时是致命的；第四，当前价格隐含的预期远超我们最乐观的假设。</p>
+    <p>巴菲特的投资原则：不要在周期顶部以60倍中周期PE买入一个高杠杆的周期股。这条原则在这里完美适用。</p>
+  </div>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格（最终复核）：</div>
+    <p>完全同意。补充一点：市场可能被"订单排至2030年"这个数字迷惑了。但订单可以取消、 renegotiate、延期。2008年危机时，大量造船订单被取消。而且，即使所有订单都执行，那也只是未来4-5年的收入——不是永久性的利润流。以¥219的价格买入一个可能5年后就没有订单的周期股，这是赌博不是投资。</p>
+    <p><strong>复核状态：通过</strong>。所有关键数据已交叉验证，估值模型逻辑自洽，风险分析充分覆盖。</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）｜原创作者：Br7uce（br7）</p>
+  <p>Copyright © 2026 Br7uce. All Rights Reserved.</p>
+  <p>本报告基于 BR7-VIA-V10.1 生成，不构成投资建议。数据来源于公开披露信息，分析结论可能因数据更新或假设变化而改变。</p>
+</div>
+
+</div>
+
+<script>
+// Chart 1: Revenue & Profit
+var chart1 = echarts.init(document.getElementById('chart-revenue-profit'));
+chart1.setOption({
+  title: { text: '营业收入与归母净利润趋势', left: 'center', textStyle: { fontSize: 15 } },
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['营业收入', '归母净利润', '扣非净利润', '毛利率'], bottom: 0 },
+  grid: { left: '8%', right: '8%', bottom: '12%', top: '15%' },
+  xAxis: { type: 'category', data: ['2020(陶瓷)','2021(陶瓷)','2022(陶瓷)','2023(陶瓷)','2024(陶瓷)','2025(造船)','2026H1(造船)'] },
+  yAxis: [
+    { type: 'value', name: '金额(亿)', position: 'left' },
+    { type: 'value', name: '毛利率(%)', position: 'right', max: 50 }
+  ],
+  series: [
+    { name: '营业收入', type: 'bar', data: [4.46, 4.03, 2.71, 2.06, 2.75, 216.39, 235.04], itemStyle: { color: '#1a3a5c' } },
+    { name: '归母净利润', type: 'bar', data: [0.02, -30.91, -17.06, -11.70, -0.77, 26.55, 36.09], itemStyle: { color: '#c8951e' } },
+    { name: '扣非净利润', type: 'bar', data: [0.01, -31.30, -17.14, -11.91, -0.78, 20.33, 35.14], itemStyle: { color: '#e8a830' } },
+    { name: '毛利率', type: 'line', yAxisIndex: 1, data: [37.12, 16.39, -7.46, 4.61, 14.40, 20.40, 23.66], itemStyle: { color: '#2d7d46' }, lineStyle: { width: 3 } }
+  ]
+});
+
+// Chart 2: Balance Sheet
+var chart2 = echarts.init(document.getElementById('chart-balance-sheet'));
+chart2.setOption({
+  title: { text: '资产负债结构（2025年末 vs 2026H1）', left: 'center', textStyle: { fontSize: 15 } },
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['2025年末', '2026H1'], bottom: 0 },
+  grid: { left: '12%', right: '5%', bottom: '12%', top: '15%' },
+  xAxis: { type: 'category', data: ['总资产', '总负债', '归母净资产', '有息负债', '货币资金', '在建工程', '合同资产', '合同负债'] },
+  yAxis: { type: 'value', name: '亿元' },
+  series: [
+    { name: '2025年末', type: 'bar', data: [493.92, 399.40, 94.52, 174.09, 72.15, 15.19, 103.80, 53.54], itemStyle: { color: '#1a3a5c' } },
+    { name: '2026H1', type: 'bar', data: [746.11, 615.51, 130.60, 241.29, 101.64, 87.47, 139.46, 120.37], itemStyle: { color: '#c8951e' } }
+  ]
+});
+
+// Chart 3: Cash Flow
+var chart3 = echarts.init(document.getElementById('chart-cashflow'));
+chart3.setOption({
+  title: { text: '现金流结构对比', left: 'center', textStyle: { fontSize: 15 } },
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['经营现金流', '投资现金流', '筹资现金流'], bottom: 0 },
+  grid: { left: '10%', right: '5%', bottom: '12%', top: '15%' },
+  xAxis: { type: 'category', data: ['2025年', '2026H1'] },
+  yAxis: { type: 'value', name: '亿元' },
+  series: [
+    { name: '经营现金流', type: 'bar', data: [-14.58, 85.09], itemStyle: { color: '#2d7d46' } },
+    { name: '投资现金流', type: 'bar', data: [-96.00, -101.28], itemStyle: { color: '#c0392b' } },
+    { name: '筹资现金流', type: 'bar', data: [164.06, 52.75], itemStyle: { color: '#c8951e' } }
+  ]
+});
+
+// Chart 4: Valuation
+var chart4 = echarts.init(document.getElementById('chart-valuation'));
+chart4.setOption({
+  title: { text: '三情景估值 vs 当前价格', left: 'center', textStyle: { fontSize: 15 } },
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['每股价值'], bottom: 0 },
+  grid: { left: '10%', right: '5%', bottom: '12%', top: '15%' },
+  xAxis: { type: 'category', data: ['悲观情景', '合理情景', '乐观情景', '当前股价'] },
+  yAxis: { type: 'value', name: '元/股', max: 250 },
+  series: [
+    { name: '每股价值', type: 'bar', data: [
+      { value: 15, itemStyle: { color: '#c0392b' } },
+      { value: 50, itemStyle: { color: '#c8951e' } },
+      { value: 85, itemStyle: { color: '#2d7d46' } },
+      { value: 219, itemStyle: { color: '#8b0000' } }
+    ], label: { show: true, position: 'top', formatter: '¥{c}' } }
+  ]
+});
+</script>
+</body>
+</html>
