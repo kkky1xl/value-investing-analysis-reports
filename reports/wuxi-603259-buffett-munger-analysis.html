@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>药明康德（603259.SH）巴芒价值投资分析报告</title>
+<style>
+:root {
+  --primary: #1a3a5c;
+  --accent: #c8951e;
+  --bg: #fafafa;
+  --card-bg: #ffffff;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --border: #e0e0e0;
+  --green: #2d7d46;
+  --red: #c0392b;
+  --blue: #2980b9;
+  --table-header: #1a3a5c;
+  --table-row-alt: #f5f7fa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 15px;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.header {
+  background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 100%);
+  color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+.header h1 { font-size: 28px; margin-bottom: 10px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 15px; }
+.header .framework-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+.section {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.section h2 {
+  color: var(--primary);
+  font-size: 22px;
+  border-left: 4px solid var(--accent);
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+.section h3 { color: var(--primary); font-size: 17px; margin: 20px 0 10px; }
+.section h4 { color: var(--text); font-size: 15px; margin: 15px 0 8px; font-weight: 600; }
+p { margin-bottom: 12px; text-align: justify; }
+ul, ol { margin: 10px 0 12px 24px; }
+li { margin: 4px 0; }
+.dialogue {
+  background: #f0f6fc;
+  border-left: 4px solid var(--blue);
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.dialogue .speaker { font-weight: 700; color: var(--blue); margin-bottom: 5px; }
+.dialogue.munger { background: #fdf2f0; border-left-color: var(--red); }
+.dialogue.munger .speaker { color: var(--red); }
+table {
+  width: 100%; border-collapse: collapse; margin: 15px 0;
+  font-size: 13px; display: block; overflow-x: auto;
+}
+table th {
+  background: var(--table-header); color: white;
+  padding: 10px 8px; text-align: center; font-weight: 600; white-space: nowrap;
+}
+table td { padding: 8px; text-align: center; border-bottom: 1px solid var(--border); white-space: nowrap; }
+table tr:nth-child(even) td { background: var(--table-row-alt); }
+table tr:hover td { background: #e8f0fe; }
+.highlight-box { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.alert-box { background: #ffebee; border: 1px solid #ef9a9a; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.success-box { background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.info-box { background: #e3f2fd; border: 1px solid #90caf9; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0; }
+.metric-card { background: #f5f7fa; border-radius: 8px; padding: 15px; text-align: center; border: 1px solid var(--border); }
+.metric-card .label { font-size: 12px; color: var(--text-light); margin-bottom: 5px; }
+.metric-card .value { font-size: 24px; font-weight: 700; color: var(--primary); }
+.metric-card .unit { font-size: 14px; color: var(--text-light); }
+.metric-card .sub { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+.footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 13px; border-top: 1px solid var(--border); margin-top: 30px; }
+.toc { background: #f5f7fa; border-radius: 8px; padding: 20px 30px; margin-bottom: 25px; }
+.toc h3 { color: var(--primary); margin-bottom: 10px; }
+.toc ol { padding-left: 20px; }
+.toc li { margin: 5px 0; }
+.toc a { color: var(--blue); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.positive { color: var(--green); font-weight: 600; }
+.negative { color: var(--red); font-weight: 600; }
+.tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; margin: 0 3px; }
+.tag-go { background: #c8e6c9; color: #2e7d32; }
+.tag-nogo { background: #ffcdd2; color: #c62828; }
+.tag-warn { background: #fff9c4; color: #f57f17; }
+@media (max-width: 768px) {
+  .container { padding: 10px; } .section { padding: 15px; }
+  .header { padding: 25px 18px; } .header h1 { font-size: 22px; }
+  table { font-size: 11px; } table th, table td { padding: 5px 3px; }
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>药明康德（603259.SH）巴芒价值投资分析报告</h1>
+  <div class="subtitle">基于 BR7UCE 价值投资分析框架 V9 的全流程十步分析</div>
+  <div>
+    <span class="framework-tag">分析框架：BR7UCE Value Investing Analysis Framework V9（BR7-VIA-V9）</span>
+    <span class="framework-tag">原创作者：Br7uce（br7）</span>
+  </div>
+  <div style="margin-top:10px; font-size:13px; opacity:0.85;">
+    本次分析时间基准：2026年10月16日 ｜ 估值日：2026年10月16日（收盘价144.30元，当日-6.60%）
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>目录</h3>
+  <ol>
+    <li><a href="#p1">Prompt 1：行业与业务分析</a></li>
+    <li><a href="#p2">Prompt 2：财务报告逐年深度分析</a></li>
+    <li><a href="#p3">Prompt 3：多年财务汇总与整体评估</a></li>
+    <li><a href="#p4">Prompt 4：经济护城河评估与评级</a></li>
+    <li><a href="#p5">Prompt 5：管理层品质与企业文化</a></li>
+    <li><a href="#p6">Prompt 6：质量筛选与 Go/No-Go 决策</a></li>
+    <li><a href="#p7">Prompt 7：保守估值与内在价值</a></li>
+    <li><a href="#p8">Prompt 8：安全边际分析与投资决策</a></li>
+    <li><a href="#p9">Prompt 9：未来展望与关键监控点</a></li>
+    <li><a href="#p10">Prompt 10：最终结论与行动计划</a></li>
+  </ol>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <h2>执行摘要</h2>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="label">当前股价（2026-10-16）</div>
+      <div class="value">144.30<span class="unit"> 元</span></div>
+      <div class="sub">当日-6.60%，尾盘一度触及跌停</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">总市值</div>
+      <div class="value">4,306<span class="unit"> 亿</span></div>
+      <div class="sub">总股本29.84亿股</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2025营收</div>
+      <div class="value">454.6<span class="unit"> 亿</span></div>
+      <div class="sub">同比+15.84%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2025归母净利</div>
+      <div class="value" style="color:var(--green);">191.5<span class="unit"> 亿</span></div>
+      <div class="sub">含投资收益，+102.6%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2025扣非净利</div>
+      <div class="value">132.4<span class="unit"> 亿</span></div>
+      <div class="sub">+32.56%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">TTM PE</div>
+      <div class="value">~19.9<span class="unit"> x</span></div>
+      <div class="sub">TTM扣非PE约23.6x</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">毛利率</div>
+      <div class="value" style="color:var(--green);">47.6<span class="unit"> %</span></div>
+      <div class="sub">同比+6.2pp，Non-IFRS 48.2%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">在手订单</div>
+      <div class="value" style="color:var(--blue);">664<span class="unit"> 亿</span></div>
+      <div class="sub">2026H1末，+25.2%</div>
+    </div>
+  </div>
+  <div class="success-box">
+    <strong>核心结论：</strong>药明康德是全球CXO行业龙头，CRDMO一体化模式构筑了强护城河。2025年TIDES业务（多肽/寡核苷酸）暴增96%，成为第二增长曲线，驱动扣非净利润增长32.6%。2026H1营收增长38.9%，公司大幅上调全年指引至585-605亿元。在手订单664亿元锁定未来2年增长确定性。经营现金流强劲（2025年172亿），资产负债率仅22%，股东回报力度大（累计分红+回购250亿）。<strong>主要风险是美国生物安全法案/1260H清单的地缘政治不确定性</strong>，但实际商业订单影响有限。当前TTM PE约19.9倍（2026-10-16收盘144.30元），处于历史低位区间，较8月中旬（159元附近）回落约9%，估值性价比进一步提升，以巴芒框架衡量，<strong>结论维持谨慎买入（Cautious Buy）</strong>。
+  </div>
+</div>
+
+<!-- PROMPT 1 -->
+<div class="section" id="p1">
+  <h2>Prompt 1：行业与业务分析</h2>
+
+  <h3>1.1 公司概况</h3>
+  <p>无锡药明康德新药开发股份有限公司（简称"药明康德"）成立于2000年，2018年5月在上交所上市（603259.SH），同时在港交所上市（02359.HK）。公司是全球领先的医药研发生产外包（CXO）服务商，采用独特的CRDMO（合同研究、开发及生产组织）一体化商业模式，覆盖从药物发现到商业化生产的全产业链。公司总部位于上海，在全球拥有超过40个研发和生产基地，员工超过4万人。</p>
+
+  <h3>1.2 业务版图与产品结构（2025年）</h3>
+  <table>
+    <thead>
+      <tr><th>业务板块</th><th>2025营收（亿元）</th><th>占比</th><th>同比</th><th>毛利率</th><th>定位</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>化学业务（Chemistry）</td><td>364.7</td><td>80.2%</td><td class="positive">+25.5%</td><td>~52.3%</td><td>核心引擎，含TIDES</td></tr>
+      <tr><td>├─ TIDES（多肽/寡核苷酸）</td><td>113.7</td><td>25.0%</td><td class="positive">+96.0%</td><td>更高</td><td>第二增长曲线</td></tr>
+      <tr><td>├─ 小分子CRDMO</td><td>251.0</td><td>55.2%</td><td class="positive">+~8%</td><td>~49%</td><td>基本盘</td></tr>
+      <tr><td>测试业务（Testing）</td><td>40.4</td><td>8.9%</td><td class="positive">+4.7%</td><td>~23%</td><td>药物安全评价龙头</td></tr>
+      <tr><td>生物学业务（Biology）</td><td>26.8</td><td>5.9%</td><td class="positive">+5.2%</td><td>~35%</td><td>药物发现服务</td></tr>
+      <tr><td>高端治疗（ATU）</td><td>~10.5</td><td>2.3%</td><td>调整中</td><td>-</td><td>CGT领域</td></tr>
+      <tr><td>其他</td><td>~12.2</td><td>2.7%</td><td>-</td><td>-</td><td>-</td></tr>
+      <tr style="font-weight:600;"><td>合计</td><td>454.6</td><td>100%</td><td class="positive">+15.84%</td><td>47.6%</td><td>-</td></tr>
+    </tbody>
+  </table>
+  <div class="info-box">
+    <strong>关键认知：</strong>TIDES业务（多肽和寡核苷酸）是药明康德2025年最大亮点，收入113.7亿元暴增96%，受益于GLP-1减肥药（司美格鲁肽等）和寡核苷酸药物的爆发式需求。TIDES在手订单同比增长20.2%，D&M服务客户数同比+25%，服务分子数同比+45%。
+  </div>
+
+  <h3>1.3 行业格局</h3>
+  <table>
+    <thead>
+      <tr><th>企业</th><th>代码</th><th>核心定位</th><th>2025营收</th><th>市占率</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>药明康德</td><td>603259.SH</td><td>全产业链CRDMO龙头</td><td>454.6亿</td><td>~11%</td></tr>
+      <tr><td>康龙化成</td><td>300759.SZ</td><td>实验室服务+CMC</td><td>~150亿</td><td>~1.2%</td></tr>
+      <tr><td>凯莱英</td><td>002821.SZ</td><td>商业化小分子CDMO</td><td>~130亿</td><td>~1.0%</td></tr>
+      <tr><td>泰格医药</td><td>300347.SZ</td><td>临床试验CRO</td><td>~80亿</td><td>~0.6%</td></tr>
+      <tr><td>博腾股份</td><td>300363.SZ</td><td>CDMO</td><td>~40亿</td><td>~0.3%</td></tr>
+    </tbody>
+  </table>
+  <p>全球CXO市场规模约4,000亿元，药明康德市占率约11%，是全球最大的医药研发外包服务商之一。行业CR5（含海外企业）约60%，龙头集中度高。中国CXO企业凭借成本优势、工程师红利和一体化服务能力，正持续提升全球份额。</p>
+
+  <h3>1.4 估值路由候选</h3>
+  <p>药明康德属于"高回报成长型"企业：① 扣非ROE在15-20%区间（2025年约19.7%）；② 收入持续高增长（2021-2025 CAGR约18.7%）；③ 经营现金流稳定为正且高于净利润；④ 轻资产+高毛利模式。估值路由锁定为<strong>高回报成长型</strong>，采用标准再投资DCF + PE/PB交叉验证。</p>
+
+  <h3>1.5 行业驱动力</h3>
+  <ul>
+    <li><strong>GLP-1减肥药爆发：</strong>司美格鲁肽、替尔泊肽等药物需求井喷，驱动多肽CDMO（TIDES）业务指数级增长</li>
+    <li><strong>新分子趋势：</strong>ADC、双抗、寡核苷酸等新分子类型快速涌现，药明康德小分子D&M管线分子数达3,452个</li>
+    <li><strong>外包率提升：</strong>全球药企研发外包率从~35%持续提升，中小Biotech外包需求尤其旺盛</li>
+    <li><strong>中国工程师红利：</strong>中国CXO企业在成本和效率上具备结构性优势</li>
+    <li><strong>地缘政治风险（逆风）：</strong>美国生物安全法案/1260H清单构成不确定性，但实际商业影响有限</li>
+  </ul>
+</div>
+
+<!-- PROMPT 2 -->
+<div class="section" id="p2">
+  <h2>Prompt 2：财务报告逐年深度分析</h2>
+
+  <h3>2.1 2022年：新冠订单高峰，利润爆发</h3>
+  <table>
+    <thead><tr><th>指标</th><th>2022年</th><th>2021年</th><th>同比</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入（亿元）</td><td>393.5</td><td>229.0</td><td class="positive">+71.8%</td></tr>
+      <tr><td>归母净利润（亿元）</td><td>88.14</td><td>50.97</td><td class="positive">+72.9%</td></tr>
+      <tr><td>毛利率（%）</td><td>37.29</td><td>36.28</td><td>+1.01pp</td></tr>
+      <tr><td>ROE（%）</td><td>20.62</td><td>14.05</td><td class="positive">+6.57pp</td></tr>
+    </tbody>
+  </table>
+  <p>2022年受益于新冠药物大订单（Paxlovid中间体供应），营收和利润均实现爆发式增长。这一年的高基数为2023-2024年的表观增速带来了"退坡"压力。但剔除新冠项目后，常规业务增长依然稳健。</p>
+
+  <h3>2.2 2023年：新冠退潮，回归常态</h3>
+  <table>
+    <thead><tr><th>指标</th><th>2023年</th><th>2022年</th><th>同比</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入（亿元）</td><td>402.8</td><td>393.5</td><td class="positive">+2.5%</td></tr>
+      <tr><td>归母净利润（亿元）</td><td>96.07</td><td>88.14</td><td class="positive">+9.0%</td></tr>
+      <tr><td>扣非净利润（亿元）</td><td>97.48</td><td>-</td><td>-</td></tr>
+      <tr><td>毛利率（%）</td><td>~39.4</td><td>37.29</td><td class="positive">+2.1pp</td></tr>
+      <tr><td>ROE（%）</td><td>16.78</td><td>20.62</td><td class="negative">-3.84pp</td></tr>
+      <tr><td>经营现金流（亿元）</td><td>133.87</td><td>106.16</td><td class="positive">+26.1%</td></tr>
+    </tbody>
+  </table>
+  <p>新冠项目急剧退坡，表观营收增速骤降至2.5%。但剔除新冠影响后，常规业务增长约25%。利润增速9%高于营收增速，说明常规业务的盈利能力更强。经营现金流134亿远高于归母净利96亿，利润含金量极高。ROE下降至16.78%主要因分母（净资产）随IPO和留存收益快速增长。</p>
+
+  <h3>2.3 2024年：触底回升，盈利质量改善</h3>
+  <table>
+    <thead><tr><th>指标</th><th>2024年</th><th>2023年</th><th>同比</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入（亿元）</td><td>392.4</td><td>402.8</td><td class="negative">-2.6%</td></tr>
+      <tr><td>归母净利润（亿元）</td><td>94.50</td><td>96.07</td><td class="negative">-1.6%</td></tr>
+      <tr><td>扣非净利润（亿元）</td><td>99.88</td><td>97.48</td><td class="positive">+2.5%</td></tr>
+      <tr><td>毛利率（%）</td><td>~41.4</td><td>~39.4</td><td class="positive">+2.0pp</td></tr>
+      <tr><td>ROE（%）</td><td>18.99</td><td>16.78</td><td class="positive">+2.21pp</td></tr>
+      <tr><td>经营现金流（亿元）</td><td>124.07</td><td>133.87</td><td class="negative">-7.3%</td></tr>
+      <tr><td>资产负债率（%）</td><td>26.44</td><td>24.64</td><td>-</td></tr>
+    </tbody>
+  </table>
+  <p>2024年是过渡年，营收微降2.6%（新冠项目完全退出），但扣非净利润实现正增长（+2.5%），毛利率提升2pp至41.4%。值得关注的是，归母净利润94.5亿低于扣非99.9亿，说明存在非经常性损失（主要为投资组合公允价值下降）。ROE回升至18.99%，资本回报效率优秀。经营现金流124亿依然强劲。</p>
+
+  <h3>2.4 2025年：业绩爆发，创历史新高</h3>
+  <table>
+    <thead><tr><th>指标</th><th>2025年</th><th>2024年</th><th>同比</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入（亿元）</td><td>454.56</td><td>392.4</td><td class="positive">+15.84%</td></tr>
+      <tr><td>归母净利润（亿元）</td><td>191.51</td><td>94.50</td><td class="positive">+102.65%</td></tr>
+      <tr><td>扣非净利润（亿元）</td><td>132.41</td><td>99.88</td><td class="positive">+32.56%</td></tr>
+      <tr><td>经调整Non-IFRS净利（亿元）</td><td>149.57</td><td>105.84</td><td class="positive">+41.33%</td></tr>
+      <tr><td>毛利率（%）</td><td>47.6</td><td>41.4</td><td class="positive">+6.2pp</td></tr>
+      <tr><td>ROE（%）</td><td>28.56</td><td>18.99</td><td class="positive">+9.57pp</td></tr>
+      <tr><td>经营现金流（亿元）</td><td>172.03</td><td>124.07</td><td class="positive">+38.66%</td></tr>
+      <tr><td>资产负债率（%）</td><td>22.18</td><td>26.44</td><td class="positive">-4.26pp</td></tr>
+      <tr><td>在手订单（亿元）</td><td>580.0</td><td>-</td><td class="positive">+28.8%</td></tr>
+    </tbody>
+  </table>
+  <div class="alert-box">
+    <strong>2025年利润结构深度解析：</strong>归母净利润191.51亿与扣非132.41亿之间存在59.1亿差额，主要来自投资收益（公允价值变动+股权投资处置收益）。这59.1亿非经常性损益是2024年投资亏损的反转+新增投资收益。<strong>评估真实盈利能力应重点关注扣非132.4亿和经调整Non-IFRS 149.6亿</strong>。即便使用扣非口径，32.56%的增速依然出色。ROE 28.56%包含了投资收益的影响，以扣非计算的ROE约为19.7%，依然远超巴菲特15%的门槛。
+  </div>
+
+  <h3>2.5 2026年上半年：增长全面加速</h3>
+  <table>
+    <thead><tr><th>指标</th><th>2026H1</th><th>2025H1</th><th>同比</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入（亿元）</td><td>288.97</td><td>207.96</td><td class="positive">+38.93%</td></tr>
+      <tr><td>归母净利润（亿元）</td><td>110.80</td><td>85.60</td><td class="positive">+29.43%</td></tr>
+      <tr><td>扣非净利润（亿元）</td><td>105.72</td><td>55.87</td><td class="positive">+89.39%</td></tr>
+      <tr><td>经调整Non-IFRS净利（亿元）</td><td>115.70</td><td>63.20</td><td class="positive">+83.2%</td></tr>
+      <tr><td>在手订单（亿元）</td><td>664.3</td><td>531.5</td><td class="positive">+25.2%</td></tr>
+    </tbody>
+  </table>
+  <p>2026H1表现极为亮眼：营收增长38.9%，扣非净利润暴增89.4%，经调整Non-IFRS净利增长83.2%。单二季度营收164.6亿元，同比增长47.7%，环比加速。公司据此大幅上调2026全年收入指引至585-605亿元（原513-530亿），持续经营业务收入增速从18-22%上调至35-39%。在手订单664亿元，同比增长25.2%，锁定未来2年业绩高确定性。</p>
+</div>
+
+<!-- PROMPT 3 -->
+<div class="section" id="p3">
+  <h2>Prompt 3：多年财务汇总与整体评估</h2>
+
+  <h3>3.1 六年财务全景表</h3>
+  <table>
+    <thead>
+      <tr><th>指标</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>CAGR(20-25)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>营收（亿元）</td><td>165.4</td><td>229.0</td><td>393.5</td><td>402.8</td><td>392.4</td><td>454.6</td><td class="positive">+22.5%</td></tr>
+      <tr><td>归母净利（亿元）</td><td>29.60</td><td>50.97</td><td>88.14</td><td>96.07</td><td>94.50</td><td>191.51</td><td class="positive">+45.3%</td></tr>
+      <tr><td>扣非净利（亿元）</td><td>23.85</td><td>40.64</td><td>82.60</td><td>97.48</td><td>99.88</td><td>132.41</td><td class="positive">+41.0%</td></tr>
+      <tr><td>毛利率（%）</td><td>37.99</td><td>36.28</td><td>37.29</td><td>39.4</td><td>41.4</td><td>47.6</td><td>-</td></tr>
+      <tr><td>ROE（%）</td><td>12.91</td><td>14.05</td><td>20.62</td><td>16.78</td><td>18.99</td><td>28.56</td><td>-</td></tr>
+      <tr><td>经营现金流（亿元）</td><td>39.79</td><td>56.55</td><td>106.16</td><td>133.87</td><td>124.07</td><td>172.03</td><td class="positive">+33.9%</td></tr>
+      <tr><td>资产负债率（%）</td><td>-</td><td>-</td><td>27.0</td><td>24.64</td><td>26.44</td><td>22.18</td><td>-</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.2 趋势诊断</h3>
+  <div class="success-box">
+    <strong>营收：</strong>五年CAGR 22.5%，从165亿增长至455亿。2022-2024年经历新冠订单退坡的过渡期，2025年重回高增长轨道，2026H1增速进一步加速至38.9%。
+  </div>
+  <div class="success-box">
+    <strong>扣非利润：</strong>五年CAGR 41.0%，从23.9亿增长至132.4亿。增速远超营收增速，体现了规模效应和业务结构升级（高毛利TIDES占比提升）带来的利润率扩张。
+  </div>
+  <div class="success-box">
+    <strong>毛利率持续提升：</strong>从2021年的36.3%提升至2025年的47.6%（Non-IFRS毛利率达48.2%），核心驱动力是TIDES业务的高毛利率和化学业务产能效率提升。年报披露2025年化学业务Non-IFRS毛利率达52.3%。
+  </div>
+  <div class="success-box">
+    <strong>现金流极其强劲：</strong>经营现金流五年CAGR 33.9%，2025年达172亿元，是归母净利润的0.90倍、扣非净利润的1.30倍。公司"赚到的钱都是真金白银"。
+  </div>
+  <div class="success-box">
+    <strong>资产负债表稳健：</strong>资产负债率仅22%，几乎无有息负债。2025年经营现金流172亿 vs 资本开支约60-70亿，自由现金流约100-110亿元。
+  </div>
+
+  <h3>3.3 巴芒视角评估</h3>
+  <table>
+    <thead><tr><th>评估维度</th><th>表现</th><th>评级</th></tr></thead>
+    <tbody>
+      <tr><td>营收增长</td><td>5年CAGR 22.5%，2026年加速</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>扣非利润增长</td><td>5年CAGR 41.0%</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>毛利率趋势</td><td>36%→47.6%，持续提升</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>现金流质量</td><td>经营现金流/扣非净利 = 1.30</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>资产负债表</td><td>负债率22%，无有息负债</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>ROE水平</td><td>扣非ROE约19.7%，超巴菲特15%标准</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>盈利可预测性</td><td>在手订单664亿锁定2年增长</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>地缘政治风险</td><td>美国生物安全法案不确定性</td><td><span class="tag tag-warn">中</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PROMPT 4 -->
+<div class="section" id="p4">
+  <h2>Prompt 4：经济护城河评估与评级</h2>
+
+  <h3>4.1 护城河要素分析</h3>
+
+  <h4>① CRDMO一体化模式壁垒（宽护城河）</h4>
+  <p>药明康德的核心护城河在于其独特的CRDMO一体化模式——从药物发现（R）、临床前开发（D）到商业化生产（M）的全产业链覆盖。全球极少有CXO企业能同时覆盖如此广泛的产业链环节。一旦客户在早期阶段（药物发现）选择药明康德，后续开发和生产环节天然具备"粘性"，转换成本极高。截至2025年末，公司小分子D&M在研管线分子3,452个，商业化项目89个，管线深度和广度全球领先。</p>
+
+  <h4>② 规模与产能壁垒（宽护城河）</h4>
+  <p>TIDES（多肽/寡核苷酸）业务需要大规模产能投入，药明康德已完成大规模产能建设，2024年新增产能逐季度爬坡，2025年TIDES收入113.7亿元（+96%）。这种产能壁垒使得新进入者需要数年时间和数十亿投资才能追赶。在手订单580→664亿元持续增长，锁定未来2年收入。</p>
+
+  <h4>③ 客户粘性与转换成本（中等护城河）</h4>
+  <p>医药研发外包涉及知识产权保护、质量体系认证和长期合作信任，客户转换成本极高。公司海外收入占比超83%，服务全球前20大药企和数百家Biotech。一旦进入客户供应链，通常合作周期长达5-10年以上。</p>
+
+  <h4>④ 成本优势（中等护城河）</h4>
+  <p>中国工程师红利带来的人力成本优势仍在，但随着中国薪资水平提升，纯成本优势在收窄。公司通过规模效应和自动化生产弥补了成本上升。化学业务Non-IFRS毛利率52.3%，在全球CXO中处于领先水平。</p>
+
+  <h3>4.2 护城河评级</h3>
+  <table>
+    <thead><tr><th>护城河类型</th><th>强度</th><th>持久性</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>CRDMO一体化</td><td>强</td><td>强</td><td>全球极少数全产业链覆盖者</td></tr>
+      <tr><td>规模与产能</td><td>强</td><td>强</td><td>TIDES产能壁垒+在手订单664亿</td></tr>
+      <tr><td>客户粘性</td><td>中等</td><td>较强</td><td>转换成本高，但地缘政治可能侵蚀</td></tr>
+      <tr><td>成本优势</td><td>中等</td><td>中等</td><td>工程师红利+规模效应</td></tr>
+      <tr><td>品牌溢价</td><td>中等</td><td>中等</td><td>B2B品牌，行业口碑好</td></tr>
+    </tbody>
+  </table>
+  <div class="success-box">
+    <strong>综合护城河评级：宽护城河（Wide Moat）</strong><br>
+    药明康德的CRDMO一体化模式和TIDES产能壁垒构成了真正的宽护城河。3,452个在研分子+664亿在手订单+全球40+基地+4万员工形成的规模壁垒，新进入者极难在短期内复制。地缘政治是唯一可能侵蚀护城河的外部因素，但目前实际商业影响有限。
+  </div>
+</div>
+
+<!-- PROMPT 5 -->
+<div class="section" id="p5">
+  <h2>Prompt 5：管理层品质与企业文化</h2>
+
+  <h3>5.1 管理层评估</h3>
+  <table>
+    <thead><tr><th>评估维度</th><th>表现</th><th>评价</th></tr></thead>
+    <tbody>
+      <tr><td>战略执行</td><td>CRDMO一体化+TIDES前瞻布局</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>资本配置</td><td>产能扩张精准+投资组合管理出色</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>股东回报</td><td>累计分红+回购250亿，超累计净利40%</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>信息透明度</td><td>年报详尽，Non-IFRS指标自愿披露</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>业绩指引</td><td>2026年指引两次上调，管理层信誉强</td><td><span class="tag tag-go">优</span></td></tr>
+      <tr><td>研发投入</td><td>持续投入新分子类型能力建设</td><td><span class="tag tag-go">优</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 股东回报体系</h3>
+  <div class="success-box">
+    <strong>行业领先的股东回报：</strong>上市七年累计现金分红从6.79亿增至67.55亿（2025年），规模扩容近10倍。每年现金分红达净利润30%。2024-2025年完成6次合计超60亿元股份回购注销。累计分红+回购250亿元，超过过去八年累计净利润的40%，在所有A股上市公司中位居前列。2026年5月公告拟发行67.8亿元公司债，优化资本结构。
+  </div>
+
+  <h3>5.3 地缘政治风险与应对</h3>
+  <div class="highlight-box">
+    <strong>美国生物安全法案/1260H清单：</strong>2024年起，美国《生物安全法案》草案直接点名药明康德，引发股价大幅波动。2025年12月，升级版法案被纳入2026财年NDAA，但关键变化是<strong>不再直接点名特定企业</strong>，改为与1260H清单挂钩。2026年6月，药明康德被正式列入1260H清单（188家实体之一）。<br><br>
+    <strong>实际影响有限：</strong>① 1260H清单主要限制美国联邦机构合同，不影响商业客户订单；② 全球药企供应链深度绑定，短期难以替代；③ 法案增加了缓冲期、申诉条款和豁免机制；④ 公司2026H1营收增长38.9%、在手订单增长25.2%，证明商业订单未受实质影响。
+  </div>
+
+  <h3>5.4 巴芒对话</h3>
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    这正是我喜欢的企业类型——在成长性行业中拥有压倒性竞争优势的龙头。药明康德的CRDMO一体化模式让客户一旦进入就很难离开，3,452个在研分子就是3,452条"锁定线"。管理层的表现令人印象深刻：累计分红回购250亿超过累计净利的40%，这种股东回报力度在A股非常罕见。我最欣赏的是他们前瞻性地布局了TIDES产能——在GLP-1爆发前就建好了产能，这需要深刻的行业洞察力。
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    我同意基本面出色，但不能忽视那个房间里的大象——美国地缘政治风险。虽然1260H清单目前对商业订单无实质影响，但如果中美关系进一步恶化呢？83%的海外收入意味着如果最坏情况发生，影响将是巨大的。不过我也注意到一个积极信号：2026H1营收增长38.9%，说明美国药企客户并没有因为政治压力而大规模撤单。供应链的深度绑定比政治口号更有力量。我的结论是：这是一个值得投资的企业，但需要密切监控地缘政治变化。
+  </div>
+</div>
+
+<!-- PROMPT 6 -->
+<div class="section" id="p6">
+  <h2>Prompt 6：质量筛选与 Go/No-Go 决策</h2>
+
+  <h3>6.1 巴菲特质量筛选清单</h3>
+  <table>
+    <thead><tr><th>筛选标准</th><th>阈值</th><th>药明康德实际</th><th>通过？</th></tr></thead>
+    <tbody>
+      <tr><td>ROE ≥ 15%</td><td>≥15%</td><td>19.7%（扣非，2025）</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>营收5年CAGR ≥ 10%</td><td>≥10%</td><td>22.5%</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>净利率 ≥ 15%</td><td>≥15%</td><td>29.1%（扣非/营收）</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>资产负债率 ≤ 50%</td><td>≤50%</td><td>22.18%</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>经营现金流/净利润 ≥ 1.0</td><td>≥1.0</td><td>1.30（扣非口径）</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>毛利率 ≥ 30%</td><td>≥30%</td><td>47.6%</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>扣非净利润为正且增长</td><td>正且增长</td><td>132.4亿，+32.6%</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>管理层诚信</td><td>无重大违规</td><td>股东回报优异</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>行业前景</td><td>成长性</td><td>GLP-1+新分子驱动</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>竞争优势可持续</td><td>宽护城河</td><td>CRDMO一体化+产能壁垒</td><td><span class="tag tag-go">是</span></td></tr>
+      <tr><td>地缘政治风险</td><td>可控</td><td>1260H清单，但订单未受影响</td><td><span class="tag tag-warn">存疑</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.2 Go/No-Go 决策</h3>
+  <div class="success-box">
+    <strong>决策结果：Go（通过质量筛选）</strong><br><br>
+    在11项质量筛选标准中，药明康德通过10项、存疑1项。存疑项为地缘政治风险，但2026H1营收增长38.9%、在手订单增长25.2%的硬数据证明商业影响有限。<strong>药明康德满足巴芒价值投资的质量门槛，进入估值阶段。</strong>
+  </div>
+</div>
+
+<!-- PROMPT 7 -->
+<div class="section" id="p7">
+  <h2>Prompt 7：保守估值与内在价值</h2>
+
+  <h3>7.1 估值方法选择</h3>
+  <p>药明康德属于"高回报成长型"企业，采用标准再投资DCF + PE/PB交叉验证。估值基准日：2026年10月16日，收盘价144.30元，总市值约4,306亿元。</p>
+
+  <h3>7.2 方法一：股东盈余PE法</h3>
+  <table>
+    <thead><tr><th>参数</th><th>数值</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>2025年扣非净利润</td><td>132.4亿元</td><td>剔除投资收益</td></tr>
+      <tr><td>2025年经调整Non-IFRS净利</td><td>149.6亿元</td><td>更接近股东盈余</td></tr>
+      <tr><td>2026E扣非净利润（中值）</td><td>~210亿元</td><td>2026H1扣非105.7亿，年化</td></tr>
+      <tr><td>保守股东盈余（2026E）</td><td>180亿元</td><td>H1×1.7保守系数</td></tr>
+      <tr><td>合理PE（高成长CXO）</td><td>25-30倍</td><td>行业均值20-25x，龙头溢价</td></tr>
+      <tr><td>内在价值区间</td><td>4,500-5,400亿元</td><td>180×25~30</td></tr>
+      <tr><td>每股内在价值</td><td>150.8-180.9元</td><td>÷29.84亿股</td></tr>
+      <tr><td>当前股价</td><td>144.30元</td><td>2026-10-16</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.3 方法二：PB法</h3>
+  <table>
+    <thead><tr><th>参数</th><th>数值</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>2025年末归母净资产</td><td>797.1亿元</td><td>年报实际值</td></tr>
+      <tr><td>每股净资产</td><td>26.72元</td><td>÷29.84亿股</td></tr>
+      <tr><td>合理PB（ROE 20%）</td><td>5.0-7.0倍</td><td>高ROE应享有高PB</td></tr>
+      <tr><td>每股内在价值</td><td>133.6-187.0元</td><td>26.72×5.0~7.0</td></tr>
+      <tr><td>当前PB</td><td>~5.40倍</td><td>144.30÷26.72</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.4 方法三：DCF法（三情景）</h3>
+  <table>
+    <thead><tr><th>参数</th><th>悲观</th><th>中性</th><th>乐观</th></tr></thead>
+    <tbody>
+      <tr><td>基础自由现金流（亿元）</td><td>130</td><td>170</td><td>210</td></tr>
+      <tr><td>5年增长率</td><td>10%</td><td>20%</td><td>28%</td></tr>
+      <tr><td>永续增长率</td><td>3%</td><td>4%</td><td>5%</td></tr>
+      <tr><td>折现率（WACC）</td><td>12%</td><td>10%</td><td>9%</td></tr>
+      <tr><td>内在价值（亿元）</td><td>1,820</td><td>4,200</td><td>8,500</td></tr>
+      <tr><td>每股价值（元）</td><td>61.0</td><td>140.7</td><td>284.8</td></tr>
+    </tbody>
+  </table>
+  <div class="alert-box">
+    <strong>悲观情景说明：</strong>悲观情景假设美国生物安全法案全面生效，药明康德失去部分美国客户，增速降至10%。即便如此，基于已签在手订单664亿元和现有产能，公司仍有可观的现金流基础。
+  </div>
+
+  <h3>7.5 估值汇总</h3>
+  <table>
+    <thead><tr><th>方法</th><th>每股价值区间</th><th>vs 当前144.30元</th></tr></thead>
+    <tbody>
+      <tr><td>PE法（2026E扣非）</td><td>150.8-180.9元</td><td class="positive">低于区间下限，折价约13%</td></tr>
+      <tr><td>PB法</td><td>133.6-187.0元</td><td class="positive">区间内偏低</td></tr>
+      <tr><td>DCF中性</td><td>140.7元</td><td class="negative">略高于中性值</td></tr>
+      <tr style="font-weight:600;"><td>综合内在价值</td><td>130-181元</td><td class="positive">处于合理区间下沿，安全边际改善</td></tr>
+    </tbody>
+  </table>
+  <div class="success-box">
+    <strong>估值结论：</strong>三种方法交叉验证，药明康德的内在价值区间为<strong>每股130-187元</strong>，中值约158元。当前股价144.30元（2026-10-16）已回落至合理区间下沿，较内在价值中值折价约9%，安全边际较8月（159元附近）明显改善。考虑到2026H1业绩爆发式增长（扣非+89%），若全年扣非达到210亿，则当前前瞻PE仅20.5倍——对于一个增长30%+的龙头企业而言，估值已进入具备吸引力的区间。
+  </div>
+</div>
+
+<!-- PROMPT 8 -->
+<div class="section" id="p8">
+  <h2>Prompt 8：安全边际分析与投资决策</h2>
+
+  <h3>8.1 安全边际计算</h3>
+  <table>
+    <thead><tr><th>基准</th><th>内在价值（元）</th><th>安全买点（70%折价）</th><th>当前股价</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr><td>PE法中值</td><td>165.9</td><td>116.1</td><td>144.30</td><td class="positive">折价约13%</td></tr>
+      <tr><td>PB法中值</td><td>160.3</td><td>112.2</td><td>144.30</td><td class="positive">折价约10%</td></tr>
+      <tr><td>DCF中性</td><td>140.7</td><td>98.5</td><td>144.30</td><td class="negative">略高于中性值</td></tr>
+      <tr style="font-weight:600;"><td>综合中值</td><td>158.0</td><td>110.6</td><td>144.30</td><td class="positive">折价约9%，具备安全边际</td></tr>
+    </tbody>
+  </table>
+  <div class="info-box">
+    <strong>安全边际说明：</strong>对于高成长型企业，巴菲特通常要求较小的安全边际（因为增长本身提供了安全垫）。药明康德当前股价144.30元较内在价值中值158元折价约9%，较8月中旬（159元附近）性价比明显提升（注：2026-10-16 CXO板块集体下挫，药明康德单日-6.60%、盘中触及跌停，属板块估值回调而非基本面恶化）。考虑到2026H1业绩爆发和全年指引上调，以2026E扣非210亿计算的前瞻PE仅20.5倍，<strong>增长预期本身构成了安全边际</strong>。建议采用分批建仓策略，无需等待大幅折价。
+  </div>
+
+  <h3>8.2 投资决策</h3>
+  <div class="success-box">
+    <strong>最终决策：谨慎买入（Cautious Buy）</strong><br><br>
+    理由如下：<br>
+    ① <strong>基本面卓越：</strong>CRDMO一体化宽护城河，扣非ROE 19.7%，5年扣非CAGR 41%；<br>
+    ② <strong>增长确定性高：</strong>在手订单664亿（+25.2%），2026H1扣非+89%，全年指引上调至585-605亿；<br>
+    ③ <strong>现金流强劲：</strong>经营现金流172亿，自由现金流约100-110亿；<br>
+    ④ <strong>股东回报优异：</strong>累计分红+回购250亿，超累计净利40%；<br>
+    ⑤ <strong>估值更具吸引力：</strong>TTM PE约19.9倍，前瞻PE约20.5倍，处于历史低位区间；<br>
+    ⑥ <strong>主要风险可控：</strong>地缘政治风险虽存在，但商业订单实际未受影响。<br><br>
+    <strong>注意事项：</strong>不建议一次性重仓，建议分3批建仓，首批不超过目标仓位的1/3。若股价回调至140元以下（前瞻PE<20x），可加大建仓力度。
+  </div>
+
+  <h3>8.3 巴芒对话</h3>
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    药明康德是我近年来看到的少数真正符合价值投资标准的A股公司。它在一个高增长行业中拥有压倒性的竞争优势，管理层将股东利益放在心上，财务数据无可挑剔。以20.5倍前瞻PE买入一个增长30%+的龙头企业，这在任何市场都是合理的价格。我的唯一保留意见是地缘政治风险——这是无法通过分析消除的不确定性。因此我建议"谨慎买入"而非"强烈买入"，控制好仓位，让时间证明一切。
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    我补充一个视角：市场对药明康德的"恐惧折扣"恰恰是价值投资者的机会。2024年生物安全法案草案出来时股价暴跌，但从那以后公司营收增长了25%，利润增长了100%+。恐惧创造了价格，贪婪创造了价值。现在股价已较8月中旬回落约9%（144元附近），但基本面并未变化，估值进一步压向合理区间下沿。以144元买入，你获得的是一个全球龙头企业的长期增长红利，付出的代价是承受地缘政治的波动。我认为这是值得的。
+  </div>
+</div>
+
+<!-- PROMPT 9 -->
+<div class="section" id="p9">
+  <h2>Prompt 9：未来展望与关键监控点</h2>
+
+  <h3>9.1 积极因素</h3>
+  <ul>
+    <li><strong>TIDES高增长持续：</strong>GLP-1药物需求持续旺盛，TIDES在手订单+20%，产能仍在扩产，2026年TIDES收入有望超200亿</li>
+    <li><strong>在手订单充裕：</strong>664亿在手订单锁定未来2年增长，2026年指引585-605亿（+29-33%）</li>
+    <li><strong>毛利率提升趋势：</strong>产能效率提升+高毛利TIDES占比上升，Non-IFRS毛利率持续改善</li>
+    <li><strong>新分子管线：</strong>ADC、双抗、PROTAC等新分子类型管线增速>90%，打开长期增长空间</li>
+    <li><strong>全球化布局：</strong>多基地布局（中国+美国+欧洲+新加坡）分散地缘风险</li>
+    <li><strong>自由现金流强劲：</strong>FCF约100-110亿/年，支撑持续分红+回购</li>
+    <li><strong>三季报临近（2026-10-27披露）：</strong>Q3业绩若延续H1高增长节奏，有望修复近期板块回调带来的估值压制</li>
+  </ul>
+
+  <h3>9.2 风险因素</h3>
+  <ul>
+    <li><strong>地缘政治风险（核心风险）：</strong>美国1260H清单/生物安全法案可能升级，极端情况下影响83%海外收入</li>
+    <li><strong>投资收益波动：</strong>2025年归母净利含59亿非经常性投资收益，未来可能反转</li>
+    <li><strong>GLP-1周期风险：</strong>若GLP-1药物热度消退，TIDES增速可能放缓</li>
+    <li><strong>产能过剩风险：</strong>全球CXO产能扩张较快，若需求增速放缓可能出现价格竞争</li>
+    <li><strong>汇率风险：</strong>83%海外收入，人民币升值将影响表观利润</li>
+    <li><strong>应收账款增长：</strong>2026H1应收账款增44%，需关注回款质量</li>
+    <li><strong>板块估值回调风险：</strong>2026-10-16创新药/CXO板块集体下挫（药明康德单日-6.60%、盘中触及跌停，康龙化成、凯莱英等同步走弱），反映前期涨幅后的估值校准与获利了结压力，短期股价波动可能加大</li>
+  </ul>
+
+  <h3>9.3 关键监控指标</h3>
+  <table>
+    <thead><tr><th>监控指标</th><th>当前值</th><th>预警阈值</th><th>监控频率</th></tr></thead>
+    <tbody>
+      <tr><td>TTM PE</td><td>~19.9x</td><td>＞35x即高估</td><td>日</td></tr>
+      <tr><td>在手订单同比增速</td><td>+25.2%</td><td>＜10%即恶化</td><td>半年</td></tr>
+      <tr><td>TIDES收入同比</td><td>+96%（2025）</td><td>＜20%即放缓</td><td>季</td></tr>
+      <tr><td>Non-IFRS毛利率</td><td>~42%</td><td>＜35%即恶化</td><td>季</td></tr>
+      <tr><td>美国相关法案动态</td><td>1260H清单已列入</td><td>全面禁令即触发</td><td>月</td></tr>
+      <tr><td>经营现金流/扣非净利</td><td>1.30</td><td>＜0.8即恶化</td><td>季</td></tr>
+      <tr><td>应收账款/营收</td><td>~30%</td><td>＞45%即风险</td><td>半年</td></tr>
+      <tr><td>大客户订单变动</td><td>稳定</td><td>Top5客户流失</td><td>季</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PROMPT 10 -->
+<div class="section" id="p10">
+  <h2>Prompt 10：最终结论与行动计划</h2>
+
+  <h3>10.1 投资结论</h3>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="label">综合评级</div>
+      <div class="value" style="color:var(--green);">谨慎买入</div>
+      <div class="sub">Cautious Buy</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">内在价值中值</div>
+      <div class="value">158<span class="unit"> 元</span></div>
+      <div class="sub">PE/PB/DCF综合</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">当前股价</div>
+      <div class="value">144.30<span class="unit"> 元</span></div>
+      <div class="sub">2026-10-16</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">前瞻PE（2026E）</div>
+      <div class="value">~20.5<span class="unit"> x</span></div>
+      <div class="sub">扣非210亿计</div>
+    </div>
+  </div>
+
+  <h3>10.2 结论详述</h3>
+  <p>药明康德（603259.SH）是一家<strong>基本面卓越、增长确定性高、估值合理</strong>的全球CXO龙头企业。以巴芒价值投资框架全面审视：</p>
+  <ul>
+    <li><strong>业务层面（优秀）：</strong>CRDMO一体化模式构筑宽护城河，3,550个在研分子+664亿在手订单锁定增长，TIDES业务受益于GLP-1爆发实现96%增长。</li>
+    <li><strong>财务层面（优秀）：</strong>5年扣非CAGR 41%，ROE 19.7%，经营现金流172亿（扣非的1.3倍），资产负债率仅22%，自由现金流100-110亿/年。</li>
+    <li><strong>管理层（优秀）：</strong>累计分红+回购250亿超累计净利40%，全年指引两次上调体现管理层信誉。</li>
+    <li><strong>估值层面（更具吸引力）：</strong>当前TTM PE约19.9倍，前瞻PE约20.5倍，处于历史低位区间。内在价值中值约158元，当前股价144.30元较中值折价约9%，安全边际较8月明显改善。</li>
+    <li><strong>主要风险（可控）：</strong>地缘政治是核心不确定性，但2026H1营收+38.9%和在手订单+25.2%证明商业影响有限。</li>
+  </ul>
+
+  <div class="success-box">
+    <strong>最终结论：谨慎买入（Cautious Buy）</strong><br><br>
+    药明康德是巴芒价值投资框架下罕见的"好公司+更合理价格"标的。CRDMO一体化宽护城河、强劲的现金流、优异的股东回报和确定的增长前景，使其成为值得长期持有的核心资产。地缘政治风险是主要不确定性，但实际影响可控。<strong>建议分批建仓，首批不超过目标仓位1/3；当前价（144.30元）已进入首批建仓区间，若进一步回调至130元以下（前瞻PE<18.5x）可加大建仓力度。</strong>
+  </div>
+
+  <h3>10.3 行动计划</h3>
+  <table>
+    <thead><tr><th>阶段</th><th>触发条件</th><th>行动</th><th>仓位</th></tr></thead>
+    <tbody>
+      <tr><td>首批建仓</td><td>当前价140-148元</td><td>买入</td><td>目标仓位1/3</td></tr>
+      <tr><td>加仓</td><td>回调至130-135元</td><td>加仓</td><td>至目标仓位2/3</td></tr>
+      <tr><td>满仓</td><td>回调至120元以下</td><td>满仓</td><td>至100%</td></tr>
+      <tr><td>止盈</td><td>PE＞40x（股价约290元）</td><td>减仓</td><td>减至1/3</td></tr>
+      <tr><td>止损</td><td>基本面恶化（订单增速＜10%）</td><td>清仓</td><td>全部退出</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.4 巴芒总结对话</h3>
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    药明康德让我想到一句话——"以合理的价格买入伟大的公司，远胜于以便宜的价格买入平庸的公司"。这家公司拥有我重视的所有品质：宽护城河、高ROE、强劲现金流、诚信的管理层和确定的增长前景。20.5倍前瞻PE买入一个增长30%+的全球龙头，这是合理的价格。地缘政治风险是真实的，但供应链的深度绑定比政治口号更有力量。我选择买入并长期持有。
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    我的投资哲学是"以合理价格买入好公司，然后什么都不做"。药明康德正是这样的标的。市场对地缘政治的恐惧压低了估值，但公司的业绩——营收增长38.9%、扣非增长89%——已经给出了最好的回答。当恐惧创造折扣、而基本面持续超预期时，价值投资者就应该行动。不要试图精确抄底，分批买入，然后让复利做它的工作。
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>免责声明：</strong>本报告基于公开信息分析，不构成任何投资建议。投资有风险，入市需谨慎。报告中的估值分析和结论基于特定假设，实际结果可能因市场环境变化而显著不同。</p>
+  <p>分析框架：BR7UCE Value Investing Analysis Framework V9（BR7-VIA-V9）｜ 原创作者：Br7uce（br7）</p>
+  <p>分析时间：2026年10月16日 ｜ 数据截止：2026年半年报 + 2025年年报 + 2026年10月16日行情</p>
+  <p>Copyright © 2026 Br7uce. All Rights Reserved. 本报告基于 BR7-VIA-V9 生成，不构成投资建议。</p>
+</div>
+
+</div>
+</body>
+</html>
