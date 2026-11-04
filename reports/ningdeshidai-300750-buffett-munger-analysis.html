@@ -3,871 +3,923 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>宁德时代 (300750.SZ) 巴菲特-芒格价值投资深度分析</title>
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<title>宁德时代（300750.SZ / 3750.HK）巴芒价值投资分析报告</title>
 <style>
 :root {
   --primary: #1a3a5c;
   --accent: #c8951e;
+  --bg: #fafafa;
+  --card-bg: #ffffff;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --border: #e0e0e0;
   --green: #2d7d46;
   --red: #c0392b;
-  --bg: #f5f5f5;
-  --card: #ffffff;
-  --text: #333333;
-  --light-text: #666666;
-  --border: #e0e0e0;
+  --blue: #2980b9;
+  --table-header: #1a3a5c;
+  --table-row-alt: #f5f7fa;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 15px; }
+body {
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 15px;
+}
 .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-.header { background: linear-gradient(135deg, var(--primary), #2c5282); color: white; padding: 40px 30px; border-radius: 12px; margin-bottom: 30px; text-align: center; }
-.header h1 { font-size: 28px; margin-bottom: 8px; }
-.header .subtitle { font-size: 14px; opacity: 0.85; }
-.price-box { display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
-.price-item { background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 8px; font-size: 13px; }
-.price-item strong { font-size: 17px; }
-.framework-attr { font-size: 12px; margin-top: 15px; padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 6px; display: inline-block; }
-.card { background: var(--card); border-radius: 10px; padding: 25px 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.card h2 { color: var(--primary); font-size: 22px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
-.card h3 { color: var(--primary); font-size: 18px; margin: 20px 0 10px; }
-.card h4 { color: var(--text); font-size: 15px; margin: 15px 0 8px; font-weight: bold; }
-.card p { margin-bottom: 12px; }
-ul, ol { margin: 8px 0 12px 24px; }
+.header {
+  background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 100%);
+  color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+.header h1 { font-size: 28px; margin-bottom: 10px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 15px; }
+.header .framework-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+.section {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.section h2 {
+  color: var(--primary);
+  font-size: 22px;
+  border-left: 4px solid var(--accent);
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+.section h3 { color: var(--primary); font-size: 17px; margin: 20px 0 10px; }
+.section h4 { color: var(--text); font-size: 15px; margin: 15px 0 8px; font-weight: 600; }
+p { margin-bottom: 12px; text-align: justify; }
+ul, ol { margin: 10px 0 12px 24px; }
 li { margin: 4px 0; }
-.table-wrap { overflow-x: auto; margin: 15px 0; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-table th { background: var(--primary); color: white; padding: 9px 8px; text-align: center; white-space: nowrap; }
-table td { padding: 7px 8px; border-bottom: 1px solid var(--border); text-align: center; }
-table tr:nth-child(even) { background: #f9f9f9; }
-table td.left { text-align: left; }
-.highlight-red { color: var(--red); font-weight: bold; }
-.highlight-green { color: var(--green); font-weight: bold; }
-.highlight-accent { color: var(--accent); font-weight: bold; }
-.dialogue { background: #f8f9fa; border-left: 4px solid var(--primary); padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
-.dialogue .speaker { font-weight: bold; color: var(--primary); font-size: 16px; margin-bottom: 5px; }
-.dialogue.munger { border-left-color: var(--accent); }
-.dialogue.munger .speaker { color: var(--accent); }
-.decision-banner { background: var(--red); color: white; padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0; }
-.decision-banner .decision { font-size: 23px; font-weight: bold; }
-.decision-banner .reason { font-size: 14px; margin-top: 8px; opacity: 0.92; line-height: 1.7; }
+.dialogue {
+  background: #f0f6fc;
+  border-left: 4px solid var(--blue);
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.dialogue .speaker { font-weight: 700; color: var(--blue); margin-bottom: 5px; }
+.dialogue.munger { background: #fdf2f0; border-left-color: var(--red); }
+.dialogue.munger .speaker { color: var(--red); }
+table {
+  width: 100%; border-collapse: collapse; margin: 15px 0;
+  font-size: 13px; display: block; overflow-x: auto;
+}
+table th {
+  background: var(--table-header); color: white;
+  padding: 10px 8px; text-align: center; font-weight: 600; white-space: nowrap;
+}
+table td { padding: 8px; text-align: center; border-bottom: 1px solid var(--border); white-space: nowrap; }
+table tr:nth-child(even) td { background: var(--table-row-alt); }
+table tr:hover td { background: #e8f0fe; }
+.highlight-box { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.alert-box { background: #ffebee; border: 1px solid #ef9a9a; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.success-box { background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.info-box { background: #e3f2fd; border: 1px solid #90caf9; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
 .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0; }
-.metric-card { background: #f8f9fa; border-radius: 8px; padding: 15px; text-align: center; }
-.metric-card .label { font-size: 12px; color: var(--light-text); }
-.metric-card .value { font-size: 22px; font-weight: bold; color: var(--primary); }
-.metric-card .change { font-size: 12px; margin-top: 4px; }
-.warning-box { background: #fff5f5; border-left: 4px solid var(--red); padding: 15px 20px; border-radius: 0 8px 8px 0; margin: 15px 0; }
-.warning-box h4 { color: var(--red); margin-bottom: 8px; }
-.info-box { background: #f0f6fc; border-left: 4px solid var(--primary); padding: 15px 20px; border-radius: 0 8px 8px 0; margin: 15px 0; }
-.good-box { background: #eef7f0; border-left: 4px solid var(--green); padding: 15px 20px; border-radius: 0 8px 8px 0; margin: 15px 0; }
-.valuation-card { display: flex; gap: 12px; margin: 18px 0; flex-wrap: wrap; }
-.valuation-card .vcard { flex: 1; min-width: 180px; padding: 16px; border-radius: 10px; text-align: center; }
-.valuation-card .vcard.pess { background: #fef0f0; border: 2px solid #f5c6cb; }
-.valuation-card .vcard.mid { background: #fff8e1; border: 2px solid #ffe082; }
-.valuation-card .vcard.opt { background: #e8f5e9; border: 2px solid #a5d6a7; }
-.valuation-card .vcard .label { font-size: 13px; color: var(--light-text); }
-.valuation-card .vcard .value { font-size: 26px; font-weight: bold; }
-.valuation-card .vcard.pess .value { color: var(--red); }
-.valuation-card .vcard.mid .value { color: var(--accent); }
-.valuation-card .vcard.opt .value { color: var(--green); }
-.munger-audit { background: #f8f9fa; border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px; margin: 15px 0; font-size: 13px; }
-.munger-audit h4 { color: var(--red); margin-bottom: 8px; }
-.munger-audit table { font-size: 12px; margin: 8px 0; }
-.chart-container { width: 100%; height: 380px; margin: 20px 0; }
-.footer { text-align: center; padding: 30px; color: var(--light-text); font-size: 13px; border-top: 2px solid var(--border); margin-top: 30px; }
-.tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
-.tag-red { background: #ffe0e0; color: var(--red); }
-.tag-green { background: #d4edda; color: var(--green); }
-.tag-accent { background: #fff3cd; color: var(--accent); }
-@media (max-width: 768px) { .container { padding: 10px; } .header h1 { font-size: 20px; } .card { padding: 15px; } .metric-grid { grid-template-columns: repeat(2, 1fr); } }
+.metric-card { background: #f5f7fa; border-radius: 8px; padding: 15px; text-align: center; border: 1px solid var(--border); }
+.metric-card .label { font-size: 12px; color: var(--text-light); margin-bottom: 5px; }
+.metric-card .value { font-size: 24px; font-weight: 700; color: var(--primary); }
+.metric-card .unit { font-size: 14px; color: var(--text-light); }
+.metric-card .sub { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+.footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 13px; border-top: 1px solid var(--border); margin-top: 30px; }
+.toc { background: #f5f7fa; border-radius: 8px; padding: 20px 30px; margin-bottom: 25px; }
+.toc h3 { color: var(--primary); margin-bottom: 10px; }
+.toc ol { padding-left: 20px; }
+.toc li { margin: 5px 0; }
+.toc a { color: var(--blue); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.positive { color: var(--green); font-weight: 600; }
+.negative { color: var(--red); font-weight: 600; }
+.tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; margin: 0 3px; }
+.tag-go { background: #c8e6c9; color: #2e7d32; }
+.tag-nogo { background: #ffcdd2; color: #c62828; }
+.tag-warn { background: #fff9c4; color: #f57f17; }
+@media (max-width: 768px) {
+  .container { padding: 10px; } .section { padding: 15px; }
+  .header { padding: 25px 18px; } .header h1 { font-size: 22px; }
+  table { font-size: 11px; } table th, table td { padding: 5px 3px; }
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
 <div class="container">
 
+<!-- HEADER -->
 <div class="header">
-  <h1>宁德时代 (300750.SZ / 3750.HK) 巴菲特-芒格价值投资深度分析</h1>
-  <div class="subtitle">宁德时代新能源科技股份有限公司 | 动力电池系统 · 储能系统 · 电池材料及回收 | 全球动力电池龙头</div>
-  <div class="price-box">
-    <div class="price-item">现价 <strong>¥251.94</strong></div>
-    <div class="price-item">总市值 <strong>¥11,658亿</strong></div>
-    <div class="price-item">PE(TTM) <strong>13.3x</strong></div>
-    <div class="price-item">PB <strong>3.01x</strong></div>
-    <div class="price-item">股息率 <strong>3.3%</strong></div>
-    <div class="price-item">基准日 <strong>2026-11-04</strong></div>
+  <h1>宁德时代（300750.SZ / 3750.HK）巴芒价值投资分析报告</h1>
+  <div class="subtitle">基于 BR7UCE 价值投资分析框架 V10.1 的全流程十步分析</div>
+  <div>
+    <span class="framework-tag">分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）</span>
+    <span class="framework-tag">原创作者：Br7uce（br7）</span>
   </div>
-  <div class="framework-attr">分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）｜原创作者：Br7uce（br7）</div>
+  <div style="margin-top:10px; font-size:13px; opacity:0.85;">
+    本次分析时间基准：2026年11月4日 ｜ 估值日：2026年11月4日（盘中251.94元，+1.05%，昨收249.32元）
+  </div>
 </div>
 
-<div class="card">
-  <h3>分析时间基准</h3>
-  <p><strong>本次分析时间基准：2026年11月4日（首次全量分析）</strong></p>
-  <p>采用报告：2025年年度报告（披露于2026年3月）、2026年半年度报告（披露于2026年8月）、<strong>2026年第三季度报告（披露于2026年10月21日）</strong></p>
-  <p>数据来源：深交所与巨潮资讯网定期报告及公告、港交所披露易H股公告、公司季度报告、通达信行情与财务数据接口。所有比率均由原始科目自行计算，未直接引用外部衍生指标或券商预测。</p>
-  <p>当前股价：¥251.94（2026-11-04 09:40盘中，+1.05%，昨收249.32） | 总股本：46.27亿股（A股44.09亿股 + H股2.18亿股） | 总市值：¥11,658亿</p>
-  <p>注：本次为该标的首次全量分析，报告中"上次分析"字段统一标注为"无（首次）"。</p>
+<!-- TOC -->
+<div class="toc">
+  <h3>目录</h3>
+  <ol>
+    <li><a href="#p1">Prompt 1：行业与业务分析</a></li>
+    <li><a href="#p2">Prompt 2：财务报告逐年深度分析</a></li>
+    <li><a href="#p3">Prompt 3：多年财务汇总与整体评估</a></li>
+    <li><a href="#p4">Prompt 4：经济护城河评估与评级</a></li>
+    <li><a href="#p5">Prompt 5：管理层品质与企业文化</a></li>
+    <li><a href="#p6">Prompt 6：质量筛选与 Go/No-Go 决策</a></li>
+    <li><a href="#p7">Prompt 7：保守估值与内在价值</a></li>
+    <li><a href="#p8">Prompt 8：安全边际分析与投资决策</a></li>
+    <li><a href="#p9">Prompt 9：未来展望与关键监控点</a></li>
+    <li><a href="#p10">Prompt 10：最终结论与行动计划</a></li>
+  </ol>
 </div>
 
-<div class="card">
-  <h2>核心指标速览</h2>
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <h2>执行摘要</h2>
   <div class="metric-grid">
-    <div class="metric-card"><div class="label">当前股价</div><div class="value">¥251.94</div><div class="change">2026-11-04盘中 +1.05%</div></div>
-    <div class="metric-card"><div class="label">总市值</div><div class="value">¥11,658亿</div><div class="change">自高点回撤46.3%</div></div>
-    <div class="metric-card"><div class="label">PE (TTM)</div><div class="value">13.3x</div><div class="change">TTM归母 876.97亿</div></div>
-    <div class="metric-card"><div class="label">PB (MRQ)</div><div class="value">3.01x</div><div class="change">BVPS ¥83.61</div></div>
-    <div class="metric-card"><div class="label">2026前三季营收</div><div class="value">¥4,421亿</div><div class="change">+56.2% YoY</div></div>
-    <div class="metric-card"><div class="label">2026前三季归母</div><div class="value">¥645.3亿</div><div class="change">+31.6% YoY</div></div>
-    <div class="metric-card"><div class="label">Q3单季归母</div><div class="value">¥212.5亿</div><div class="change">+14.5% YoY（增速三连降）</div></div>
-    <div class="metric-card"><div class="label">Q3单季经营现金流</div><div class="value">¥14.1亿</div><div class="change">现金含量仅6.3% ⚠</div></div>
+    <div class="metric-card">
+      <div class="label">当前股价（2026-11-04 盘中）</div>
+      <div class="value">251.94<span class="unit"> 元</span></div>
+      <div class="sub">+1.05%，昨收249.32元</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">总市值</div>
+      <div class="value">11,658<span class="unit"> 亿</span></div>
+      <div class="sub">总股本46.27亿股（A股44.09亿+H股2.18亿）</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2026前三季营收</div>
+      <div class="value">4,421.37<span class="unit"> 亿</span></div>
+      <div class="sub">同比+56.2%，九个月超2025全年</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2026前三季归母净利</div>
+      <div class="value" style="color:var(--green);">645.30<span class="unit"> 亿</span></div>
+      <div class="sub">+31.6%，Q3单季212.46亿（+14.5%）</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2026前三季扣非净利</div>
+      <div class="value">578.76<span class="unit"> 亿</span></div>
+      <div class="sub">扣非净利率13.09%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">TTM PE</div>
+      <div class="value">13.3<span class="unit"> x</span></div>
+      <div class="sub">TTM归母876.97亿</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">PB（MRQ）</div>
+      <div class="value">3.01<span class="unit"> x</span></div>
+      <div class="sub">BVPS 83.61元，归母权益3,868.81亿</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">股息率</div>
+      <div class="value">3.3<span class="unit"> %</span></div>
+      <div class="sub">2025年度分红率43.67%</div>
+    </div>
   </div>
+  <div class="success-box">
+    <strong>核心结论：</strong>宁德时代是全球动力电池与储能电池龙头，规模、技术与客户定点构成宽护城河，但这条河正在被价格竞争侵蚀。2026年前三季度营收4,421.37亿元（+56.2%）、归母净利645.30亿元（+31.6%）、扣非净利578.76亿元，九个月收入已超过2025年全年；然而Q3单季出现明显的“增收不增利”：营收1,652.21亿元（+58.6%），归母净利212.46亿元仅增14.5%，毛利率降至20.69%（同比-5.11pp），单季经营现金流仅14.09亿元、对净利润的现金含量6.3%。估值端确实便宜——TTM PE 13.3倍、PB 3.01倍、股息率3.3%，DCF三情景合理价值255.66元，现价251.94元仅折价1.5%，距25%安全边际对应的买入上限191.75元还有31.4%的空间。<strong>结论为B. 观察等待</strong>：不因“腰斩”而买入，等待毛利率企稳与现金流修复的双重验证。
+  </div>
+
+  <h3>关键事实与首读结论（首次全量分析）</h3>
+  <table>
+    <thead><tr><th>维度</th><th>数据</th><th>判断</th><th>方向</th></tr></thead>
+    <tbody>
+      <tr><td>2025全年</td><td>营收4,237.02亿（+17.0%）；归母722.01亿（+42.3%）</td><td>利润增速快于收入，毛利率26.27%为六年最高</td><td class="positive">优秀</td></tr>
+      <tr><td>2026前三季</td><td>营收4,421.37亿（+56.2%）；归母645.30亿（+31.6%）</td><td>九个月收入已超2025全年，需求端未见转弱</td><td class="positive">规模扩张</td></tr>
+      <tr><td>2026Q3单季</td><td>营收1,652.21亿（+58.6%）；归母212.46亿（+14.5%）</td><td>增速Q1+48.5%→Q2+36.5%→Q3+14.5%，三连降</td><td class="negative">转弱</td></tr>
+      <tr><td>毛利率</td><td>2025年26.27% → 前三季22.72% → Q3单季20.69%</td><td>同比-5.11pp，为2022年以来最低</td><td class="negative">红灯</td></tr>
+      <tr><td>经营现金流</td><td>前三季616.25亿；Q3单季仅14.09亿</td><td>Q3现金含量6.3%（净利润224.68亿）</td><td class="negative">红灯</td></tr>
+      <tr><td>营运资本</td><td>存货1,447.70亿（+53.2%）；应收1,129.12亿（+47.8%）；合同负债406.69亿（-17.4%）</td><td>收入高增与预收下降同时出现，待验证</td><td class="negative">待验证</td></tr>
+      <tr><td>资产负债表</td><td>货币资金3,698.14亿；总资产11,831.74亿；负债率64.23%</td><td>净现金约1,500亿，抗风险能力强</td><td class="positive">稳健</td></tr>
+      <tr><td>估值</td><td>PE(TTM) 13.3x；PB 3.01x；股息率3.3%</td><td>绝对估值处于历史低位区</td><td class="positive">便宜</td></tr>
+      <tr><td>安全边际</td><td>合理价值255.66元；买入上限191.75元</td><td>现价折价仅1.5%，低于买入区31.4%</td><td class="negative">不足</td></tr>
+    </tbody>
+  </table>
 </div>
 
-<div class="decision-banner">
-  <div class="decision">最终结论：B. 观察等待（价值区上沿，无安全边际；毛利率与现金流双红灯）</div>
-  <div class="reason">合理价值 ¥255.66/股，现价 ¥251.94 仅折价 1.5%，不构成 25% 安全边际（对应买入区 ¥185-200）。Q3 单季营收 +58.6% 而归母仅 +14.5%，毛利率降至 20.69%（同比 -5.11pp）；Q3 经营现金流仅 14.09 亿（净利润 224.68 亿），利润未转化为现金。估值虽便宜（PE 13.3x、股息率 3.3%），但盈利质量正在下滑，暂不买入，等待毛利率企稳与现金流修复。</div>
-</div>
-
-<div class="card">
-  <h2>核心事实与首读结论（首次分析）</h2>
-  <div class="table-wrap">
-    <table>
-      <tr><th>维度</th><th>数据</th><th>解读</th></tr>
-      <tr><td>2025全年</td><td>营收 4,237.02亿（+17.0%）；归母 722.01亿（+42.3%）</td><td class="highlight-green">收入恢复增长，利润增速快于收入</td></tr>
-      <tr><td>2026前三季</td><td>营收 4,421.37亿（+56.2%）；归母 645.30亿（+31.6%）</td><td class="highlight-accent">九个月收入已超2025全年</td></tr>
-      <tr><td>2026Q3单季</td><td>营收 1,652.21亿（+58.6%）；归母 212.46亿（+14.5%）</td><td class="highlight-red">增收不增利，剪刀差扩大</td></tr>
-      <tr><td>毛利率</td><td>2025年 26.27% → 2026前三季 22.72% → Q3单季 20.69%</td><td class="highlight-red">同比 -5.11pp，定价权受压</td></tr>
-      <tr><td>净利率</td><td>2025年 18.12% → 2026前三季 15.72% → Q3单季 13.60%</td><td class="highlight-red">同比 -5.53pp</td></tr>
-      <tr><td>经营现金流</td><td>前三季 616.25亿（净利 694.98亿，含量 88.7%）；Q3单季仅 14.09亿</td><td class="highlight-red">Q3现金含量 6.3%，营运资本吞噬</td></tr>
-      <tr><td>营运资本</td><td>存货 1,447.70亿（较年初+53.2%）；应收 1,129.12亿（+47.8%）；合同负债 406.69亿（-17.4%）</td><td class="highlight-red">存货与应收扩张快于收入，预收下降</td></tr>
-      <tr><td>资产负债表</td><td>货币资金 3,698.14亿；总资产 11,831.74亿；负债率 64.23%</td><td class="highlight-green">净现金约1,500亿，抗风险能力强</td></tr>
-      <tr><td>估值</td><td>PE(TTM) 13.3x；PB 3.01x；股息率 3.3%；2025分红率 43.67%</td><td class="highlight-green">绝对估值处于历史低位区</td></tr>
-      <tr><td>股价位置</td><td>年内高 468.75（05-07）→ 低 216.51（10-23）；现价回撤 46.3%、较低点+16.4%</td><td class="highlight-accent">三季报当日 -12.0%，市场用脚投票</td></tr>
-    </table>
-  </div>
-  <div class="warning-box">
-    <h4>首读五条硬事实</h4>
-    <p>① <strong>规模仍在高速扩张</strong>：2026前三季收入 4,421亿已超2025全年 4,237亿，Q3单季收入同比 +58.6%，说明需求端（动力+储能）并未转弱，量的增长非常强。</p>
-    <p>② <strong>但利润增速断崖式回落</strong>：Q1 +48.5% → Q2 +36.5% → Q3 +14.5%，三个季度连续降速，Q3 净利率 13.60%（2025Q3 为 19.13%）。</p>
-    <p>③ <strong>毛利率是核心矛盾</strong>：Q3 单季 20.69%，为2022年以来最低（2022全年 20.25%），较2025Q3 的 25.80% 下滑 5.11pp。这不是费用问题，是产品售价/成本结构问题。</p>
-    <p>④ <strong>现金流红灯</strong>：Q3 单季经营现金流 14.09亿，对净利润 224.68亿 的现金含量仅 6.3%；同期存货增加、应收增加、合同负债下降，营运资本占用加剧。前三季 capex 421.67亿（占 OCF 68.4%）。</p>
-    <p>⑤ <strong>估值便宜但缺安全边际</strong>：DCF 合理价值 255.66元，现价 251.94元，折价仅 1.5%；对应 25% 安全边际的买入价约 191.75元，悲观价值 207.39元。便宜不等于足够便宜。</p>
-  </div>
-</div>
-
-<!-- Prompt 1 -->
-<div class="card">
+<!-- PROMPT 1 -->
+<div class="section" id="p1">
   <h2>Prompt 1：行业与业务分析</h2>
 
-  <h3>1.1 公司本质与商业模式</h3>
-  <p>宁德时代（CATL）成立于2011年，2018年6月于深交所创业板上市，2025年5月于港交所主板上市（H股代码 3750，H股 218,300,300 股）。公司是全球规模最大的动力电池与储能电池制造商，核心业务为电芯、模组/电池包（Pack）及电池系统的研发、生产与销售，并向电池材料、矿产资源、回收利用及换电服务延伸。</p>
-  <p>商业模式的本质是<strong>"以规模换成本、以技术换溢价、以定点换份额"</strong>：通过超大产能摊薄单位制造费用，通过 CTP/麒麟/神行/钠离子等结构创新获取差异化定价，通过与整车厂长期定点协议锁定多年订单。其盈利对<strong>电池单价、原材料（碳酸锂）成本、产品结构</strong>三者高度敏感。</p>
+  <h3>1.1 公司概况与商业模式</h3>
+  <p>宁德时代新能源科技股份有限公司（CATL，300750.SZ / 3750.HK）成立于2011年，2018年6月登陆深交所创业板，2025年5月于港交所主板上市（H股218,300,300股）。公司是全球规模最大的动力电池与储能电池制造商，核心业务为电芯、模组/电池包（Pack）及电池系统的研发、生产与销售，并向电池材料、矿产资源、回收利用与换电服务延伸。</p>
+  <p>商业模式的本质是<strong>“以规模换成本、以技术换溢价、以定点换份额”</strong>：通过超大产能摊薄单位制造费用，通过CTP/麒麟/神行/钠离子等结构创新获取差异化定价，通过与整车厂长期定点协议锁定多年订单。其盈利对<strong>电池单价、碳酸锂成本、产品结构</strong>三者高度敏感——这也是本报告反复回到的三个变量。</p>
 
   <h3>1.2 2025年收入结构（按产品）</h3>
-  <div class="table-wrap">
-    <table>
-      <tr><th>产品</th><th>收入(亿元)</th><th>占比</th><th>毛利率</th><th>业务特征</th></tr>
-      <tr><td>动力电池系统</td><td>3,165.06</td><td>74.7%</td><td>23.84%</td><td class="left">核心基本盘，绑定全球主流车企</td></tr>
-      <tr><td>储能系统</td><td>624.40</td><td>14.7%</td><td>26.71%</td><td class="left">第二增长曲线，海外大储需求强</td></tr>
-      <tr><td>电池材料及回收</td><td>218.61</td><td>5.2%</td><td>27.27%</td><td class="left">正极材料与回收，垂直一体化</td></tr>
-      <tr><td>其他业务</td><td>169.17</td><td>4.0%</td><td>74.29%</td><td class="left">技术授权、售后与研发服务</td></tr>
-      <tr><td>电池矿产资源</td><td>59.78</td><td>1.4%</td><td>11.25%</td><td class="left">锂矿等，平抑原材料波动</td></tr>
-    </table>
-  </div>
-  <p>结构含义：动力电池贡献约四分之三收入、约三分之二毛利；储能是增速最快、毛利率最高的板块；"其他业务"毛利率 74.29% 说明技术授权与售后服务具备高附加值，但规模仅 4%。</p>
+  <table>
+    <thead><tr><th>产品</th><th>收入（亿元）</th><th>占比</th><th>毛利率</th><th>业务特征</th></tr></thead>
+    <tbody>
+      <tr><td>动力电池系统</td><td>3,165.06</td><td>74.7%</td><td>23.84%</td><td>核心基本盘，绑定全球主流车企</td></tr>
+      <tr><td>储能系统</td><td>624.40</td><td>14.7%</td><td>26.71%</td><td>第二增长曲线，海外大储需求强</td></tr>
+      <tr><td>电池材料及回收</td><td>218.61</td><td>5.2%</td><td>27.27%</td><td>正极材料与回收，垂直一体化</td></tr>
+      <tr><td>其他业务</td><td>169.17</td><td>4.0%</td><td>74.29%</td><td>技术授权、售后与研发服务</td></tr>
+      <tr><td>电池矿产资源</td><td>59.78</td><td>1.4%</td><td>11.25%</td><td>锂矿等，平抑原材料波动</td></tr>
+    </tbody>
+  </table>
+  <p>结构含义：动力电池贡献约四分之三收入、约三分之二毛利；储能是增速最快、毛利率最高的板块；“其他业务”毛利率74.29%，说明技术授权与售后服务具备高附加值，但规模仅4%。</p>
 
   <h3>1.3 行业与竞争位置</h3>
   <table>
-    <tr><th>维度</th><th>宁德时代位置</th><th>说明</th></tr>
-    <tr><td>全球动力电池装机份额</td><td>约 37%-38%（第一）</td><td class="left">行业机构（SNE Research）口径，连续多年全球第一</td></tr>
-    <tr><td>全球储能电池份额</td><td>约 30%以上（第一梯队）</td><td class="left">大储与工商业储能双线扩张</td></tr>
-    <tr><td>主要竞争对手</td><td>比亚迪、LG新能源、松下、SK On、亿纬锂能、中创新航</td><td class="left">比亚迪以自供为主，二线厂商以低价抢份额</td></tr>
-    <tr><td>技术路线</td><td>磷酸铁锂 + 三元并行；CTP/麒麟/神行/钠离子/骁遥增混</td><td class="left">铁锂占比提升，成本与安全优势</td></tr>
-    <tr><td>产能布局</td><td>国内（宁德、溧阳、宜宾、肇庆、青海等）+ 德国、匈牙利、西班牙、印尼</td><td class="left">海外基地处于产能爬坡期，短期摊薄毛利</td></tr>
+    <thead><tr><th>维度</th><th>宁德时代位置</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>全球动力电池装机份额</td><td>约37%-38%（第一）</td><td>行业机构口径，连续多年全球第一</td></tr>
+      <tr><td>全球储能电池份额</td><td>约30%以上（第一梯队）</td><td>大储与工商业储能双线扩张</td></tr>
+      <tr><td>主要竞争对手</td><td>比亚迪、LG新能源、松下、SK On、亿纬锂能、中创新航</td><td>比亚迪以自供为主，二线厂商以低价抢份额</td></tr>
+      <tr><td>技术路线</td><td>磷酸铁锂+三元并行；CTP/麒麟/神行/钠离子/骁遥增混</td><td>铁锂占比提升，成本与安全优势</td></tr>
+      <tr><td>产能布局</td><td>国内（宁德、溧阳、宜宾、肇庆、青海等）+德国、匈牙利、西班牙、印尼</td><td>海外基地处于产能爬坡期，短期摊薄毛利</td></tr>
+    </tbody>
   </table>
 
   <h3>1.4 估值路由候选</h3>
   <div class="info-box">
-    <p><strong>候选路由：类型 2 — 高回报成长型</strong></p>
-    <p>依据：2021-2025 营收 CAGR 34.3%、归母净利 CAGR 45.9%；2025 ROE 24.72%，连续五年 ROE 高于 21%；净利率 2025 年 18.12%；资产负债率 61.94%，净现金为正。高回报 + 高成长 + 低净负债，符合类型 2 的全部特征。</p>
-    <p>置信度：高 | 备选：类型 4（强周期资源型，若碳酸锂价格成为盈利主导变量）| 切换条件：连续两年 ROE 降至 12% 以下且利润与锂价高度同步。</p>
+    <p><strong>候选路由：类型2 — 高回报成长型</strong></p>
+    <p>依据：2021-2025营收CAGR 34.3%、归母净利CAGR 45.9%；2025年ROE 24.72%，连续五年高于21%；净利率18.12%；资产负债率61.94%，净现金为正。高回报、高成长、低净负债，符合类型2的全部特征。</p>
+    <p>置信度：高 ｜ 备选：类型4（强周期资源型，若碳酸锂价格成为盈利主导变量）｜ 切换条件：连续两年ROE降至12%以下且利润与锂价高度同步。</p>
   </div>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>这是一家我喜欢的公司类型：全球第一的市场份额、24% 的 ROE、连续五年自由现金流为正，2025 年经营现金流 1,332 亿、资本开支 423 亿，股东盈余 909 亿。它的产品是工业品，但客户愿意为一致性、安全性和供应保障支付溢价。2026 年前三季收入 4,421 亿已经超过 2025 年全年，说明需求端仍然强劲。以 13 倍 PE 买这样一门生意，价格本身是有吸引力的。</p>
+    这是一家我喜欢的公司类型：全球第一的市场份额、24%的ROE、连续五年自由现金流为正，2025年经营现金流1,332亿、资本开支423亿，股东盈余909亿。它的产品是工业品，但客户愿意为一致性、安全性和供应保障支付溢价。2026年前三季收入4,421亿已经超过2025年全年，说明需求端仍然强劲。以13倍PE买这样一门生意，价格本身是有吸引力的。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>我不同意"价格有吸引力"这个说法。你说的每一句话都是对的，但你漏掉了最重要的一句：<strong>它的毛利率正在快速下滑</strong>。2025 年 26.27%，2026 前三季 22.72%，Q3 单季 20.69%。一家公司如果真有定价权，不会在收入增长 58.6% 的同时毛利率掉 5 个百分点。这说明它正在用价格换份额，或者产品结构在向低毛利倾斜。工业品生意的宿命是：产能一旦过剩，龙头也只能跟着降价。13 倍 PE 可能只是市场对盈利下修的提前定价，而不是折扣。</p>
+    我不同意“价格有吸引力”这个说法。你说的每一句话都是对的，但漏掉了最重要的一句：<strong>毛利率正在快速下滑</strong>。2025年26.27%，2026前三季22.72%，Q3单季20.69%。一家公司如果真有定价权，不会在收入增长58.6%的同时毛利率掉5个百分点。这说明它正在用价格换份额，或者产品结构在向低毛利倾斜。工业品生意的宿命是：产能一旦过剩，龙头也只能跟着降价。13倍PE可能只是市场对盈利下修的提前定价，而不是折扣。
   </div>
-
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>我接受你的修正。毛利率下滑是事实，我不会用"规模效应"去掩盖它。但我要补充一个区分：毛利率下滑可能来自<strong>原材料价格传导的时滞</strong>（碳酸锂涨价时，售价调整滞后于成本），也可能是<strong>结构性价格战</strong>。前者的修复只需要一两个季度，后者则意味着护城河在变窄。这正是 Prompt 7 估值时必须分情景处理的核心变量。在此之前，我保留"优质公司"的判断，但不为它支付高于合理价值的价格。</p>
+    我接受你的修正。毛利率下滑是事实，我不会用“规模效应”去掩盖它。但要区分两种可能：<strong>原材料价格传导的时滞</strong>，还是<strong>结构性价格战</strong>。前者修复只需一两个季度，后者意味着护城河在变窄。这正是Prompt 7必须分情景处理的核心变量。在此之前，我保留“优质公司”的判断，但不为它支付高于合理价值的价格。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 1</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>收入结构与占比</td><td>✅ 已核</td><td>2025年报主营构成：五项合计 4,237.02 亿，与利润表营业收入完全一致</td></tr>
-      <tr><td>分部毛利率</td><td>✅ 已核</td><td>分部毛利合计 1,113.18 亿 = 营业收入 × 26.27%，交叉验证通过</td></tr>
-      <tr><td>股本结构</td><td>✅ 已核</td><td>2026-10 H股月报表：A股 4,408,949,386 股 + H股 218,300,300 股 = 46.27 亿股</td></tr>
-      <tr><td>全球市占率</td><td>⚠ 单源</td><td>行业机构口径，非公司公告直接披露；仅用于定性，不进入估值计算</td></tr>
-      <tr><td>海外基地产能</td><td>⚠ 定性</td><td>公司公开披露的基地名单，未逐年核对产能数字，不参与估值</td></tr>
-    </table>
-    <p>结论：本模块复核通过（市占率与产能为单源定性信息，已按三级缺口披露处理，不影响计算）。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 1</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>收入结构与占比</td><td class="positive">已核</td><td>2025年报主营构成五项合计4,237.02亿，与利润表营业收入一致</td></tr>
+      <tr><td>分部毛利率</td><td class="positive">已核</td><td>分部毛利合计1,113.18亿＝营业收入×26.27%，交叉验证通过</td></tr>
+      <tr><td>股本结构</td><td class="positive">已核</td><td>2026-10 H股月报表：A股4,408,949,386股＋H股218,300,300股＝46.27亿股</td></tr>
+      <tr><td>全球市占率</td><td class="negative">单源</td><td>行业机构口径，非公司公告直接披露；仅用于定性，不进入估值</td></tr>
+      <tr><td>海外基地产能</td><td class="negative">定性</td><td>公司公开披露的基地名单，未逐年核对产能数字，不参与估值</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。市占率与产能为单源定性信息，已按三级缺口披露处理，不影响计算。</p>
 </div>
 
-<!-- Prompt 2 -->
-<div class="card">
-  <h2>Prompt 2：逐年财务质量审查（2021-2026Q3）</h2>
+<!-- PROMPT 2 -->
+<div class="section" id="p2">
+  <h2>Prompt 2：财务报告逐年深度分析</h2>
 
-  <h3>2.1 六年主要财务数据</h3>
-  <div class="table-wrap">
-    <table>
-      <tr><th>年度</th><th>营收(亿)</th><th>YoY</th><th>归母(亿)</th><th>YoY</th><th>扣非(亿)</th><th>毛利率</th><th>净利率</th><th>ROE</th><th>负债率</th><th>OCF(亿)</th><th>Capex(亿)</th><th>FCF(亿)</th></tr>
-      <tr><td>2021</td><td>1,303.56</td><td>+159.1%</td><td>159.31</td><td>+185.3%</td><td>134.42</td><td>26.28%</td><td>13.70%</td><td>21.42%</td><td>69.90%</td><td>429.08</td><td>437.68</td><td class="highlight-red">-8.60</td></tr>
+  <h3>2.1 六年主要财务数据（2021-2026Q3）</h3>
+  <table>
+    <thead><tr><th>年度</th><th>营收(亿)</th><th>YoY</th><th>归母(亿)</th><th>YoY</th><th>扣非(亿)</th><th>毛利率</th><th>净利率</th><th>ROE</th><th>负债率</th><th>OCF(亿)</th><th>Capex(亿)</th><th>FCF(亿)</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>1,303.56</td><td>+159.1%</td><td>159.31</td><td>+185.3%</td><td>134.42</td><td>26.28%</td><td>13.70%</td><td>21.42%</td><td>69.90%</td><td>429.08</td><td>437.68</td><td class="negative">-8.60</td></tr>
       <tr><td>2022</td><td>3,285.94</td><td>+152.1%</td><td>307.29</td><td>+92.9%</td><td>282.13</td><td>20.25%</td><td>10.18%</td><td>24.68%</td><td>70.56%</td><td>612.09</td><td>482.15</td><td>129.94</td></tr>
       <tr><td>2023</td><td>4,009.17</td><td>+22.0%</td><td>441.21</td><td>+43.6%</td><td>400.92</td><td>22.91%</td><td>11.66%</td><td>24.36%</td><td>69.34%</td><td>928.26</td><td>336.25</td><td>592.01</td></tr>
-      <tr><td>2024</td><td>3,620.13</td><td class="highlight-red">-9.7%</td><td>507.45</td><td>+15.0%</td><td>449.93</td><td>24.44%</td><td>14.92%</td><td>22.83%</td><td>65.24%</td><td>969.90</td><td>311.80</td><td>658.10</td></tr>
-      <tr><td>2025</td><td>4,237.02</td><td>+17.0%</td><td>722.01</td><td>+42.3%</td><td>645.08</td><td>26.27%</td><td>18.12%</td><td>24.72%</td><td>61.94%</td><td>1,332.20</td><td>423.45</td><td class="highlight-green">908.75</td></tr>
-      <tr><td>2026前三季</td><td>4,421.37</td><td>+56.2%</td><td>645.30</td><td>+31.6%</td><td>578.76</td><td class="highlight-red">22.72%</td><td>15.72%</td><td>17.83%*</td><td>64.23%</td><td>616.25</td><td>421.67</td><td>194.58</td></tr>
-    </table>
-  </div>
-  <p style="font-size:12px;color:#666;">*2026前三季ROE未年化，年化约 23.8%（17.83% × 4/3）。FCF = 经营活动现金流净额 − 购建固定资产、无形资产和其他长期资产支付的现金。</p>
+      <tr><td>2024</td><td>3,620.13</td><td class="negative">-9.7%</td><td>507.45</td><td>+15.0%</td><td>449.93</td><td>24.44%</td><td>14.92%</td><td>22.83%</td><td>65.24%</td><td>969.90</td><td>311.80</td><td>658.10</td></tr>
+      <tr><td>2025</td><td>4,237.02</td><td>+17.0%</td><td>722.01</td><td>+42.3%</td><td>645.08</td><td>26.27%</td><td>18.12%</td><td>24.72%</td><td>61.94%</td><td>1,332.20</td><td>423.45</td><td class="positive">908.75</td></tr>
+      <tr><td>2026前三季</td><td>4,421.37</td><td>+56.2%</td><td>645.30</td><td>+31.6%</td><td>578.76</td><td class="negative">22.72%</td><td>15.72%</td><td>17.83%*</td><td>64.23%</td><td>616.25</td><td>421.67</td><td>194.58</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:#666;">*2026前三季ROE未年化，年化约23.8%（17.83%×4/3）。FCF＝经营活动现金流净额−购建固定资产、无形资产和其他长期资产支付的现金。</p>
 
   <h3>2.2 逐年审查要点</h3>
   <table>
-    <tr><th>年度</th><th>质量判断</th><th>关键证据</th></tr>
-    <tr><td>2021</td><td class="left"><span class="tag tag-green">优秀</span></td><td class="left">收入翻倍、归母 +185%，但资本开支 437.68 亿大于经营现金流，FCF 为 -8.60 亿，处于产能扩张投入期。</td></tr>
-    <tr><td>2022</td><td class="left"><span class="tag tag-accent">承压</span></td><td class="left">碳酸锂暴涨，毛利率从 26.28% 降至 20.25%（-6.03pp），但收入 +152% 摊薄费用，净利率仍守住 10.18%；FCF 转正 129.94 亿。</td></tr>
-    <tr><td>2023</td><td class="left"><span class="tag tag-green">优秀</span></td><td class="left">收入 +22%，归母 +43.6%，毛利率回升至 22.91%；资本开支降至 336.25 亿，FCF 592.01 亿，现金流大幅改善。</td></tr>
-    <tr><td>2024</td><td class="left"><span class="tag tag-green">优秀</span></td><td class="left">收入 -9.7%（锂价下跌导致售价下降），但归母 +15.0%、毛利率 24.44%，说明"降价不降利"，成本控制与结构改善有效；FCF 658.10 亿创新高。</td></tr>
-    <tr><td>2025</td><td class="left"><span class="tag tag-green">卓越</span></td><td class="left">收入 +17%、归母 +42.3%、毛利率 26.27%（六年最高）、净利率 18.12%；OCF 1,332.20 亿，FCF 908.75 亿；扣非/归母 89.3%，利润含金量高。</td></tr>
-    <tr><td>2026前三季</td><td class="left"><span class="tag tag-red">转弱</span></td><td class="left">收入 +56.2%、归母 +31.6%，但毛利率降至 22.72%，Q3 单季 20.69%；Q3 经营现金流仅 14.09 亿；存货与应收大幅扩张，现金流质量显著恶化。</td></tr>
-    </table>
+    <thead><tr><th>年度</th><th>质量判断</th><th>关键证据</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td><span class="tag tag-go">优秀</span></td><td>收入翻倍、归母+185%，但资本开支437.68亿大于经营现金流，FCF为-8.60亿，处于产能扩张投入期</td></tr>
+      <tr><td>2022</td><td><span class="tag tag-warn">承压</span></td><td>碳酸锂暴涨，毛利率从26.28%降至20.25%（-6.03pp）；收入+152%摊薄费用，净利率守住10.18%；FCF转正129.94亿</td></tr>
+      <tr><td>2023</td><td><span class="tag tag-go">优秀</span></td><td>收入+22%、归母+43.6%，毛利率回升至22.91%；资本开支降至336.25亿，FCF 592.01亿，现金流大幅改善</td></tr>
+      <tr><td>2024</td><td><span class="tag tag-go">优秀</span></td><td>收入-9.7%（锂价下跌导致售价下降），归母仍+15.0%、毛利率24.44%，“降价不降利”；FCF 658.10亿创新高</td></tr>
+      <tr><td>2025</td><td><span class="tag tag-go">卓越</span></td><td>收入+17%、归母+42.3%、毛利率26.27%（六年最高）、净利率18.12%；OCF 1,332.20亿、FCF 908.75亿；扣非/归母89.3%</td></tr>
+      <tr><td>2026前三季</td><td><span class="tag tag-nogo">转弱</span></td><td>收入+56.2%、归母+31.6%，但毛利率降至22.72%、Q3单季20.69%；Q3经营现金流仅14.09亿；存货与应收大幅扩张</td></tr>
+    </tbody>
+  </table>
 
   <h3>2.3 2026年单季拆解</h3>
-  <div class="table-wrap">
-    <table>
-      <tr><th>季度</th><th>营收(亿)</th><th>营收YoY</th><th>归母(亿)</th><th>归母YoY</th><th>净利率</th><th>毛利率</th></tr>
+  <table>
+    <thead><tr><th>季度</th><th>营收(亿)</th><th>营收YoY</th><th>归母(亿)</th><th>归母YoY</th><th>净利率</th><th>毛利率</th></tr></thead>
+    <tbody>
       <tr><td>2025Q3</td><td>1,041.86</td><td>+12.9%</td><td>185.49</td><td>+41.2%</td><td>19.13%</td><td>25.80%</td></tr>
       <tr><td>2026Q1</td><td>1,291.31</td><td>+52.4%</td><td>207.38</td><td>+48.5%</td><td>17.61%</td><td>24.82%</td></tr>
       <tr><td>2026Q2</td><td>1,477.86</td><td>+56.9%</td><td>225.46</td><td>+36.5%</td><td>16.98%</td><td>23.16%</td></tr>
-      <tr><td>2026Q3</td><td>1,652.21</td><td class="highlight-green">+58.6%</td><td>212.46</td><td class="highlight-red">+14.5%</td><td class="highlight-red">13.60%</td><td class="highlight-red">20.69%</td></tr>
-    </table>
-  </div>
-  <p>单季毛利率由 H1 的 23.93% 进一步降至 Q3 的 20.69%（计算式：Q3毛利 = 前三季毛利 1,004.4亿 − H1毛利 662.6亿 = 341.8亿；341.8 / 1,652.21 = 20.69%）。归母增速 Q1 +48.5% → Q2 +36.5% → Q3 +14.5%，连续三个季度降速。</p>
-
-  <h3>2.4 现金流与营运资本（2026前三季 vs 2025全年）</h3>
-  <table>
-    <tr><th>科目</th><th>2025-12-31</th><th>2026-09-30</th><th>变化</th><th>含义</th></tr>
-    <tr><td>存货(亿)</td><td>945.26</td><td>1,447.70</td><td class="highlight-red">+53.2%</td><td class="left">增速接近收入增速（+56%），属同步扩张但绝对占用大</td></tr>
-    <tr><td>应收账款(亿)</td><td>764.03</td><td>1,129.12</td><td class="highlight-red">+47.8%</td><td class="left">略慢于收入，账期管理尚可</td></tr>
-    <tr><td>合同负债(亿)</td><td>492.33</td><td>406.69</td><td class="highlight-red">-17.4%</td><td class="left">预收款下降，订单能见度弱于2025年末</td></tr>
-    <tr><td>货币资金(亿)</td><td>—</td><td>3,698.14</td><td>—</td><td class="left">占总资产 31.3%，流动性充裕</td></tr>
-    <tr><td>总资产(亿)</td><td>9,748.28</td><td>11,831.74</td><td>+21.4%</td><td class="left">资产扩张主要由营运资本与产能驱动</td></tr>
-    <tr><td>负债率</td><td>61.94%</td><td>64.23%</td><td class="highlight-red">+2.29pp</td><td class="left">负债扩张快于权益，但仍处行业合理区间</td></tr>
-    <tr><td>Q3单季OCF(亿)</td><td>—</td><td>14.09</td><td>—</td><td class="highlight-red">对Q3净利224.68亿的现金含量仅6.3%</td></tr>
+      <tr><td>2026Q3</td><td>1,652.21</td><td class="positive">+58.6%</td><td>212.46</td><td class="negative">+14.5%</td><td class="negative">13.60%</td><td class="negative">20.69%</td></tr>
+    </tbody>
   </table>
-  <p>计算：Q3 单季 OCF = 前三季 616.25 − H1 602.17 = 14.09 亿；Q3 单季净利润 224.68 亿；现金含量 = 14.09 / 224.68 = 6.3%。2025Q3 单季 OCF = 806.60 − 586.87 = 219.73 亿，对应净利润 199.31 亿，现金含量 110.2%。同比恶化极为显著。</p>
+  <p>单季毛利率由H1的23.93%进一步降至Q3的20.69%（计算式：Q3毛利＝前三季毛利1,004.4亿−H1毛利662.6亿＝341.8亿；341.8/1,652.21＝20.69%）。归母增速Q1+48.5%→Q2+36.5%→Q3+14.5%，连续三个季度降速。</p>
+
+  <h3>2.4 现金流与营运资本</h3>
+  <table>
+    <thead><tr><th>科目</th><th>2025-12-31</th><th>2026-09-30</th><th>变化</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td>存货(亿)</td><td>945.26</td><td>1,447.70</td><td class="negative">+53.2%</td><td>增速接近收入增速（+56%），同步扩张但绝对占用大</td></tr>
+      <tr><td>应收账款(亿)</td><td>764.03</td><td>1,129.12</td><td class="negative">+47.8%</td><td>略慢于收入，账期管理尚可</td></tr>
+      <tr><td>合同负债(亿)</td><td>492.33</td><td>406.69</td><td class="negative">-17.4%</td><td>预收款下降，订单能见度弱于2025年末</td></tr>
+      <tr><td>货币资金(亿)</td><td>—</td><td>3,698.14</td><td>—</td><td>占总资产31.3%，流动性充裕</td></tr>
+      <tr><td>总资产(亿)</td><td>9,748.28</td><td>11,831.74</td><td>+21.4%</td><td>资产扩张主要由营运资本与产能驱动</td></tr>
+      <tr><td>负债率</td><td>61.94%</td><td>64.23%</td><td class="negative">+2.29pp</td><td>负债扩张快于权益，仍处行业合理区间</td></tr>
+      <tr><td>Q3单季OCF(亿)</td><td>—</td><td>14.09</td><td>—</td><td class="negative">对Q3净利224.68亿的现金含量仅6.3%</td></tr>
+    </tbody>
+  </table>
+  <p>计算：Q3单季OCF＝前三季616.25−H1 602.17＝14.09亿；Q3单季净利润224.68亿；现金含量＝14.09/224.68＝6.3%。2025Q3单季OCF＝806.60−586.87＝219.73亿，对应净利润199.31亿，现金含量110.2%。同比恶化极为显著。</p>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>把六年放在一起看，这是一份相当漂亮的账本：收入从 1,304 亿增长到 4,237 亿，归母从 159 亿增长到 722 亿，五年累计自由现金流 2,280 亿，高于累计净利润 2,137 亿——这意味着公司赚到的是真钱，而不是账面利润。2024 年收入下滑 9.7% 而归母仍增长 15%，也证明了成本控制能力。这是我给高分的依据。</p>
+    把六年放在一起看，这是一份相当漂亮的账本：收入从1,304亿增长到4,237亿，归母从159亿增长到722亿，五年累计自由现金流2,280亿，高于累计净利润2,137亿——这意味着公司赚到的是真钱，而不是账面利润。2024年收入下滑9.7%而归母仍增长15%，也证明了成本控制能力。这是我给高分的依据。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>你说的累计数据是对的，但那是"过去"。我看的是最近三个季度：Q3 单季净利润 224.68 亿，经营现金流只有 14.09 亿。一家公司可以在一个季度里用存货和应收把利润全部锁住，这不叫赚钱，叫记账。更让我不安的是合同负债从 492 亿降到 407 亿——如果订单真的饱满，客户预付款为什么会下降？收入增长 58.6% 的同时预收款下降 17.4%，这两个数字不应该同时出现。我的判断是：这轮收入增长里有相当一部分来自<strong>赊销与压货</strong>，而不是终端需求的自然增长。</p>
+    你说的累计数据是对的，但那是“过去”。我看的是最近三个季度：Q3单季净利润224.68亿，经营现金流只有14.09亿。一家公司可以在一个季度里用存货和应收把利润全部锁住，这不叫赚钱，叫记账。更让我不安的是合同负债从492亿降到407亿——如果订单真的饱满，客户预付款为什么会下降？收入增长58.6%的同时预收款下降17.4%，这两个数字不应该同时出现。我的判断是：这轮收入增长里有相当一部分来自<strong>赊销与压货</strong>，而不是终端需求的自然增长。
   </div>
-
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>我部分接受。存货增长 53.2% 与收入增长 56.2% 基本同步，这一点不算异常；应收账款增长 47.8% 甚至慢于收入，账期没有明显恶化。真正的异常是 Q3 单季的现金流断崖，以及合同负债的下降。但我提醒你：单季现金流有很强的季节性和票据结算扰动，用一季给整年定性，同样不严谨。我们把它列为"待验证红灯"，而不是"已确认造假"。它会影响我的出价，但不足以否定这门生意。</p>
+    我部分接受。存货增长53.2%与收入增长56.2%基本同步，这一点不算异常；应收账款增长47.8%甚至慢于收入，账期没有明显恶化。真正的异常是Q3单季的现金流断崖，以及合同负债的下降。但单季现金流有很强的季节性和票据结算扰动，用一季给整年定性同样不严谨。我们把它列为“待验证红灯”，而不是“已确认造假”。它会影响出价，但不足以否定这门生意。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 2</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>六年营收/利润/现金流</td><td>✅ 已核</td><td>数据来自定期报告口径；2021-2025 逐年与 2026 前三季同源</td></tr>
-      <tr><td>Q3单季拆分</td><td>✅ 已核</td><td>前三季 − H1 推导，营收、归母、净利三项均交叉一致</td></tr>
-      <tr><td>Q3单季毛利率</td><td>✅ 已核</td><td>毛利倒推：341.8/1,652.21=20.69%；与前三季22.72%、H1 23.93% 逻辑自洽</td></tr>
-      <tr><td>FCF 口径</td><td>✅ 已核</td><td>OCF − 购建长期资产现金；未扣除处置收回，口径偏保守</td></tr>
-      <tr><td>应收账款周转</td><td>⚠ 有条件</td><td>应收账款含票据？按报表"应收账款"口径，未合并应收票据，天数偏低</td></tr>
-    </table>
-    <p>结论：本模块复核通过。应收账款未合并应收票据，周转天数存在低估，但趋势方向（应收增速慢于收入）不受影响。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 2</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>六年营收/利润/现金流</td><td class="positive">已核</td><td>数据来自定期报告口径；2021-2025逐年与2026前三季同源</td></tr>
+      <tr><td>Q3单季拆分</td><td class="positive">已核</td><td>前三季−H1推导，营收、归母、净利三项交叉一致</td></tr>
+      <tr><td>Q3单季毛利率</td><td class="positive">已核</td><td>毛利倒推341.8/1,652.21＝20.69%；与前三季22.72%、H1 23.93%逻辑自洽</td></tr>
+      <tr><td>FCF口径</td><td class="positive">已核</td><td>OCF−购建长期资产现金；未扣除处置收回，口径偏保守</td></tr>
+      <tr><td>应收账款周转</td><td class="negative">有条件</td><td>按报表“应收账款”口径，未合并应收票据，天数偏低</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。应收账款未合并应收票据，周转天数存在低估，但趋势方向（应收增速慢于收入）不受影响。</p>
 </div>
 
-<!-- Prompt 3 -->
-<div class="card">
+<!-- PROMPT 3 -->
+<div class="section" id="p3">
   <h2>Prompt 3：多年财务汇总与整体评估</h2>
 
   <h3>3.1 增长与回报汇总</h3>
   <table>
-    <tr><th>指标</th><th>2021</th><th>2025</th><th>四年CAGR/变化</th><th>评价</th></tr>
-    <tr><td>营业收入</td><td>1,303.56亿</td><td>4,237.02亿</td><td>+34.3%</td><td class="highlight-green">高速</td></tr>
-    <tr><td>归母净利润</td><td>159.31亿</td><td>722.01亿</td><td>+45.9%</td><td class="highlight-green">利润快于收入</td></tr>
-    <tr><td>扣非净利润</td><td>134.42亿</td><td>645.08亿</td><td>+48.1%</td><td class="highlight-green">主营驱动</td></tr>
-    <tr><td>ROE</td><td>21.42%</td><td>24.72%</td><td>五年区间 21.4%-24.7%</td><td class="highlight-green">稳定且高</td></tr>
-    <tr><td>毛利率</td><td>26.28%</td><td>26.27%</td><td>五年区间 20.25%-26.28%</td><td class="highlight-accent">波动大，周期属性明显</td></tr>
-    <tr><td>净利率</td><td>13.70%</td><td>18.12%</td><td>+4.42pp</td><td class="highlight-green">改善</td></tr>
-    <tr><td>资产负债率</td><td>69.90%</td><td>61.94%</td><td>-7.96pp</td><td class="highlight-green">降杠杆</td></tr>
+    <thead><tr><th>指标</th><th>2021</th><th>2025</th><th>四年CAGR/变化</th><th>评价</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入</td><td>1,303.56亿</td><td>4,237.02亿</td><td>+34.3%</td><td class="positive">高速</td></tr>
+      <tr><td>归母净利润</td><td>159.31亿</td><td>722.01亿</td><td>+45.9%</td><td class="positive">利润快于收入</td></tr>
+      <tr><td>扣非净利润</td><td>134.42亿</td><td>645.08亿</td><td>+48.1%</td><td class="positive">主营驱动</td></tr>
+      <tr><td>ROE</td><td>21.42%</td><td>24.72%</td><td>五年区间21.4%-24.7%</td><td class="positive">稳定且高</td></tr>
+      <tr><td>毛利率</td><td>26.28%</td><td>26.27%</td><td>五年区间20.25%-26.28%</td><td class="negative">波动大，周期属性明显</td></tr>
+      <tr><td>净利率</td><td>13.70%</td><td>18.12%</td><td>+4.42pp</td><td class="positive">改善</td></tr>
+      <tr><td>资产负债率</td><td>69.90%</td><td>61.94%</td><td>-7.96pp</td><td class="positive">降杠杆</td></tr>
+    </tbody>
   </table>
 
   <h3>3.2 杜邦分解（2025年）</h3>
   <div class="info-box">
-    <p>ROE = 净利率 × 总资产周转率 × 权益乘数</p>
-    <p>= 18.12% × 0.474 × 2.733 ≈ 23.5%（与报表 ROE 24.72% 的差异来自平均余额与期末余额口径，方向一致）</p>
-    <p>其中：总资产周转率 = 4,237.02 / [(7,866.58+9,748.28)/2] = 0.474；权益乘数 = 平均总资产 8,807.43 / 平均股东权益 3,222.4 = 2.733。</p>
-    <p><strong>结论：</strong>ROE 的高水平由"高净利率 + 高杠杆"共同驱动，资产周转率偏低（0.47），符合重资产制造业特征。杠杆倍数 2.73 在制造业中偏高，但负债以应付账款等经营性负债为主，有息负债占比不高，风险可控。</p>
+    <p>ROE＝净利率×总资产周转率×权益乘数＝18.12%×0.474×2.733≈23.5%（与报表ROE 24.72%的差异来自平均余额与期末余额口径，方向一致）。</p>
+    <p>其中：总资产周转率＝4,237.02/[(7,866.58+9,748.28)/2]＝0.474；权益乘数＝平均总资产8,807.43/平均股东权益3,222.4＝2.733。</p>
+    <p><strong>结论：</strong>ROE的高水平由“高净利率+高杠杆”共同驱动，资产周转率偏低（0.47），符合重资产制造业特征。杠杆倍数2.73在制造业中偏高，但负债以应付账款等经营性负债为主，有息负债占比不高，风险可控。</p>
   </div>
 
   <h3>3.3 现金流质量汇总</h3>
   <table>
-    <tr><th>指标</th><th>2021-2025累计</th><th>2025单年</th><th>2026前三季</th></tr>
-    <tr><td>归母净利润</td><td>2,137.27亿</td><td>722.01亿</td><td>645.30亿</td></tr>
-    <tr><td>经营现金流</td><td>4,271.53亿</td><td>1,332.20亿</td><td>616.25亿</td></tr>
-    <tr><td>资本开支</td><td>1,991.33亿</td><td>423.45亿</td><td>421.67亿</td></tr>
-    <tr><td>自由现金流</td><td>2,280.20亿</td><td>908.75亿</td><td>194.58亿</td></tr>
-    <tr><td>FCF/净利润</td><td class="highlight-green">106.7%</td><td class="highlight-green">125.9%</td><td class="highlight-red">30.2%</td></tr>
+    <thead><tr><th>指标</th><th>2021-2025累计</th><th>2025单年</th><th>2026前三季</th></tr></thead>
+    <tbody>
+      <tr><td>归母净利润</td><td>2,137.27亿</td><td>722.01亿</td><td>645.30亿</td></tr>
+      <tr><td>经营现金流</td><td>4,271.53亿</td><td>1,332.20亿</td><td>616.25亿</td></tr>
+      <tr><td>资本开支</td><td>1,991.33亿</td><td>423.45亿</td><td>421.67亿</td></tr>
+      <tr><td>自由现金流</td><td>2,280.20亿</td><td>908.75亿</td><td>194.58亿</td></tr>
+      <tr><td>FCF/净利润</td><td class="positive">106.7%</td><td class="positive">125.9%</td><td class="negative">30.2%</td></tr>
+    </tbody>
   </table>
-  <p>五年累计自由现金流 2,280 亿，高于累计净利润 2,137 亿，长期看利润含金量优秀；但 2026 年前三季 FCF/净利润骤降至 30.2%，主要因资本开支同比大增 40.1%（421.67 亿 vs 300.88 亿）以及营运资本占用。这是"扩张期"的正常代价，还是"盈利质量恶化"的信号，需要 Q4 数据裁决。</p>
+  <p>五年累计自由现金流2,280亿，高于累计净利润2,137亿，长期看利润含金量优秀；但2026年前三季FCF/净利润骤降至30.2%，主要因资本开支同比大增40.1%（421.67亿 vs 300.88亿）以及营运资本占用。这是“扩张期”的正常代价，还是“盈利质量恶化”的信号，需要Q4数据裁决。</p>
 
   <h3>3.4 整体评估</h3>
-  <div class="good-box">
-    <p><strong>优秀的部分：</strong>五年收入 CAGR 34.3%、利润 CAGR 45.9%；ROE 连续五年高于 21%；累计自由现金流覆盖累计净利润；资产负债率从 69.9% 降至 61.9%；账上现金 3,698 亿，净现金为正。这是一家财务稳健、盈利能力强的行业龙头。</p>
+  <div class="success-box">
+    <strong>优秀的部分：</strong>五年收入CAGR 34.3%、利润CAGR 45.9%；ROE连续五年高于21%；累计自由现金流覆盖累计净利润；资产负债率从69.9%降至61.9%；账上现金3,698亿，净现金为正。这是一家财务稳健、盈利能力强的行业龙头。
   </div>
-  <div class="warning-box">
-    <p><strong>转弱的部分：</strong>①毛利率从 2025 年 26.27% 降至 2026 前三季 22.72%、Q3 20.69%，盈利中枢下移；②2026 前三季 FCF 仅 194.58 亿，FCF/净利润 30.2%；③存货与应收合计 2,576.8 亿，占总资产 21.8%；④2024 年收入曾负增长 9.7%，证明这门生意对锂价与补贴周期敏感。</p>
+  <div class="alert-box">
+    <strong>转弱的部分：</strong>①毛利率从2025年26.27%降至2026前三季22.72%、Q3 20.69%，盈利中枢下移；②2026前三季FCF仅194.58亿，FCF/净利润30.2%；③存货与应收合计2,576.8亿，占总资产21.8%；④2024年收入曾负增长9.7%，证明这门生意对锂价与补贴周期敏感。
   </div>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>汇总来看，这是一家"长期优秀、当下承压"的公司。长期指标无可挑剔，短期指标在恶化。我的经验是：买好公司最好的时机，往往是它短期遇到可解决问题的时候。但如果问题是结构性的——比如行业产能过剩导致价格战长期化——那么"好公司"也会变成"平庸生意"。区分这两者，是本次分析最关键的一步。</p>
+    汇总来看，这是一家“长期优秀、当下承压”的公司。长期指标无可挑剔，短期指标在恶化。我的经验是：买好公司最好的时机，往往是它短期遇到可解决问题的时候。但如果问题是结构性的——比如行业产能过剩导致价格战长期化——那么“好公司”也会变成“平庸生意”。区分这两者，是本次分析最关键的一步。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>我补充一个基准率：动力电池行业过去五年经历了从短缺到过剩的完整周期。2022 年毛利率 20.25% 是锂价暴涨的成本挤压，2025 年 26.27% 是锂价回落与规模效应的红利，2026 年 22.72% 是产能释放后的价格竞争。三次波动都指向同一个事实——<strong>这是一门有周期性的制造业，不是消费垄断生意</strong>。所以我不接受用"永续 26% 毛利率"做估值，必须用中枢毛利率。</p>
+    我补充一个基准率：动力电池行业过去五年经历了从短缺到过剩的完整周期。2022年毛利率20.25%是锂价暴涨的成本挤压，2025年26.27%是锂价回落与规模效应的红利，2026年22.72%是产能释放后的价格竞争。三次波动都指向同一个事实——<strong>这是一门有周期性的制造业，不是消费垄断生意</strong>。所以我不接受用“永续26%毛利率”做估值，必须用中枢毛利率。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 3</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>CAGR 计算</td><td>✅ 已核</td><td>(4,237.02/1,303.56)^(1/4)-1=34.3%；净利润 45.9%</td></tr>
-      <tr><td>杜邦分解</td><td>✅ 已核</td><td>期初期末平均口径，结果 23.5% 与报表 24.72% 差异在可解释范围</td></tr>
-      <tr><td>累计FCF</td><td>✅ 已核</td><td>五年 OCF 4,271.53 − Capex 1,991.33 = 2,280.20 亿</td></tr>
-      <tr><td>2026前三季Capex同比</td><td>✅ 已核</td><td>421.67 vs 300.88 = +40.1%</td></tr>
-      <tr><td>ROIC</td><td>⚠ 估算</td><td>约17%（NOPAT 768亿 / 估算投入资本 4,510亿），有息负债为估计值，未进估值</td></tr>
-    </table>
-    <p>结论：本模块复核通过。ROIC 为估算值，仅用于定性判断"高于资本成本"，不进入 DCF。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 3</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>CAGR计算</td><td class="positive">已核</td><td>(4,237.02/1,303.56)^(1/4)-1＝34.3%；净利润45.9%</td></tr>
+      <tr><td>杜邦分解</td><td class="positive">已核</td><td>期初期末平均口径，结果23.5%与报表24.72%差异在可解释范围</td></tr>
+      <tr><td>累计FCF</td><td class="positive">已核</td><td>五年OCF 4,271.53−Capex 1,991.33＝2,280.20亿</td></tr>
+      <tr><td>2026前三季Capex同比</td><td class="positive">已核</td><td>421.67 vs 300.88＝+40.1%</td></tr>
+      <tr><td>ROIC</td><td class="negative">估算</td><td>约17%（NOPAT 768亿/估算投入资本4,510亿），有息负债为估计值，未进估值</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。ROIC为估算值，仅用于定性判断“高于资本成本”，不进入DCF。</p>
 </div>
 
-<!-- Prompt 4 -->
-<div class="card">
-  <h2>Prompt 4：经济护城河评估</h2>
+<!-- PROMPT 4 -->
+<div class="section" id="p4">
+  <h2>Prompt 4：经济护城河评估与评级</h2>
 
   <h3>4.1 五维护城河评分</h3>
   <table>
-    <tr><th>维度</th><th>强度</th><th>证据</th><th>可持续性</th></tr>
-    <tr><td>规模与成本优势</td><td class="highlight-green">强</td><td class="left">全球份额约37%-38%，产能规模是二线厂商数倍；单位制造费用被超大产能摊薄。2025年毛利率26.27%高于同业。</td><td>中期稳固，但产能过剩会削弱</td></tr>
-    <tr><td>技术专利与结构创新</td><td class="highlight-green">强</td><td class="left">CTP、麒麟电池、神行超充、钠离子电池、骁遥增混等量产落地；研发费用2025年221.47亿（占收入5.23%）。</td><td>需持续投入，技术扩散快</td></tr>
-    <tr><td>客户粘性与定点</td><td class="highlight-green">强</td><td class="left">与全球主流车企深度绑定，车型定点后更换供应商成本高；海外客户占比提升。</td><td>较强，但车企多供策略削弱</td></tr>
-    <tr><td>垂直一体化</td><td class="highlight-accent">中</td><td class="left">布局锂矿、正极材料、回收，平抑原材料波动；2025年电池矿产资源收入59.78亿、毛利率仅11.25%。</td><td>中等，资源价格仍主导</td></tr>
-    <tr><td>品牌与渠道（换电）</td><td class="highlight-accent">中</td><td class="left">EVOGO/巧克力换电块形成差异化，但换电模式资本投入大、盈利模式尚未验证。</td><td>待验证</td></tr>
+    <thead><tr><th>维度</th><th>强度</th><th>证据</th><th>可持续性</th></tr></thead>
+    <tbody>
+      <tr><td>规模与成本优势</td><td class="positive">强</td><td>全球份额约37%-38%，产能规模是二线厂商数倍；单位制造费用被超大产能摊薄；2025年毛利率26.27%高于同业</td><td>中期稳固，但产能过剩会削弱</td></tr>
+      <tr><td>技术专利与结构创新</td><td class="positive">强</td><td>CTP、麒麟电池、神行超充、钠离子电池、骁遥增混等量产落地；2025年研发费用221.47亿（占收入5.23%）</td><td>需持续投入，技术扩散快</td></tr>
+      <tr><td>客户粘性与定点</td><td class="positive">强</td><td>与全球主流车企深度绑定，车型定点后更换供应商成本高；海外客户占比提升</td><td>较强，但车企多供策略削弱</td></tr>
+      <tr><td>垂直一体化</td><td class="negative">中</td><td>布局锂矿、正极材料、回收，平抑原材料波动；2025年电池矿产资源收入59.78亿、毛利率仅11.25%</td><td>中等，资源价格仍主导</td></tr>
+      <tr><td>品牌与渠道（换电）</td><td class="negative">中</td><td>EVOGO/巧克力换电块形成差异化，但换电模式资本投入大、盈利模式尚未验证</td><td>待验证</td></tr>
+    </tbody>
   </table>
 
   <h3>4.2 护城河趋势判断</h3>
-  <p>护城河的"宽度"仍在，但"定价权"正在被侵蚀。最直接的证据是毛利率：2025 年 26.27% → 2026 前三季 22.72% → Q3 单季 20.69%。如果护城河足够宽，公司应该在原材料涨价时顺利传导、在需求旺盛时维持溢价；而现实中，收入 +58.6% 的同时毛利率 -5.11pp，说明公司选择了"以价换量"。</p>
-  <p>需要区分两种可能：<strong>（A）周期性挤压</strong>——碳酸锂等原材料价格上行，售价调整存在 1-2 个季度时滞，毛利率随后修复；<strong>（B）结构性价格战</strong>——二线厂商扩产、车企自供比例提升（如比亚迪）、储能招标低价化，导致毛利率中枢永久下移。目前证据不足以排除 B，因此估值必须采用"中枢毛利率"而非峰值毛利率。</p>
+  <p>护城河的“宽度”仍在，但“定价权”正在被侵蚀。最直接的证据是毛利率：2025年26.27% → 2026前三季22.72% → Q3单季20.69%。如果护城河足够宽，公司应该在原材料涨价时顺利传导、在需求旺盛时维持溢价；而现实中，收入+58.6%的同时毛利率-5.11pp，说明公司选择了“以价换量”。</p>
+  <p>需要区分两种可能：<strong>（A）周期性挤压</strong>——碳酸锂等原材料价格上行，售价调整存在1-2个季度时滞，毛利率随后修复；<strong>（B）结构性价格战</strong>——二线厂商扩产、车企自供比例提升（如比亚迪）、储能招标低价化，导致毛利率中枢永久下移。目前证据不足以排除B，因此估值必须采用“中枢毛利率”而非峰值毛利率。</p>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>我仍然认为它有宽护城河。规模、技术、客户定点这三项是真实的，不是讲故事。一家能在五年里把收入做到四倍、并且累计自由现金流超过累计净利润的公司，说明它对产业链有真实的议价能力。毛利率的短期波动不能否定长期护城河。</p>
+    我仍然认为它有宽护城河。规模、技术、客户定点这三项是真实的，不是讲故事。一家能在五年里把收入做到四倍、并且累计自由现金流超过累计净利润的公司，说明它对产业链有真实的议价能力。毛利率的短期波动不能否定长期护城河。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>护城河的定义不是"比别人大"，而是"能持续收高价而不流失客户"。Q3 的数据说明它做不到。更麻烦的是，它的竞争对手不是弱者：比亚迪自供电池、亿纬锂能和中创新航用低价抢单。当龙头必须靠降价维持 58% 的收入增长时，这条河正在变窄，而不是变宽。我给"宽护城河"降半级：<strong>宽但趋势偏窄</strong>。</p>
+    护城河的定义不是“比别人大”，而是“能持续收高价而不流失客户”。Q3的数据说明它做不到。更麻烦的是，它的竞争对手不是弱者：比亚迪自供电池、亿纬锂能和中创新航用低价抢单。当龙头必须靠降价维持58%的收入增长时，这条河正在变窄，而不是变宽。我给“宽护城河”降半级：<strong>宽但趋势偏窄</strong>。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 4</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>毛利率趋势</td><td>✅ 已核</td><td>26.27%→22.72%→20.69%，年报/季报口径一致</td></tr>
-      <tr><td>研发投入</td><td>✅ 已核</td><td>2025年221.47亿，占收入5.23%</td></tr>
-      <tr><td>市占率</td><td>⚠ 单源</td><td>行业机构口径，未获公司公告直接确认</td></tr>
-      <tr><td>技术路线量产</td><td>⚠ 定性</td><td>产品名称来自公司公开宣传，未核销量占比</td></tr>
-    </table>
-    <p>结论：本模块复核通过。护城河评级为"宽（趋势偏窄）"，该判断直接影响 Prompt 7 的毛利率假设。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 4</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>毛利率趋势</td><td class="positive">已核</td><td>26.27%→22.72%→20.69%，年报/季报口径一致</td></tr>
+      <tr><td>研发投入</td><td class="positive">已核</td><td>2025年221.47亿，占收入5.23%；2026前三季185.17亿</td></tr>
+      <tr><td>市占率</td><td class="negative">单源</td><td>行业机构口径，未获公司公告直接确认</td></tr>
+      <tr><td>技术路线量产</td><td class="negative">定性</td><td>产品名称来自公司公开宣传，未核销量占比</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。护城河评级为“宽（趋势偏窄）”，该判断直接影响Prompt 7的毛利率假设。</p>
 </div>
 
-<!-- Prompt 5 -->
-<div class="card">
-  <h2>Prompt 5：管理层与资本配置</h2>
+<!-- PROMPT 5 -->
+<div class="section" id="p5">
+  <h2>Prompt 5：管理层品质与企业文化</h2>
 
   <h3>5.1 管理层评价</h3>
   <table>
-    <tr><th>评估项</th><th>结论</th><th>证据</th></tr>
-    <tr><td>创始人领导</td><td class="highlight-green">是</td><td class="left">曾毓群任董事长兼总经理，工程师背景，长期主导技术路线与全球扩张。</td></tr>
-    <tr><td>战略一致性</td><td class="highlight-green">强</td><td class="left">从动力电池延伸至储能、材料回收、换电、海外基地，路径清晰，未出现频繁跨界。</td></tr>
-    <tr><td>股东回报</td><td class="highlight-green">良好</td><td class="left">2025年度每股股利6.957元、分红率43.67%；2026年中期每股1.411元、分红率14.99%。</td></tr>
-    <tr><td>资本开支纪律</td><td class="highlight-accent">中性</td><td class="left">2025年capex 423.45亿（占收入10.0%）；2026前三季421.67亿（同比+40.1%），扩张重新加速。</td></tr>
-    <tr><td>融资与摊薄</td><td class="highlight-accent">中性</td><td class="left">2025年5月H股上市新增2.18亿股，带来资金但也带来摊薄；H股占总股本4.7%，影响有限。</td></tr>
-    <tr><td>治理红旗</td><td class="highlight-green">未见</td><td class="left">未发现财务造假、重大信披违规、大股东占款等一票否决事项。</td></tr>
+    <thead><tr><th>评估项</th><th>结论</th><th>证据</th></tr></thead>
+    <tbody>
+      <tr><td>创始人领导</td><td class="positive">是</td><td>曾毓群任董事长兼总经理，工程师背景，长期主导技术路线与全球扩张</td></tr>
+      <tr><td>战略一致性</td><td class="positive">强</td><td>从动力电池延伸至储能、材料回收、换电、海外基地，路径清晰，未出现频繁跨界</td></tr>
+      <tr><td>股东回报</td><td class="positive">良好</td><td>2025年度每股股利6.957元、分红率43.67%；2026年中期每股1.411元、分红率14.99%</td></tr>
+      <tr><td>资本开支纪律</td><td class="negative">中性</td><td>2025年capex 423.45亿（占收入10.0%）；2026前三季421.67亿（同比+40.1%），扩张重新加速</td></tr>
+      <tr><td>融资与摊薄</td><td class="negative">中性</td><td>2025年5月H股上市新增2.18亿股，带来资金但也带来摊薄；H股占总股本4.7%，影响有限</td></tr>
+      <tr><td>治理红旗</td><td class="positive">未见</td><td>未发现财务造假、重大信披违规、大股东占款等一票否决事项</td></tr>
+    </tbody>
   </table>
 
-  <h3>5.2 资本配置的"三道题"</h3>
+  <h3>5.2 资本配置的“三道题”</h3>
   <ol>
-    <li><strong>分红 vs 再投资：</strong>2025 年分红率 43.67%，在成长型制造企业中属于较高水平，说明管理层愿意把周期高点利润返还股东；但 2026 年资本开支重新加速（+40.1%），自由现金流被压缩，未来分红率可能回落。</li>
-    <li><strong>扩产 vs 回报：</strong>2026 前三季 capex 421.67 亿，接近 2025 全年水平。扩产方向是海外基地与储能，属于合理战略，但在毛利率下滑期扩产，资本回报率存在下行风险。</li>
-    <li><strong>投资平台：</strong>2026 年 10 月公告参与投资上海时代宸远创业投资合伙企业，属于生态型投资，规模有限，暂不构成治理瑕疵，但需持续跟踪关联交易与资金流向。</li>
+    <li><strong>分红 vs 再投资：</strong>2025年分红率43.67%，在成长型制造企业中属于较高水平，说明管理层愿意把周期高点利润返还股东；但2026年资本开支重新加速（+40.1%），自由现金流被压缩，未来分红率可能回落。</li>
+    <li><strong>扩产 vs 回报：</strong>2026前三季capex 421.67亿，接近2025全年水平。扩产方向是海外基地与储能，属于合理战略，但在毛利率下滑期扩产，资本回报率存在下行风险。</li>
+    <li><strong>投资平台：</strong>2026年10月公告参与投资上海时代宸远创业投资合伙企业，属于生态型投资，规模有限，暂不构成治理瑕疵，但需持续跟踪关联交易与资金流向。</li>
   </ol>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>管理层是我愿意打交道的类型：创始人还在位、工程师文化、分红慷慨、不搞财技。43.67% 的分红率说明他们知道股东要什么。H股上市虽然摊薄了 4.7%，但换来了海外扩张的资金和国际投资者基础，这笔账算得过来。</p>
+    管理层是我愿意打交道的类型：创始人还在位、工程师文化、分红慷慨、不搞财技。43.67%的分红率说明他们知道股东要什么。H股上市虽然摊薄了4.7%，但换来了海外扩张的资金和国际投资者基础，这笔账算得过来。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>我同意治理上没有硬伤，但要提醒两点。第一，在毛利率下滑的时候加速资本开支，是典型的"用规模对抗价格战"——如果需求判断错了，这些产能会变成折旧包袱。第二，分红率 43.67% 是建立在 2025 年 26.27% 毛利率的高基数上，2026 年利润增速降到 31.6%、Q3 降到 14.5%，分红能否维持需要观察。管理层质量我给"良好"，不是"卓越"。</p>
+    我同意治理上没有硬伤，但要提醒两点。第一，在毛利率下滑的时候加速资本开支，是典型的“用规模对抗价格战”——如果需求判断错了，这些产能会变成折旧包袱。第二，分红率43.67%是建立在2025年26.27%毛利率的高基数上，2026年利润增速降到31.6%、Q3降到14.5%，分红能否维持需要观察。管理层质量我给“良好”，不是“卓越”。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 5</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>分红数据</td><td>✅ 已核</td><td>2025年度每股6.957元、分红率43.67%；2026中期每股1.411元、14.99%</td></tr>
-      <tr><td>资本开支</td><td>✅ 已核</td><td>2025年423.45亿；2026前三季421.67亿（+40.1%）</td></tr>
-      <tr><td>H股股本</td><td>✅ 已核</td><td>218,300,300股，占总股本4.72%</td></tr>
-      <tr><td>关联投资</td><td>⚠ 单源</td><td>2026-10-13公告，仅标题与摘要级核对，未审阅全部条款</td></tr>
-    </table>
-    <p>结论：本模块复核通过。管理层评级"良好（B+）"。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 5</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>分红数据</td><td class="positive">已核</td><td>2025年度每股6.957元、分红率43.67%；2026中期每股1.411元、14.99%</td></tr>
+      <tr><td>资本开支</td><td class="positive">已核</td><td>2025年423.45亿；2026前三季421.67亿（+40.1%）</td></tr>
+      <tr><td>H股股本</td><td class="positive">已核</td><td>218,300,300股，占总股本4.72%</td></tr>
+      <tr><td>关联投资</td><td class="negative">单源</td><td>2026-10-13公告，仅标题与摘要级核对，未审阅全部条款</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。管理层评级“良好（B+）”。</p>
 </div>
 
-<!-- Prompt 6 -->
-<div class="card">
-  <h2>Prompt 6：品质评级与估值资格</h2>
+<!-- PROMPT 6 -->
+<div class="section" id="p6">
+  <h2>Prompt 6：质量筛选与 Go/No-Go 决策</h2>
 
   <h3>6.1 六维品质评分</h3>
   <table>
-    <tr><th>维度</th><th>得分</th><th>依据</th></tr>
-    <tr><td>盈利能力</td><td>18 / 20</td><td class="left">ROE 24.72%（2025）、五年均高于21%；净利率18.12%；ROIC估算约17%</td></tr>
-    <tr><td>成长性</td><td>17 / 20</td><td class="left">收入CAGR 34.3%、利润CAGR 45.9%；但2024年曾负增长，周期性强</td></tr>
-    <tr><td>财务稳健</td><td>16 / 20</td><td class="left">净现金约1,500亿、现金3,698亿；负债率64.2%；FCF长期为正</td></tr>
-    <tr><td>护城河</td><td>17 / 20</td><td class="left">规模、技术、客户定点强；但毛利率下滑显示定价权受压，趋势偏窄</td></tr>
-    <tr><td>管理层与治理</td><td>16 / 20</td><td class="left">创始人领导、分红43.67%、无治理红旗；扩张期资本配置需观察</td></tr>
-    <tr><td>可预测性</td><td>12 / 20</td><td class="left">盈利对锂价、补贴、海外政策高度敏感，单季波动大，预测难度高</td></tr>
-    <tr><td><strong>合计</strong></td><td><strong>85 / 100</strong></td><td class="left"><strong>品质评级：A-（优良，接近卓越但有明显周期与定价权瑕疵）</strong></td></tr>
+    <thead><tr><th>维度</th><th>得分</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr><td>盈利能力</td><td>18 / 20</td><td>ROE 24.72%（2025）、五年均高于21%；净利率18.12%；ROIC估算约17%</td></tr>
+      <tr><td>成长性</td><td>17 / 20</td><td>收入CAGR 34.3%、利润CAGR 45.9%；但2024年曾负增长，周期性强</td></tr>
+      <tr><td>财务稳健</td><td>16 / 20</td><td>净现金约1,500亿、货币资金3,698亿；负债率64.2%；FCF长期为正</td></tr>
+      <tr><td>护城河</td><td>17 / 20</td><td>规模、技术、客户定点强；但毛利率下滑显示定价权受压，趋势偏窄</td></tr>
+      <tr><td>管理层与治理</td><td>16 / 20</td><td>创始人领导、分红43.67%、无治理红旗；扩张期资本配置需观察</td></tr>
+      <tr><td>可预测性</td><td>12 / 20</td><td>盈利对锂价、补贴、海外政策高度敏感，单季波动大，预测难度高</td></tr>
+      <tr><td><strong>合计</strong></td><td><strong>85 / 100</strong></td><td><strong>品质评级：A-（优良，接近卓越但有明显周期与定价权瑕疵）</strong></td></tr>
+    </tbody>
   </table>
 
   <h3>6.2 估值资格判定</h3>
-  <div class="good-box">
-    <p><strong>估值资格：Go（类型 2 — 高回报成长型）</strong></p>
-    <p>理由：ROE 长期高于 15%、营收与利润 CAGR 高于 10%、净利率高于 10%、净负债为负（净现金）。四项均满足类型 2 门槛，且无一级熔断事项。</p>
-    <p>限制条件：可预测性得分仅 12/20，因此估值必须使用<strong>三情景 + 中枢毛利率</strong>，不得采用单点永续增长；安全边际要求不得低于 20%。</p>
+  <div class="success-box">
+    <strong>估值资格：<span class="tag tag-go">Go</span>（类型2 — 高回报成长型）</strong><br><br>
+    理由：ROE长期高于15%、营收与利润CAGR高于10%、净利率高于10%、净负债为负（净现金），四项均满足类型2门槛，且无一级熔断事项。<br>
+    限制条件：可预测性得分仅12/20，因此估值必须使用<strong>三情景+中枢毛利率</strong>，不得采用单点永续增长；安全边际要求不得低于20%。
   </div>
 
   <h3>6.3 一票否决检查</h3>
   <table>
-    <tr><th>红线</th><th>结论</th><th>说明</th></tr>
-    <tr><td>管理层重大诚信污点</td><td class="highlight-green">未触发</td><td class="left">未发现财务造假、重大信披违规</td></tr>
-    <tr><td>审计重大错报/持续经营</td><td class="highlight-green">未触发</td><td class="left">定期报告为标准无保留意见表述，未见异常</td></tr>
-    <tr><td>核心竞争力永久丧失</td><td class="highlight-green">未触发</td><td class="left">全球份额仍第一，技术路线仍在迭代</td></tr>
-    <tr><td>商业模式根本缺陷</td><td class="highlight-green">未触发</td><td class="left">重资产但现金流长期为正，模式成立</td></tr>
-    <tr><td>财务结构极度脆弱</td><td class="highlight-green">未触发</td><td class="left">现金3,698亿、净现金为正</td></tr>
-    <tr><td>超出能力圈</td><td class="highlight-accent">部分</td><td class="left">技术路线与锂价判断超出多数投资者能力圈，需以情景法对冲</td></tr>
+    <thead><tr><th>红线</th><th>结论</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>管理层重大诚信污点</td><td class="positive">未触发</td><td>未发现财务造假、重大信披违规</td></tr>
+      <tr><td>审计重大错报/持续经营</td><td class="positive">未触发</td><td>定期报告为标准无保留意见表述，未见异常</td></tr>
+      <tr><td>核心竞争力永久丧失</td><td class="positive">未触发</td><td>全球份额仍第一，技术路线仍在迭代</td></tr>
+      <tr><td>商业模式根本缺陷</td><td class="positive">未触发</td><td>重资产但现金流长期为正，模式成立</td></tr>
+      <tr><td>财务结构极度脆弱</td><td class="positive">未触发</td><td>现金3,698亿、净现金为正</td></tr>
+      <tr><td>超出能力圈</td><td class="negative">部分</td><td>技术路线与锂价判断超出多数投资者能力圈，需以情景法对冲</td></tr>
+    </tbody>
   </table>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>85 分，A-。这是一家合格甚至优秀的公司，具备估值资格。但我必须诚实地说：它的可预测性只有 12 分。我能看懂它的生意，但看不懂锂价，也看不懂三年后的技术路线。这不影响我给它估值，但影响我愿意付多少钱。</p>
+    85分，A-。这是一家合格甚至优秀的公司，具备估值资格。但我必须诚实地说：它的可预测性只有12分。我能看懂它的生意，但看不懂锂价，也看不懂三年后的技术路线。这不影响我给它估值，但影响我愿意付多少钱。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>我同意给 Go，但请注意 Go 只表示"可以估值"，不是"可以买入"。这两件事在过去几年被无数人混淆。85 分的公司如果价格贵，依然是坏投资；60 分的公司如果价格极低，可能是好投资。接下来 Prompt 7 和 Prompt 8 要回答的，才是真正的问题。</p>
+    我同意给Go，但请注意Go只表示“可以估值”，不是“可以买入”。这两件事被无数人混淆过。85分的公司如果价格贵，依然是坏投资；60分的公司如果价格极低，可能是好投资。接下来Prompt 7和Prompt 8要回答的，才是真正的问题。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 6</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>评分加总</td><td>✅ 已核</td><td>18+17+16+17+16+12=100，评级A-</td></tr>
-      <tr><td>类型2门槛</td><td>✅ 已核</td><td>ROE>15%、CAGR>10%、净利率>10%、净现金，四项全满足</td></tr>
-      <tr><td>审计意见</td><td>⚠ 未逐字核</td><td>未调取审计报告原文，仅依据定期报告披露表述，属三级缺口</td></tr>
-    </table>
-    <p>结论：本模块复核通过。审计意见未逐字核对，若后续发现非标意见，估值资格需重审。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 6</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>评分加总</td><td class="positive">已核</td><td>18+17+16+17+16+12＝100，评级A-</td></tr>
+      <tr><td>类型2门槛</td><td class="positive">已核</td><td>ROE高于15%、CAGR高于10%、净利率高于10%、净现金，四项全满足</td></tr>
+      <tr><td>审计意见</td><td class="negative">未逐字核</td><td>未调取审计报告原文，仅依据定期报告披露表述，属三级缺口</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。审计意见未逐字核对，若后续发现非标意见，估值资格需重审。</p>
 </div>
 
-<!-- Prompt 7 -->
-<div class="card">
-  <h2>Prompt 7：估值（类型 2 — 高回报成长型，FCFE 再投资模型）</h2>
+<!-- PROMPT 7 -->
+<div class="section" id="p7">
+  <h2>Prompt 7：保守估值与内在价值</h2>
 
   <h3>7.1 估值路由锁定</h3>
-  <p>锁定类型 2（高回报成长型），采用 <strong>FCFE_REINVESTMENT_PROXY</strong> 模型：以正常化股东盈利为起点，按"增长率 / 增量资本回报率"推导再投资率，计算权益自由现金流，再以 10% 折现率折现并叠加终值。该模型适用于"高 ROE + 持续增长 + 需要再投资"的公司，比简单 PE 倍数更严谨。</p>
-  <p>不使用类型 4（强周期资源）的理由：虽然锂价影响毛利，但公司盈利主要由电池出货量与产品结构驱动，而非资源价格本身；2024 年锂价下跌时利润反而增长 15%，证明其并非纯粹的资源周期股。</p>
+  <p>锁定类型2（高回报成长型），采用<strong>FCFE_REINVESTMENT_PROXY</strong>模型：以正常化股东盈利为起点，按“增长率/增量资本回报率”推导再投资率，计算权益自由现金流，再以10%折现率折现并叠加终值。该模型适用于“高ROE+持续增长+需要再投资”的公司，比简单PE倍数更严谨。</p>
+  <p>不使用类型4（强周期资源）的理由：虽然锂价影响毛利，但公司盈利主要由电池出货量与产品结构驱动，而非资源价格本身；2024年锂价下跌时利润反而增长15%，证明其并非纯粹的资源周期股。</p>
 
   <h3>7.2 正常化盈利与关键假设</h3>
   <table>
-    <tr><th>输入</th><th>取值</th><th>依据</th></tr>
-    <tr><td>正常化股东盈利（基准）</td><td>850亿</td><td class="left">2026E归母约875亿（前三季645.3 + Q4约230），考虑毛利率中枢下移，折价至850亿</td></tr>
-    <tr><td>悲观情景基准</td><td>780亿</td><td class="left">假设毛利率维持20.7%、Q4及2027盈利小幅下修</td></tr>
-    <tr><td>乐观情景基准</td><td>880亿</td><td class="left">假设毛利率在2027年修复至23%以上</td></tr>
-    <tr><td>股本</td><td>46.27亿股</td><td class="left">A股44.09亿 + H股2.18亿（2026-10月报）</td></tr>
-    <tr><td>折现率</td><td>10.0%</td><td class="left">股权要求回报率；无风险利率约2.5-3%，叠加制造业风险溢价</td></tr>
-    <tr><td>永续增长</td><td>2.5%</td><td class="left">长期通胀+温和增长，不超过名义GDP</td></tr>
-    <tr><td>稳定期增量回报</td><td>12%</td><td class="left">成熟期ROE回归至12%-15%区间</td></tr>
-    <tr><td>非经营性资产（净现金）</td><td>1,500亿</td><td class="left">货币资金3,698亿 − 估算有息负债约2,200亿，保守取1,500亿</td></tr>
+    <thead><tr><th>输入</th><th>取值</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr><td>正常化股东盈利（基准）</td><td>850亿</td><td>2026E归母约875亿（前三季645.3+Q4约230），考虑毛利率中枢下移，折价至850亿</td></tr>
+      <tr><td>悲观情景基准</td><td>780亿</td><td>假设毛利率维持20.7%、Q4及2027盈利小幅下修</td></tr>
+      <tr><td>乐观情景基准</td><td>880亿</td><td>假设毛利率在2027年修复至23%以上</td></tr>
+      <tr><td>股本</td><td>46.27亿股</td><td>A股44.09亿+H股2.18亿（2026-10月报）</td></tr>
+      <tr><td>折现率</td><td>10.0%</td><td>股权要求回报率；无风险利率约2.5%-3%，叠加制造业风险溢价</td></tr>
+      <tr><td>永续增长</td><td>2.5%</td><td>长期通胀+温和增长，不超过名义GDP</td></tr>
+      <tr><td>稳定期增量回报</td><td>12%</td><td>成熟期ROE回归至12%-15%区间</td></tr>
+      <tr><td>非经营性资产（净现金）</td><td>1,500亿</td><td>货币资金3,698亿−估算有息负债约2,200亿，保守取1,500亿</td></tr>
+    </tbody>
   </table>
-  <p>注：净现金为估算值（有息负债未逐笔核对），已按保守口径下调；若实际净现金更高，估值将被低估，不影响"无安全边际"的结论方向。</p>
+  <p>注：净现金为估算值（有息负债未逐笔核对），已按保守口径下调；若实际净现金更高，估值将被低估，不影响“无安全边际”的结论方向。</p>
 
   <h3>7.3 三情景估值结果</h3>
-  <div class="valuation-card">
-    <div class="vcard pess"><div class="label">悲观情景</div><div class="value">¥207.39</div><div class="label">毛利率不修复、零增长</div></div>
-    <div class="vcard mid"><div class="label">合理情景</div><div class="value">¥255.66</div><div class="label">增长8%→5%，增量回报15%</div></div>
-    <div class="vcard opt"><div class="label">乐观情景</div><div class="value">¥308.89</div><div class="label">增长15%→8%，增量回报20%</div></div>
+  <table>
+    <thead><tr><th>情景</th><th>基准盈利</th><th>五年增长路径</th><th>增量回报</th><th>显性期现值(亿)</th><th>终值现值(亿)</th><th>每股价值</th><th>终值占比</th></tr></thead>
+    <tbody>
+      <tr><td>悲观</td><td>780亿</td><td>0/0/0/0/0</td><td>10%</td><td>2,855.91</td><td>5,240.06</td><td class="negative">207.39元</td><td>54.6%</td></tr>
+      <tr><td>合理</td><td>850亿</td><td>8/8/7/6/5%</td><td>15%</td><td>2,397.09</td><td>7,932.08</td><td class="positive">255.66元</td><td>67.1%</td></tr>
+      <tr><td>乐观</td><td>880亿</td><td>15/14/12/10/8%</td><td>20%</td><td>2,479.82</td><td>10,312.44</td><td class="positive">308.89元</td><td>72.2%</td></tr>
+    </tbody>
+  </table>
+  <p>价值桥：普通股价值＝经营价值+净现金1,500亿；每股价值＝普通股价值/46.27亿股。合理情景普通股价值11,829.17亿，对应每股255.66元。</p>
+  <div class="success-box">
+    <strong>估值结论：</strong>三情景每股价值为悲观207.39元、合理255.66元、乐观308.89元。现价251.94元相当于合理价值的98.5%，处于区间中部偏下，但距中枢仅1.5%。以25%安全边际计算，买入上限191.75元，现价高出31.4%。<strong>估值便宜，但没有安全边际。</strong>
   </div>
-  <div class="table-wrap">
-    <table>
-      <tr><th>情景</th><th>基准盈利</th><th>五年增长路径</th><th>增量回报</th><th>显性期现值(亿)</th><th>终值现值(亿)</th><th>每股价值</th><th>终值占比</th></tr>
-      <tr><td>悲观</td><td>780亿</td><td>0/0/0/0/0</td><td>10%</td><td>2,855.91</td><td>5,240.06</td><td>207.39</td><td>54.6%</td></tr>
-      <tr><td>合理</td><td>850亿</td><td>8/8/7/6/5%</td><td>15%</td><td>2,397.09</td><td>7,932.08</td><td>255.66</td><td>67.1%</td></tr>
-      <tr><td>乐观</td><td>880亿</td><td>15/14/12/10/8%</td><td>20%</td><td>2,479.82</td><td>10,312.44</td><td>308.89</td><td>72.2%</td></tr>
-    </table>
-  </div>
-  <p>价值桥：普通股价值 = 经营价值 + 净现金 1,500亿；每股价值 = 普通股价值 / 46.27亿股。合理情景普通股价值 11,829.17亿，对应每股 255.66元。</p>
 
   <h3>7.4 敏感性分析（合理情景）</h3>
   <table>
-    <tr><th>折现率 \ 永续增长</th><th>g = 2.0%</th><th>g = 2.5%</th><th>g = 3.0%</th></tr>
-    <tr><td>9.0%</td><td>¥287.84</td><td>—</td><td>¥298.60</td></tr>
-    <tr><td>10.0%</td><td>—</td><td class="highlight-accent">¥255.66</td><td>—</td></tr>
-    <tr><td>11.0%</td><td>¥226.41</td><td>—</td><td>¥228.35</td></tr>
+    <thead><tr><th>折现率 \ 永续增长</th><th>g = 2.0%</th><th>g = 2.5%</th><th>g = 3.0%</th></tr></thead>
+    <tbody>
+      <tr><td>9.0%</td><td>287.84元</td><td>—</td><td>298.60元</td></tr>
+      <tr><td>10.0%</td><td>—</td><td class="positive">255.66元</td><td>—</td></tr>
+      <tr><td>11.0%</td><td>226.41元</td><td>—</td><td>228.35元</td></tr>
+    </tbody>
   </table>
-  <p>估值区间 ¥226-299；中枢 ¥255.66。现价 ¥251.94 位于区间中部偏下，但距离中枢仅 1.5%。</p>
+  <p>估值区间226-299元；中枢255.66元。折现率每提高1个百分点，价值下降约11%；永续增长每提高0.5个百分点，价值上升约10%。终值占比67.1%偏高，说明估值对永续假设敏感，已用敏感性表披露。</p>
 
   <h3>7.5 保守性账本</h3>
   <table>
-    <tr><th>风险</th><th>计入位置</th><th>说明</th></tr>
-    <tr><td>毛利率下滑</td><td>盈利基准（850亿）</td><td class="left">未用2025年722亿或2026E 875亿的峰值，已折价</td></tr>
-    <tr><td>周期性与锂价</td><td>悲观情景</td><td class="left">悲观情景零增长、10%增量回报，已覆盖</td></tr>
-    <tr><td>海外政策与关税</td><td>折现率（10%）</td><td class="left">已含制造业风险溢价，不重复扣减</td></tr>
-    <tr><td>现金流质量</td><td>盈利基准折价 + 价格保护</td><td class="left">基准盈利已低于报表利润；Prompt 8 再要求25%安全边际</td></tr>
-    <tr><td>净现金不确定性</td><td>非经营性资产（保守1,500亿）</td><td class="left">低估而非高估</td></tr>
+    <thead><tr><th>风险</th><th>计入位置</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>毛利率下滑</td><td>盈利基准（850亿）</td><td>未用2025年722亿或2026E 875亿的峰值，已折价</td></tr>
+      <tr><td>周期性与锂价</td><td>悲观情景</td><td>悲观情景零增长、10%增量回报，已覆盖</td></tr>
+      <tr><td>海外政策与关税</td><td>折现率（10%）</td><td>已含制造业风险溢价，不重复扣减</td></tr>
+      <tr><td>现金流质量</td><td>盈利基准折价+价格保护</td><td>基准盈利已低于报表利润；Prompt 8再要求25%安全边际</td></tr>
+      <tr><td>净现金不确定性</td><td>非经营性资产（保守1,500亿）</td><td>低估而非高估</td></tr>
+    </tbody>
   </table>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>合理价值 255.66 元，悲观 207.39 元，乐观 308.89 元。现价 251.94 元，几乎正好落在合理价值上。换句话说，市场现在的定价是"相信公司能维持 8% 的增长和 15% 的增量回报"，没有给悲观情景留出折价。这个价格不算贵，但也绝不算便宜。</p>
+    合理价值255.66元，悲观207.39元，乐观308.89元。现价251.94元，几乎正好落在合理价值上。换句话说，市场现在的定价是“相信公司能维持8%的增长和15%的增量回报”，没有给悲观情景留出折价。这个价格不算贵，但也绝不算便宜。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>我要挑战一个假设：850 亿的正常化盈利是否仍然偏高？2026 前三季已经做了 645 亿，Q4 按 225 亿算就是 870 亿。但这 870 亿里有 90.66 亿投资收益、24.90 亿公允价值变动、63.88 亿其他收益——合计 179.44 亿是非主营或非经常性项目，占税前利润的 22%。如果把这些剔掉，主营盈利约 690 亿。用 850 亿做基准，等于默认这些收益可持续。我要求把基准下调到 800 亿，重新算。</p>
+    我要挑战一个假设：850亿的正常化盈利是否仍然偏高？2026前三季已经做了645亿，Q4按225亿算就是870亿。但这870亿里有90.66亿投资收益、24.90亿公允价值变动、63.88亿其他收益——合计179.44亿是非主营或非经常性项目，占税前利润的22%。如果把这些剔掉，主营盈利约690亿。用850亿做基准，等于默认这些收益可持续。我要求把基准下调到800亿。
   </div>
-
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>你的质疑成立，但需要区分：投资收益中有一部分来自联营企业的经常性权益法收益（如上游资源与材料企业），并非一次性；其他收益中大部分是政府补助与增值税优惠，对制造业是可持续的。我不会全部剔除。折中方案：维持 850 亿基准，但在悲观情景基准降至 780 亿，并在 Prompt 8 把安全边际要求提高到 25%（而非20%），以覆盖这块不确定性。这样风险只在一个位置计价，不重复扣减。</p>
+    你的质疑成立，但需要区分：投资收益中有一部分来自联营企业的经常性权益法收益（如上游资源与材料企业），并非一次性；其他收益中大部分是政府补助与增值税优惠，对制造业是可持续的。我不会全部剔除。折中方案：维持850亿基准，悲观情景基准降至780亿，并在Prompt 8把安全边际要求提高到25%（而非20%），以覆盖这块不确定性。这样风险只在一个位置计价，不重复扣减。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 7</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>股本与市值</td><td>✅ 已核</td><td>46.27亿股 × 251.94 = 11,657.9亿；与行情总市值一致</td></tr>
-      <tr><td>模型类型</td><td>✅ 通过</td><td>FCFE_REINVESTMENT_PROXY，符合类型2；未使用直接FCFE伪装</td></tr>
-      <tr><td>2026E盈利</td><td>✅ 已核</td><td>645.30 + 约230 = 875亿，Q4参照2025Q4 231.67亿</td></tr>
-      <tr><td>非经常性收益占比</td><td>✅ 已核</td><td>(90.66+24.90+63.88)/808.5 ≈ 22.2%（税前口径）</td></tr>
-      <tr><td>净现金</td><td>⚠ 估算</td><td>有息负债未逐笔核对，保守取1,500亿</td></tr>
-      <tr><td>终值占比</td><td>⚠ 偏高</td><td>合理情景67.1%，依赖永续假设；已用敏感性表披露</td></tr>
-    </table>
-    <p>结论：本模块复核通过。净现金为估算值，终值占比较高，均已通过保守取值与敏感性分析处理。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 7</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>股本与市值</td><td class="positive">已核</td><td>46.27亿股×251.94＝11,657.9亿，与行情总市值一致</td></tr>
+      <tr><td>模型类型</td><td class="positive">通过</td><td>FCFE_REINVESTMENT_PROXY，符合类型2；未使用直接FCFE伪装</td></tr>
+      <tr><td>2026E盈利</td><td class="positive">已核</td><td>645.30+约230＝875亿，Q4参照2025Q4 231.67亿</td></tr>
+      <tr><td>非经常性收益占比</td><td class="positive">已核</td><td>(90.66+24.90+63.88)/808.5≈22.2%（税前口径）</td></tr>
+      <tr><td>净现金</td><td class="negative">估算</td><td>有息负债未逐笔核对，保守取1,500亿</td></tr>
+      <tr><td>终值占比</td><td class="negative">偏高</td><td>合理情景67.1%，依赖永续假设；已用敏感性表披露</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。净现金为估算值，终值占比较高，均已通过保守取值与敏感性分析处理。</p>
 </div>
 
-<!-- Prompt 8 -->
-<div class="card">
-  <h2>Prompt 8：安全边际、机会成本与买入决策</h2>
+<!-- PROMPT 8 -->
+<div class="section" id="p8">
+  <h2>Prompt 8：安全边际分析与投资决策</h2>
 
   <h3>8.1 安全边际计算</h3>
   <table>
-    <tr><th>口径</th><th>数值</th><th>计算</th></tr>
-    <tr><td>合理价值</td><td>¥255.66</td><td class="left">DCF合理情景</td></tr>
-    <tr><td>悲观价值</td><td>¥207.39</td><td class="left">DCF悲观情景</td></tr>
-    <tr><td>要求安全边际</td><td>25%</td><td class="left">品质A-但可预测性低，取25%（高于默认20%）</td></tr>
-    <tr><td>买入上限</td><td>¥191.75</td><td class="left">255.66 × (1 − 25%)</td></tr>
-    <tr><td>现价</td><td>¥251.94</td><td class="left">2026-11-04盘中</td></tr>
-    <tr><td>现价相对合理价值</td><td class="highlight-red">98.5%</td><td class="left">251.94 / 255.66，折价仅1.5%</td></tr>
-    <tr><td>现价相对买入上限</td><td class="highlight-red">+31.4%</td><td class="left">251.94 / 191.75 − 1，显著高于买入区</td></tr>
+    <thead><tr><th>口径</th><th>数值</th><th>计算/说明</th></tr></thead>
+    <tbody>
+      <tr><td>合理价值</td><td>255.66元</td><td>DCF合理情景</td></tr>
+      <tr><td>悲观价值</td><td>207.39元</td><td>DCF悲观情景</td></tr>
+      <tr><td>要求安全边际</td><td>25%</td><td>品质A-但可预测性低，取25%（高于默认20%）</td></tr>
+      <tr><td>买入上限</td><td>191.75元</td><td>255.66×(1−25%)</td></tr>
+      <tr><td>现价</td><td>251.94元</td><td>2026-11-04盘中</td></tr>
+      <tr><td>现价相对合理价值</td><td class="negative">98.5%</td><td>251.94/255.66，折价仅1.5%</td></tr>
+      <tr><td>现价相对买入上限</td><td class="negative">+31.4%</td><td>251.94/191.75−1，显著高于买入区</td></tr>
+    </tbody>
   </table>
-  <p>买入区间：¥185-200（悲观价值 207.39 下方，且覆盖 25% 安全边际）。当前价格距离买入区上沿仍有 20.6% 的空间。</p>
+  <p>买入区间：185-200元（悲观价值207.39元下方，且覆盖25%安全边际）。当前价格距离买入区上沿仍有20.6%的空间。</p>
 
   <h3>8.2 当前价格的隐含回报</h3>
   <div class="info-box">
-    <p>若以 251.94 元买入，假设三年后回归合理价值 255.66 元：</p>
-    <p>价格回报 = 255.66/251.94 − 1 = +1.5%（三年累计），年化约 0.5%；</p>
-    <p>股息回报 = 3.3%/年（按2025年度6.957元 + 2026中期1.411元测算）；</p>
-    <p><strong>合计预期年化回报约 3.8%，低于 10% 的股权要求回报率，也低于 8% 的机会成本门槛。</strong></p>
+    <p>若以251.94元买入，假设三年后回归合理价值255.66元：</p>
+    <p>价格回报＝255.66/251.94−1＝+1.5%（三年累计），年化约0.5%；</p>
+    <p>股息回报＝3.3%/年（按2025年度6.957元+2026中期1.411元测算）；</p>
+    <p><strong>合计预期年化回报约3.8%，低于10%的股权要求回报率，也低于8%的机会成本门槛。</strong></p>
   </div>
 
   <h3>8.3 机会成本对比</h3>
   <table>
-    <tr><th>选项</th><th>预期年化回报</th><th>确定性</th><th>结论</th></tr>
-    <tr><td>宁德时代 @ ¥251.94</td><td>约3.8%（1.5%价格+3.3%股息）</td><td>中低（毛利率下滑）</td><td class="highlight-red">不满足门槛</td></tr>
-    <tr><td>宁德时代 @ ¥191.75</td><td>约10.9%（25%价值回归+3.3%股息）</td><td>中</td><td class="highlight-green">满足门槛</td></tr>
-    <tr><td>现金/短债</td><td>约2.5%-3.0%</td><td>高</td><td>仅作等待成本参照</td></tr>
-    <tr><td>股权要求回报率</td><td>10.0%</td><td>—</td><td>决策门槛</td></tr>
+    <thead><tr><th>选项</th><th>预期年化回报</th><th>确定性</th><th>结论</th></tr></thead>
+    <tbody>
+      <tr><td>宁德时代 @ 251.94元</td><td>约3.8%（1.5%价格+3.3%股息）</td><td>中低（毛利率下滑）</td><td class="negative">不满足门槛</td></tr>
+      <tr><td>宁德时代 @ 191.75元</td><td>约10.9%（25%价值回归+3.3%股息）</td><td>中</td><td class="positive">满足门槛</td></tr>
+      <tr><td>现金/短债</td><td>约2.5%-3.0%</td><td>高</td><td>仅作等待成本参照</td></tr>
+      <tr><td>股权要求回报率</td><td>10.0%</td><td>—</td><td>决策门槛</td></tr>
+    </tbody>
   </table>
 
   <h3>8.4 决策结论</h3>
-  <div class="warning-box">
-    <h4>不买入（B. 观察等待）</h4>
-    <p>理由一：价格不提供安全边际。现价 251.94 元相当于合理价值 255.66 元的 98.5%，折价仅 1.5%，远低于 25% 的要求。</p>
-    <p>理由二：盈利质量正在恶化。Q3 毛利率 20.69%、Q3 经营现金流 14.09 亿，两个指标同时亮红灯，说明当前盈利的可持续性存疑。在证据不足时，用"便宜"去补偿"不确定"，是典型的错误。</p>
-    <p>理由三：机会成本不划算。3.8% 的预期年化回报，低于 10% 的股权要求回报率，也低于组合内其他机会的门槛。</p>
+  <div class="alert-box">
+    <strong>不买入（B. 观察等待）</strong><br><br>
+    理由一：<strong>价格不提供安全边际。</strong>现价251.94元相当于合理价值255.66元的98.5%，折价仅1.5%，远低于25%的要求。<br>
+    理由二：<strong>盈利质量正在恶化。</strong>Q3毛利率20.69%、Q3经营现金流14.09亿，两个指标同时亮红灯，说明当前盈利的可持续性存疑。在证据不足时，用“便宜”去补偿“不确定”，是典型的错误。<br>
+    理由三：<strong>机会成本不划算。</strong>3.8%的预期年化回报，低于10%的股权要求回报率，也低于组合内其他机会的门槛。
   </div>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>我愿意承认：这是一家好公司，价格也不贵。但"好公司 + 合理价格"不是买入理由，"好公司 + 便宜价格"才是。255.66 元的合理价值对应 251.94 元的现价，我只赚 1.5%。如果我错了，下行到悲观价值 207.39 元，我要亏 17.7%。赔率不对，我不下注。</p>
+    我愿意承认：这是一家好公司，价格也不贵。但“好公司+合理价格”不是买入理由，“好公司+便宜价格”才是。255.66元的合理价值对应251.94元的现价，我只赚1.5%。如果我错了，下行到悲观价值207.39元，我要亏17.7%。赔率不对，我不下注。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>补充一句：不要因为"从 468 元跌到 252 元、已经腰斩"就觉得便宜。价格下跌 46% 只说明此前的价格荒谬，不说明现在的价格合理。真正的锚是 255.66 元的现金流价值，不是 468 元的历史高点。用历史高点做参照，是最常见的行为偏差。</p>
+    补充一句：不要因为“从468元跌到252元、已经腰斩”就觉得便宜。价格下跌46%只说明此前的价格荒谬，不说明现在的价格合理。真正的锚是255.66元的现金流价值，不是468元的历史高点。用历史高点做参照，是最常见的行为偏差。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 8</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>安全边际计算</td><td>✅ 已核</td><td>255.66×(1-25%)=191.75；251.94/191.75-1=31.4%</td></tr>
-      <tr><td>隐含回报</td><td>✅ 已核</td><td>1.5%累计价格回报 + 3.3%股息 ≈ 3.8%年化，低于10%门槛</td></tr>
-      <tr><td>股息测算</td><td>✅ 已核</td><td>(6.957+1.411)/251.94=3.32%</td></tr>
-      <tr><td>无风险利率</td><td>⚠ 未核</td><td>未调取当日国债收益率，按2.5%-3.0%区间定性，仅作参照</td></tr>
-    </table>
-    <p>结论：本模块复核通过。隐含回报按三年年化约 3.8%，低于 10% 门槛，不影响结论。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 8</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>安全边际计算</td><td class="positive">已核</td><td>255.66×(1-25%)＝191.75；251.94/191.75-1＝31.4%</td></tr>
+      <tr><td>隐含回报</td><td class="positive">已核</td><td>1.5%累计价格回报+3.3%股息≈3.8%年化，低于10%门槛</td></tr>
+      <tr><td>股息测算</td><td class="positive">已核</td><td>(6.957+1.411)/251.94＝3.32%</td></tr>
+      <tr><td>无风险利率</td><td class="negative">未核</td><td>未调取当日国债收益率，按2.5%-3.0%区间定性，仅作参照</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。隐含回报按三年年化约3.8%，低于10%门槛，不影响结论。</p>
 </div>
 
-<!-- Prompt 9 -->
-<div class="card">
-  <h2>Prompt 9：未来展望、监控指标与事前预测卡</h2>
+<!-- PROMPT 9 -->
+<div class="section" id="p9">
+  <h2>Prompt 9：未来展望与关键监控点</h2>
 
-  <h3>9.1 关键监控指标</h3>
+  <h3>9.1 积极因素</h3>
+  <ul>
+    <li><strong>收入规模与增速：</strong>2026前三季4,421.37亿元（+56.2%），九个月已超2025全年；Q3单季1,652.21亿元（+58.6%），需求端未见转弱</li>
+    <li><strong>储能第二曲线：</strong>2025年储能收入624.40亿元（占14.7%），毛利率26.71%，高于动力电池的23.84%，海外大储需求强劲</li>
+    <li><strong>海外产能布局：</strong>德国、匈牙利、西班牙、印尼基地陆续爬坡，就近供应可对冲部分关税与贸易壁垒</li>
+    <li><strong>技术迭代与授权：</strong>神行、麒麟、钠离子、骁遥增混量产落地；“其他业务”毛利率74.29%，技术授权具备高附加值</li>
+    <li><strong>长期现金流优秀：</strong>2021-2025累计OCF 4,271.53亿元、FCF 2,280.20亿元，FCF/净利润106.7%</li>
+    <li><strong>股东回报：</strong>2025年度分红率43.67%，股息率3.3%；2026年中期每股1.411元已派发</li>
+    <li><strong>资产负债表稳健：</strong>货币资金3,698.14亿元，净现金约1,500亿元，负债率64.23%处行业合理区间</li>
+    <li><strong>估值处历史低位：</strong>TTM PE 13.3倍、PB 3.01倍，绝对估值已反映较多悲观预期</li>
+  </ul>
+
+  <h3>9.2 风险因素</h3>
+  <ul>
+    <li><strong>毛利率下行（核心风险）：</strong>Q3单季20.69%，为2022年以来最低，同比-5.11pp；若为结构性价格战，盈利中枢将永久下移</li>
+    <li><strong>现金流红灯：</strong>Q3单季OCF 14.09亿元、现金含量6.3%；存货+53.2%、应收+47.8%、合同负债-17.4%，营运资本占用加剧</li>
+    <li><strong>价格战与产能过剩：</strong>二线厂商扩产、车企自供比例提升（如比亚迪），储能招标低价化</li>
+    <li><strong>碳酸锂价格双向风险：</strong>上行挤压成本，下行压低售价，毛利率对锂价高度敏感</li>
+    <li><strong>海外贸易壁垒：</strong>欧盟关税、美国政策变化可能影响海外产能利用率与利润</li>
+    <li><strong>资本开支加速：</strong>2026前三季421.67亿元（+40.1%），若需求判断失误将转为折旧包袱</li>
+    <li><strong>技术路线切换：</strong>固态电池等新技术若加速商业化，现有产能存在贬值风险</li>
+    <li><strong>存货减值：</strong>1,447.70亿元存货，若价格下行可能计提跌价准备</li>
+    <li><strong>非经常性收益占比偏高：</strong>前三季投资收益90.66亿、公允价值变动24.90亿、其他收益63.88亿，合计179.44亿元，占税前利润22.2%</li>
+  </ul>
+
+  <h3>9.3 关键监控指标</h3>
   <table>
-    <tr><th>指标</th><th>当前值</th><th>观察阈值</th><th>意义</th></tr>
-    <tr><td>单季毛利率</td><td>20.69%（2026Q3）</td><td class="left">连续两季 ≥22% 为修复；<20% 为恶化</td><td>定价权与成本传导</td></tr>
-    <tr><td>单季经营现金流/净利润</td><td>6.3%（2026Q3）</td><td class="left">≥80% 为健康；<50% 为红灯</td><td>利润含金量</td></tr>
-    <tr><td>存货</td><td>1,447.70亿</td><td class="left">环比增速 > 收入增速 为压货</td><td>需求真实性与减值风险</td></tr>
-    <tr><td>合同负债</td><td>406.69亿（-17.4% YTD）</td><td class="left">重回 450亿以上为订单改善</td><td>订单能见度</td></tr>
-    <tr><td>碳酸锂价格</td><td>—</td><td class="left">上行→成本压力；下行→售价压力</td><td>毛利率的外生变量</td></tr>
-    <tr><td>海外基地进度</td><td>爬坡期</td><td class="left">匈牙利/西班牙投产与利用率</td><td>海外增量与关税对冲</td></tr>
-    <tr><td>全球市占率</td><td>约37%-38%</td><td class="left">跌破35% 为份额流失</td><td>护城河宽度</td></tr>
+    <thead><tr><th>监控指标</th><th>当前值</th><th>预警阈值</th><th>监控频率</th></tr></thead>
+    <tbody>
+      <tr><td>单季毛利率</td><td>20.69%（2026Q3）</td><td>连续两季≥22%为修复；低于20%为恶化</td><td>季</td></tr>
+      <tr><td>单季经营现金流/净利润</td><td>6.3%（2026Q3）</td><td>≥80%为健康；低于50%为红灯</td><td>季</td></tr>
+      <tr><td>存货</td><td>1,447.70亿</td><td>环比增速高于收入增速即为压货</td><td>季</td></tr>
+      <tr><td>合同负债</td><td>406.69亿（-17.4% YTD）</td><td>重回450亿以上为订单改善</td><td>季</td></tr>
+      <tr><td>碳酸锂价格</td><td>—</td><td>上行→成本压力；下行→售价压力</td><td>周</td></tr>
+      <tr><td>海外基地进度</td><td>爬坡期</td><td>匈牙利/西班牙投产与利用率</td><td>半年</td></tr>
+      <tr><td>全球市占率</td><td>约37%-38%</td><td>跌破35%为份额流失</td><td>半年</td></tr>
+      <tr><td>TTM PE</td><td>13.3x</td><td>高于20x即偏贵</td><td>日</td></tr>
+    </tbody>
   </table>
 
-  <h3>9.2 买入/加仓/放弃触发条件</h3>
+  <h3>9.4 买入/加仓/放弃触发条件</h3>
   <table>
-    <tr><th>动作</th><th>触发条件</th><th>仓位</th></tr>
-    <tr><td class="highlight-green">首次建仓</td><td class="left">价格 ≤ ¥200 且 单季毛利率 ≥ 22% 且 单季OCF/净利润 ≥ 80%</td><td>组合 3%-5%</td></tr>
-    <tr><td class="highlight-accent">加仓</td><td class="left">价格 ≤ ¥185 且 连续两季毛利率回升、合同负债重回450亿以上</td><td>加至 8% 上限</td></tr>
-    <tr><td class="highlight-red">放弃</td><td class="left">毛利率连续三季 <20% 或 市占率跌破35% 或 出现治理/审计红旗</td><td>清仓观察</td></tr>
-    <tr><td>持有不动</td><td class="left">价格在 ¥200-255 之间且基本面未恶化</td><td>不新增</td></tr>
+    <thead><tr><th>动作</th><th>触发条件</th><th>仓位</th></tr></thead>
+    <tbody>
+      <tr><td class="positive">首次建仓</td><td>价格≤200元 且 单季毛利率≥22% 且 单季OCF/净利润≥80%</td><td>组合3%-5%</td></tr>
+      <tr><td class="positive">加仓</td><td>价格≤185元 且 连续两季毛利率回升、合同负债重回450亿以上</td><td>加至8%上限</td></tr>
+      <tr><td class="negative">放弃</td><td>毛利率连续三季低于20% 或 市占率跌破35% 或 出现治理/审计红旗</td><td>清仓观察</td></tr>
+      <tr><td>持有不动</td><td>价格在200-255元之间且基本面未恶化</td><td>不新增</td></tr>
+    </tbody>
   </table>
 
-  <h3>9.3 事前预测卡（2026Q4 / 2027Q1）</h3>
+  <h3>9.5 事前预测卡（2026Q4 / 2027Q1）</h3>
   <table>
-    <tr><th>预测项</th><th>2026Q4</th><th>2027Q1</th><th>校准规则</th></tr>
-    <tr><td>营业收入</td><td>1,550-1,700亿</td><td>1,300-1,450亿</td><td class="left">Q4环比Q3基本持平；Q1为季节性淡季</td></tr>
-    <tr><td>归母净利润</td><td>210-240亿</td><td>190-225亿</td><td class="left">净利率13%-14%</td></tr>
-    <tr><td>单季毛利率</td><td>20.5%-21.5%</td><td>21%-22.5%</td><td class="left">原材料传导滞后1-2季度</td></tr>
-    <tr><td>单季OCF/净利润</td><td>≥70%</td><td>≥80%</td><td class="left">Q4回款季节性改善</td></tr>
-    <tr><td>2026全年归母</td><td>855-885亿</td><td>—</td><td class="left">前三季645.3 + Q4 210-240</td></tr>
-    <tr><td>2027全年归母</td><td>—</td><td>880-960亿</td><td class="left">毛利率修复至22%-23%</td></tr>
+    <thead><tr><th>预测项</th><th>2026Q4</th><th>2027Q1</th><th>校准规则</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入</td><td>1,550-1,700亿</td><td>1,300-1,450亿</td><td>Q4环比Q3基本持平；Q1为季节性淡季</td></tr>
+      <tr><td>归母净利润</td><td>210-240亿</td><td>190-225亿</td><td>净利率13%-14%</td></tr>
+      <tr><td>单季毛利率</td><td>20.5%-21.5%</td><td>21%-22.5%</td><td>原材料传导滞后1-2季度</td></tr>
+      <tr><td>单季OCF/净利润</td><td>≥70%</td><td>≥80%</td><td>Q4回款季节性改善</td></tr>
+      <tr><td>2026全年归母</td><td>855-885亿</td><td>—</td><td>前三季645.3+Q4 210-240</td></tr>
+      <tr><td>2027全年归母</td><td>—</td><td>880-960亿</td><td>毛利率修复至22%-23%</td></tr>
+    </tbody>
   </table>
-  <p>预测卡冻结日期：2026-11-04；下次校准：2026年年度报告披露后。若 Q4 毛利率低于 20.5% 或 OCF/净利润低于 50%，则触发"盈利质量恶化"情景重估，合理价值下调至悲观区间 207 元附近。</p>
+  <p>预测卡冻结日期：2026-11-04；下次校准：2026年年度报告披露后。若Q4毛利率低于20.5%或OCF/净利润低于50%，则触发“盈利质量恶化”情景重估，合理价值下调至悲观区间207元附近。</p>
 
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>我不预测锂价，也不预测股价。我只预测两件可以观察的事：毛利率能不能回到 22% 以上，现金流能不能恢复到 80% 的利润含量。如果这两件事在 Q4 和 2027Q1 同时发生，我就愿意在 200 元以下建仓；如果只发生一件，我继续等；如果两件都没发生，我放弃。</p>
+    我不预测锂价，也不预测股价。我只预测两件可以观察的事：毛利率能不能回到22%以上，现金流能不能恢复到80%的利润含量。如果这两件事在Q4和2027Q1同时发生，我就愿意在200元以下建仓；如果只发生一件，我继续等；如果两件都没发生，我放弃。
   </div>
-
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>这就是"事前预测卡"的价值：把模糊的"再看看"变成可证伪的条件。请注意，我们的预测允许自己错。如果 Q4 毛利率还是 20.5%，我们不会说"再等一年"，而是直接下调估值。承认错误的速度，决定了长期收益。</p>
+    这就是“事前预测卡”的价值：把模糊的“再看看”变成可证伪的条件。请注意，我们的预测允许自己错。如果Q4毛利率还是20.5%，我们不会说“再等一年”，而是直接下调估值。承认错误的速度，决定了长期收益。
   </div>
 
-  <div class="munger-audit">
-    <h4>芒格复核记录 — Prompt 9</h4>
-    <table>
-      <tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr>
-      <tr><td>Q4盈利预测</td><td>✅ 有依据</td><td>参照2025Q4归母231.67亿，按净利率13%-14%外推</td></tr>
-      <tr><td>2026全年预测</td><td>✅ 已核</td><td>645.30+210~240=855~885亿</td></tr>
-      <tr><td>毛利率阈值</td><td>⚠ 假设</td><td>22%为2026H1水平，属模型假设而非事实</td></tr>
-      <tr><td>市占率阈值</td><td>⚠ 单源</td><td>35%为定性红线，非精确测算</td></tr>
-    </table>
-    <p>结论：本模块复核通过。所有预测均为可证伪假设，已标注为待验证项。</p>
-  </div>
+  <h4>芒格复核记录 — Prompt 9</h4>
+  <table>
+    <thead><tr><th>复核项</th><th>状态</th><th>依据与备注</th></tr></thead>
+    <tbody>
+      <tr><td>Q4盈利预测</td><td class="positive">有依据</td><td>参照2025Q4归母231.67亿，按净利率13%-14%外推</td></tr>
+      <tr><td>2026全年预测</td><td class="positive">已核</td><td>645.30+210~240＝855~885亿</td></tr>
+      <tr><td>毛利率阈值</td><td class="negative">假设</td><td>22%为2026H1水平，属模型假设而非事实</td></tr>
+      <tr><td>市占率阈值</td><td class="negative">单源</td><td>35%为定性红线，非精确测算</td></tr>
+    </tbody>
+  </table>
+  <p>结论：本模块复核通过。所有预测均为可证伪假设，已标注为待验证项。</p>
 </div>
 
-<!-- Prompt 10 -->
-<div class="card">
+<!-- PROMPT 10 -->
+<div class="section" id="p10">
   <h2>Prompt 10：最终结论与行动计划</h2>
 
-  <h3>10.1 决策矩阵</h3>
+  <h3>10.1 投资结论</h3>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="label">综合评级</div>
+      <div class="value" style="color:var(--red);">观察等待</div>
+      <div class="sub">B. Watch and Wait</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">内在价值中值</div>
+      <div class="value">255.66<span class="unit"> 元</span></div>
+      <div class="sub">区间207.39-308.89元，DCF三情景</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">当前股价</div>
+      <div class="value">251.94<span class="unit"> 元</span></div>
+      <div class="sub">2026-11-04盘中，折价1.5%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">买入上限</div>
+      <div class="value">191.75<span class="unit"> 元</span></div>
+      <div class="sub">合理价值×75%，现价高31.4%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">品质评级</div>
+      <div class="value">A-</div>
+      <div class="sub">85/100，估值资格 Go</div>
+    </div>
+  </div>
+
+  <h3>10.2 结论详述</h3>
+  <p>宁德时代（300750.SZ / 3750.HK）是一家<strong>基本面优秀、当前盈利质量转弱、估值便宜但无安全边际</strong>的全球电池龙头。以巴芒价值投资框架全面审视：</p>
+  <ul>
+    <li><strong>业务层面（优秀）：</strong>全球动力电池份额约37%-38%、储能份额30%以上；动力电池2025年收入3,165.06亿元（占74.7%），储能624.40亿元（占14.7%，毛利率26.71%）；技术授权与其他业务毛利率74.29%。</li>
+    <li><strong>财务层面（长期优秀、短期转弱）：</strong>五年收入CAGR 34.3%、利润CAGR 45.9%、ROE连续五年高于21%；累计FCF 2,280.20亿元高于累计净利润2,137.27亿元。但2026前三季FCF仅194.58亿元、FCF/净利润30.2%，Q3单季OCF 14.09亿元。</li>
+    <li><strong>管理层（良好）：</strong>创始人曾毓群在位、工程师文化、2025年分红率43.67%；但毛利率下滑期资本开支加速40.1%，资本配置纪律需观察。</li>
+    <li><strong>估值层面（便宜但无边际）：</strong>TTM PE 13.3倍、PB 3.01倍、股息率3.3%；DCF合理价值255.66元，现价251.94元折价仅1.5%，买入上限191.75元。</li>
+    <li><strong>主要风险（已亮红灯）：</strong>Q3毛利率20.69%、OCF/净利润6.3%；合同负债下降17.4%与收入高增矛盾；若为结构性价格战，合理价值将下修至悲观区间207元附近。</li>
+  </ul>
+
+  <div class="success-box">
+    <strong>最终结论：B. 观察等待（Watch and Wait，首次评级）</strong><br><br>
+    宁德时代是巴芒框架下“好公司、合理价格、但没有便宜到值得出手”的典型样本：宽护城河仍在，长期现金流与股东回报优异，13.3倍PE也确实反映了较多悲观预期；<strong>但1.5%的折价不足以补偿毛利率与现金流的双红灯</strong>。建议不建仓，设置200元与185元两级价格提醒，等待Q4报告对“毛利率能否回到22%、现金流能否恢复到80%利润含量”给出答案。若价格≤200元且两项基本面条件同时满足，首次建仓3%-5%；若仅价格达标而基本面未改善，继续等待。
+  </div>
+
+  <h3>10.3 行动计划</h3>
   <table>
-    <tr><th>维度</th><th>评分</th><th>结论</th></tr>
-    <tr><td>生意质量</td><td>85/100（A-）</td><td class="highlight-green">优秀，具备宽护城河（趋势偏窄）</td></tr>
-    <tr><td>财务健康</td><td>净现金约1,500亿、负债率64.2%</td><td class="highlight-green">稳健</td></tr>
-    <tr><td>盈利趋势</td><td>Q3毛利率20.69%、归母增速+14.5%</td><td class="highlight-red">恶化中</td></tr>
-    <tr><td>现金流质量</td><td>Q3 OCF/净利 6.3%</td><td class="highlight-red">红灯</td></tr>
-    <tr><td>估值</td><td>PE 13.3x、PB 3.01x、股息率3.3%</td><td class="highlight-accent">便宜但无安全边际</td></tr>
-    <tr><td>价格位置</td><td>合理价值98.5%、买入上限+31.4%</td><td class="highlight-red">高于买入区</td></tr>
-    <tr><td><strong>综合决策</strong></td><td>—</td><td><strong>B. 观察等待</strong></td></tr>
+    <thead><tr><th>阶段</th><th>触发条件</th><th>行动</th><th>仓位</th></tr></thead>
+    <tbody>
+      <tr><td>观察（当前）</td><td>现价251.94元，合理价值折价仅1.5%</td><td>不建仓，设置价格提醒</td><td>0</td></tr>
+      <tr><td>首次建仓</td><td>价格≤200元 且 单季毛利率≥22% 且 单季OCF/净利润≥80%</td><td>买入</td><td>组合3%-5%</td></tr>
+      <tr><td>加仓</td><td>价格≤185元 且 连续两季毛利率回升、合同负债重回450亿元以上</td><td>加仓</td><td>至组合8%上限</td></tr>
+      <tr><td>放弃</td><td>毛利率连续三季低于20% 或 市占率跌破35% 或 治理/审计红旗</td><td>清仓观察</td><td>全部退出</td></tr>
+      <tr><td>止盈</td><td>价格≥308.89元（乐观价值）或 TTM PE高于20倍</td><td>减仓</td><td>减至1/3</td></tr>
+    </tbody>
   </table>
 
-  <h3>10.2 行动清单</h3>
-  <ol>
-    <li><strong>不建仓。</strong>当前 ¥251.94 高于买入上限 ¥191.75 约 31.4%，不满足 25% 安全边际。</li>
-    <li><strong>设置价格提醒。</strong>¥200（观察区上沿）、¥185（买入区上沿）。</li>
-    <li><strong>跟踪 Q4 报告（2027年3-4月）。</strong>核心看三项：单季毛利率、单季 OCF/净利润、合同负债。</li>
-    <li><strong>触发即执行。</strong>若价格 ≤¥200 且毛利率 ≥22%、OCF/净利润 ≥80%，建仓 3%-5%；若仅满足价格条件而基本面未改善，继续等待。</li>
-    <li><strong>不因"腰斩"而买入。</strong>468.75 元的历史高点不是价值锚，255.66 元的现金流价值才是。</li>
-  </ol>
-
-  <h3>10.3 主要风险</h3>
-  <table>
-    <tr><th>风险</th><th>概率</th><th>影响</th><th>应对</th></tr>
-    <tr><td>价格战导致毛利率长期低位</td><td class="highlight-red">高</td><td>合理价值下修至207元</td><td class="left">以悲观情景为价格保护底线</td></tr>
-    <tr><td>碳酸锂价格大幅上行</td><td>中</td><td>成本挤压，毛利率再降</td><td class="left">跟踪锂价与售价传导时滞</td></tr>
-    <tr><td>海外贸易壁垒/关税</td><td>中</td><td>海外产能利用率与利润受损</td><td class="left">跟踪匈牙利、西班牙、印尼基地进度</td></tr>
-    <tr><td>存货减值</td><td>中低</td><td>1,447.7亿存货，价格下行时减值</td><td class="left">跟踪存货周转天数与跌价准备</td></tr>
-    <tr><td>技术路线切换（固态电池等）</td><td>低但长期</td><td>现有产能贬值</td><td class="left">跟踪研发投入与客户定点变化</td></tr>
-    <tr><td>治理/关联交易</td><td>低</td><td>估值折价</td><td class="left">跟踪投资平台与关联方资金往来</td></tr>
-  </table>
-
-  <h3>10.4 巴菲特的最终陈述</h3>
+  <h3>10.4 巴芒总结对话</h3>
   <div class="dialogue">
     <div class="speaker">巴菲特：</div>
-    <p>宁德时代是我会放在"能力圈边缘"的公司：生意我看得懂，但锂价和技术路线我看不懂。它过去的成绩足以证明管理层的能力，13 倍的 PE 也说明市场已经给出了折价。但我不会因为"便宜"就买入一家正在失去定价权的公司。我的出价是 191.75 元以下。到了那个价格，我愿意用 3%-5% 的仓位去验证我的判断；在那之前，我选择等待。</p>
+    宁德时代是我会放在“能力圈边缘”的公司：生意我看得懂，但锂价和技术路线我看不懂。它过去的成绩足以证明管理层的能力，13倍的PE也说明市场已经给出了折价。但我不会因为“便宜”就买入一家正在失去定价权的公司。我的出价是191.75元以下。到了那个价格，我愿意用3%-5%的仓位去验证我的判断；在那之前，我选择等待。
   </div>
-
-  <h3>10.5 芒格的最终陈述</h3>
   <div class="dialogue munger">
     <div class="speaker">芒格：</div>
-    <p>我想留下三句话。第一，<strong>毛利率是这家公司的体温计</strong>，20.69% 是发烧，不是正常波动。第二，<strong>现金流是验钞机</strong>，Q3 只验出 6.3% 的真钞，其余是存货和应收。第三，<strong>价格下跌不等于价值出现</strong>，从 468 元跌到 252 元只完成了"消除泡沫"，还没有完成"创造安全边际"。等体温降下来、验钞机通过，再谈买入。</p>
+    我想留下三句话。第一，<strong>毛利率是这家公司的体温计</strong>，20.69%是发烧，不是正常波动。第二，<strong>现金流是验钞机</strong>，Q3只验出6.3%的真钞，其余是存货和应收。第三，<strong>价格下跌不等于价值出现</strong>，从468元跌到252元只完成了“消除泡沫”，还没有完成“创造安全边际”。等体温降下来、验钞机通过，再谈买入。
   </div>
 
-  <h3>10.6 报告局限与数据声明</h3>
+  <h3>10.5 报告局限与数据声明</h3>
   <ul>
-    <li>净现金 1,500 亿为估算值，有息负债未逐笔核对；若实际值更高，估值将被低估。</li>
+    <li>净现金1,500亿元为估算值，有息负债未逐笔核对；若实际值更高，估值将被低估。</li>
     <li>全球市占率、海外基地产能为行业机构与公司宣传口径，属单源定性信息，未进入估值计算。</li>
     <li>审计意见未逐字调取原文，依据定期报告披露表述。</li>
-    <li>2026Q4 及 2027 年数据均为情景假设，不构成事实。</li>
+    <li>2026Q4及2027年数据均为情景假设，不构成事实。</li>
     <li>本报告不构成投资建议；所有估值结论均随毛利率与现金流证据变化而失效。</li>
   </ul>
 </div>
 
-<!-- Charts -->
-<div class="card">
-  <h2>图表：营收利润、毛利率、现金流与估值区间</h2>
-  <div id="chart-revenue-profit" class="chart-container"></div>
-  <div id="chart-margin-trend" class="chart-container"></div>
-  <div id="chart-cashflow" class="chart-container"></div>
-  <div id="chart-valuation" class="chart-container"></div>
-</div>
-
+<!-- FOOTER -->
 <div class="footer">
-  <p>分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）｜原创作者：Br7uce（br7）</p>
-  <p>分析基准日：2026年11月4日 ｜ 数据来源：深交所/巨潮资讯、港交所披露易、公司定期报告、通达信行情数据</p>
+  <p><strong>免责声明：</strong>本报告基于公开信息分析，不构成任何投资建议。投资有风险，入市需谨慎。报告中的估值分析和结论基于特定假设，实际结果可能因市场环境变化而显著不同。</p>
+  <p>分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）｜ 原创作者：Br7uce（br7）</p>
+  <p>分析时间：2026年11月4日 ｜ 数据截止：2026年三季报 + 2025年年报 + 2026年11月4日行情 ｜ 首次全量分析</p>
   <p>Copyright © 2026 Br7uce. All Rights Reserved. 本报告基于 BR7-VIA-V10.1 生成，不构成投资建议。</p>
 </div>
 
 </div>
-
-<script>
-var chartRP = echarts.init(document.getElementById('chart-revenue-profit'));
-chartRP.setOption({
-  title: { text: '营业收入与归母净利润（亿元）', left: 'center', textStyle: { fontSize: 15, color: '#1a3a5c' } },
-  tooltip: { trigger: 'axis' },
-  legend: { data: ['营业收入', '归母净利润'], bottom: 0 },
-  grid: { left: '3%', right: '4%', bottom: '12%', top: '18%', containLabel: true },
-  xAxis: { type: 'category', data: ['2021', '2022', '2023', '2024', '2025', '2026E'] },
-  yAxis: [
-    { type: 'value', name: '营收(亿)', axisLabel: { formatter: '{value}' } },
-    { type: 'value', name: '净利(亿)' }
-  ],
-  series: [
-    { name: '营业收入', type: 'bar', barWidth: '45%', itemStyle: { color: '#1a3a5c' }, data: [1303.56, 3285.94, 4009.17, 3620.13, 4237.02, 6021.00] },
-    { name: '归母净利润', type: 'line', yAxisIndex: 1, symbolSize: 8, lineStyle: { width: 3, color: '#c8951e' }, itemStyle: { color: '#c8951e' }, data: [159.31, 307.29, 441.21, 507.45, 722.01, 875.00] }
-  ]
-});
-
-var chartMargin = echarts.init(document.getElementById('chart-margin-trend'));
-chartMargin.setOption({
-  title: { text: '毛利率与净利率趋势（%）', left: 'center', textStyle: { fontSize: 15, color: '#1a3a5c' } },
-  tooltip: { trigger: 'axis', valueFormatter: function (v) { return v + '%'; } },
-  legend: { data: ['毛利率', '净利率'], bottom: 0 },
-  grid: { left: '3%', right: '4%', bottom: '12%', top: '18%', containLabel: true },
-  xAxis: { type: 'category', data: ['2021', '2022', '2023', '2024', '2025', '2026前三季'] },
-  yAxis: { type: 'value', min: 0, max: 30, axisLabel: { formatter: '{value}%' } },
-  series: [
-    { name: '毛利率', type: 'line', symbolSize: 8, lineStyle: { width: 3, color: '#2d7d46' }, itemStyle: { color: '#2d7d46' }, data: [26.28, 20.25, 22.91, 24.44, 26.27, 22.72], markPoint: { data: [{ type: 'min', name: '最低', itemStyle: { color: '#c0392b' } }] } },
-    { name: '净利率', type: 'line', symbolSize: 8, lineStyle: { width: 3, color: '#c8951e' }, itemStyle: { color: '#c8951e' }, data: [13.70, 10.18, 11.66, 14.92, 18.12, 15.72] }
-  ]
-});
-
-var chartCF = echarts.init(document.getElementById('chart-cashflow'));
-chartCF.setOption({
-  title: { text: '经营现金流、资本开支与自由现金流（亿元）', left: 'center', textStyle: { fontSize: 15, color: '#1a3a5c' } },
-  tooltip: { trigger: 'axis' },
-  legend: { data: ['经营现金流', '资本开支', '自由现金流'], bottom: 0 },
-  grid: { left: '3%', right: '4%', bottom: '12%', top: '18%', containLabel: true },
-  xAxis: { type: 'category', data: ['2021', '2022', '2023', '2024', '2025', '2026前三季'] },
-  yAxis: { type: 'value', name: '亿元' },
-  series: [
-    { name: '经营现金流', type: 'bar', itemStyle: { color: '#1a3a5c' }, data: [429.08, 612.09, 928.26, 969.90, 1332.20, 616.25] },
-    { name: '资本开支', type: 'bar', itemStyle: { color: '#999999' }, data: [437.68, 482.15, 336.25, 311.80, 423.45, 421.67] },
-    { name: '自由现金流', type: 'line', symbolSize: 8, lineStyle: { width: 3, color: '#c8951e' }, itemStyle: { color: '#c8951e' }, data: [-8.60, 129.94, 592.01, 658.10, 908.75, 194.58] }
-  ]
-});
-
-var chartVal = echarts.init(document.getElementById('chart-valuation'));
-chartVal.setOption({
-  title: { text: '三情景每股价值 vs 现价（元）', left: 'center', textStyle: { fontSize: 15, color: '#1a3a5c' } },
-  tooltip: { trigger: 'axis' },
-  grid: { left: '3%', right: '4%', bottom: '8%', top: '18%', containLabel: true },
-  xAxis: { type: 'category', data: ['悲观情景', '合理情景', '乐观情景', '当前股价'] },
-  yAxis: { type: 'value', name: '元/股', min: 150, max: 330 },
-  series: [
-    { type: 'bar', barWidth: '45%', data: [
-      { value: 207.39, itemStyle: { color: '#c0392b' } },
-      { value: 255.66, itemStyle: { color: '#c8951e' } },
-      { value: 308.89, itemStyle: { color: '#2d7d46' } },
-      { value: 251.94, itemStyle: { color: '#1a3a5c' } }
-    ], label: { show: true, position: 'top', formatter: '¥{c}' },
-    markLine: { symbol: 'none', data: [{ yAxis: 191.75, label: { formatter: '买入上限 ¥191.75', position: 'insideStartTop' }, lineStyle: { color: '#c0392b', type: 'dashed', width: 2 } }] }
-    }
-  ]
-});
-
-window.addEventListener('resize', function () {
-  chartRP.resize(); chartMargin.resize(); chartCF.resize(); chartVal.resize();
-});
-</script>
 </body>
 </html>
