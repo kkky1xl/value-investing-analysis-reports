@@ -26,3 +26,4 @@ Copyright © 2026 Br7uce. All Rights Reserved.
 | 松发股份 (603268.SH) | [查看报告](reports/songfa-603268-buffett-munger-analysis.html) | 2026-09-23 | D. 远离/不买入 | 船舶制造/造船 |
 | 新易盛 (300502.SZ) | [查看报告](reports/xinyisheng-300502-buffett-munger-analysis.html) | 2026-10-30 | B. 观察等待（条件触发→1/4仓，现金流警示） | 光模块/AI算力 |
 | 药明康德 (603259.SH) | [查看报告](reports/wuxi-603259-buffett-munger-analysis.html) | 2026-10-28 | B. 谨慎买入 | CRDMO/CXO 龙头 |
+| 宁德时代 (300750.SZ) | [查看报告](reports/ningdeshidai-300750-buffett-munger-analysis.html) | 2026-11-04 | B. 观察等待（价值区上沿，无安全边际） | 动力电池/储能 |
