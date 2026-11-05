@@ -27,3 +27,4 @@ Copyright © 2026 Br7uce. All Rights Reserved.
 | 新易盛 (300502.SZ) | [查看报告](reports/xinyisheng-300502-buffett-munger-analysis.html) | 2026-10-30 | B. 观察等待（条件触发→1/4仓，现金流警示） | 光模块/AI算力 |
 | 药明康德 (603259.SH) | [查看报告](reports/wuxi-603259-buffett-munger-analysis.html) | 2026-10-28 | B. 谨慎买入 | CRDMO/CXO 龙头 |
 | 宁德时代 (300750.SZ) | [查看报告](reports/ningdeshidai-300750-buffett-munger-analysis.html) | 2026-11-04 | B. 观察等待（价值区上沿，无安全边际） | 动力电池/储能 |
+| 紫金矿业 (601899.SH) | [查看报告](reports/zijin-601899-buffett-munger-analysis.html) | 2026-11-05 | B. 观察等待（不买入/不新增，价格高于内在价值） | 有色金属（铜/金） |
