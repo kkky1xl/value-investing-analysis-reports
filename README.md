@@ -28,3 +28,4 @@ Copyright © 2026 Br7uce. All Rights Reserved.
 | 药明康德 (603259.SH) | [查看报告](reports/wuxi-603259-buffett-munger-analysis.html) | 2026-10-28 | B. 谨慎买入 | CRDMO/CXO 龙头 |
 | 宁德时代 (300750.SZ) | [查看报告](reports/ningdeshidai-300750-buffett-munger-analysis.html) | 2026-11-04 | B. 观察等待（价值区上沿，无安全边际） | 动力电池/储能 |
 | 紫金矿业 (601899.SH) | [查看报告](reports/zijin-601899-buffett-munger-analysis.html) | 2026-11-05 | B. 观察等待（不买入/不新增，价格高于内在价值） | 有色金属（铜/金） |
+| 海尔智家 (600690.SH) | [查看报告](reports/haier-600690-buffett-munger-analysis.html) | 2026-11-06 | B. 观察等待（不买入/不新增，未达19.2元合理买点） | 家用电器（白色家电） |
