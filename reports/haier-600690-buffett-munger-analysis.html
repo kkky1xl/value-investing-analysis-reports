@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海尔智家（600690.SH / 6690.HK）巴芒价值投资分析报告</title>
+<style>
+:root {
+  --primary: #1a3a5c;
+  --accent: #c8951e;
+  --bg: #fafafa;
+  --card-bg: #ffffff;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --border: #e0e0e0;
+  --green: #2d7d46;
+  --red: #c0392b;
+  --blue: #2980b9;
+  --table-header: #1a3a5c;
+  --table-row-alt: #f5f7fa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 15px;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.header {
+  background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 100%);
+  color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+.header h1 { font-size: 28px; margin-bottom: 10px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 15px; }
+.header .framework-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+.section {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.section h2 {
+  color: var(--primary);
+  font-size: 22px;
+  border-left: 4px solid var(--accent);
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+.section h3 { color: var(--primary); font-size: 17px; margin: 20px 0 10px; }
+.section h4 { color: var(--text); font-size: 15px; margin: 15px 0 8px; font-weight: 600; }
+p { margin-bottom: 12px; text-align: justify; }
+ul, ol { margin: 10px 0 12px 24px; }
+li { margin: 4px 0; }
+.dialogue {
+  background: #f0f6fc;
+  border-left: 4px solid var(--blue);
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.dialogue .speaker { font-weight: 700; color: var(--blue); margin-bottom: 5px; }
+.dialogue.munger { background: #fdf2f0; border-left-color: var(--red); }
+.dialogue.munger .speaker { color: var(--red); }
+table {
+  width: 100%; border-collapse: collapse; margin: 15px 0;
+  font-size: 13px; display: block; overflow-x: auto;
+}
+table th {
+  background: var(--table-header); color: white;
+  padding: 10px 8px; text-align: center; font-weight: 600; white-space: nowrap;
+}
+table td { padding: 8px; text-align: center; border-bottom: 1px solid var(--border); white-space: nowrap; }
+table tr:nth-child(even) td { background: var(--table-row-alt); }
+table tr:hover td { background: #e8f0fe; }
+.highlight-box { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.alert-box { background: #ffebee; border: 1px solid #ef9a9a; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.success-box { background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.info-box { background: #e3f2fd; border: 1px solid #90caf9; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0; }
+.metric-card { background: #f5f7fa; border-radius: 8px; padding: 15px; text-align: center; border: 1px solid var(--border); }
+.metric-card .label { font-size: 12px; color: var(--text-light); margin-bottom: 5px; }
+.metric-card .value { font-size: 24px; font-weight: 700; color: var(--primary); }
+.metric-card .unit { font-size: 14px; color: var(--text-light); }
+.metric-card .sub { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+.footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 13px; border-top: 1px solid var(--border); margin-top: 30px; }
+.toc { background: #f5f7fa; border-radius: 8px; padding: 20px 30px; margin-bottom: 25px; }
+.toc h3 { color: var(--primary); margin-bottom: 10px; }
+.toc ol { padding-left: 20px; }
+.toc li { margin: 5px 0; }
+.toc a { color: var(--blue); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.positive { color: var(--green); font-weight: 600; }
+.negative { color: var(--red); font-weight: 600; }
+.tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; margin: 0 3px; }
+.tag-go { background: #c8e6c9; color: #2e7d32; }
+.tag-nogo { background: #ffcdd2; color: #c62828; }
+.tag-warn { background: #fff9c4; color: #f57f17; }
+@media (max-width: 768px) {
+  .container { padding: 10px; } .section { padding: 15px; }
+  .header { padding: 25px 18px; } .header h1 { font-size: 22px; }
+  table { font-size: 11px; } table th, table td { padding: 5px 3px; }
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>海尔智家（600690.SH / 6690.HK）巴芒价值投资分析报告</h1>
+  <div class="subtitle">基于 BR7UCE 价值投资分析框架 V10.1 的全流程十步分析</div>
+  <div>
+    <span class="framework-tag">分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）</span>
+    <span class="framework-tag">原创作者：Br7uce（br7）</span>
+  </div>
+  <div style="margin-top:10px; font-size:13px; opacity:0.85;">
+    本次分析时间基准：2026年11月6日 ｜ 估值日：2026年11月6日（盘中21.50元，+0.37%，昨收21.42元）
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>目录</h3>
+  <ol>
+    <li><a href="#p1">Prompt 1：行业与业务分析</a></li>
+    <li><a href="#p2">Prompt 2：财务报告逐年深度分析</a></li>
+    <li><a href="#p3">Prompt 3：多年财务汇总与整体评估</a></li>
+    <li><a href="#p4">Prompt 4：经济护城河评估与评级</a></li>
+    <li><a href="#p5">Prompt 5：管理层品质与企业文化</a></li>
+    <li><a href="#p6">Prompt 6：质量筛选与 Go/No-Go 决策</a></li>
+    <li><a href="#p7">Prompt 7：保守估值与内在价值</a></li>
+    <li><a href="#p8">Prompt 8：安全边际分析与投资决策</a></li>
+    <li><a href="#p9">Prompt 9：未来展望与关键监控点</a></li>
+    <li><a href="#p10">Prompt 10：最终结论与行动计划</a></li>
+  </ol>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <h2>执行摘要</h2>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="label">当前股价（2026-11-06 盘中）</div>
+      <div class="value">21.50<span class="unit"> 元</span></div>
+      <div class="sub">+0.37%，昨收21.42元</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">总市值</div>
+      <div class="value">1,999<span class="unit"> 亿</span></div>
+      <div class="sub">总股本92.99亿股（A+H+D）</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2026前三季营收</div>
+      <div class="value negative">2,218.19<span class="unit"> 亿</span></div>
+      <div class="sub">同比-5.2%，Q3单季-10.1%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2026前三季归母净利</div>
+      <div class="value negative">149.99<span class="unit"> 亿</span></div>
+      <div class="sub">同比-13.7%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">2026前三季扣非净利</div>
+      <div class="value negative">128.19<span class="unit"> 亿</span></div>
+      <div class="sub">同比-24.1%，核心利润降幅更大</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">PE（TTM / 静态）</div>
+      <div class="value">11.6<span class="unit"> x</span></div>
+      <div class="sub">静态PE 10.1x（2025年EPS 2.12元）</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">PB（MRQ）</div>
+      <div class="value">1.62<span class="unit"> x</span></div>
+      <div class="sub">BVPS 13.23元，归母权益1,230.68亿</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">股息率</div>
+      <div class="value">4.14<span class="unit"> %</span></div>
+      <div class="sub">2025年度合计派息1.1607元，对应5.40%</div>
+    </div>
+  </div>
+  <div class="success-box">
+    <strong>核心结论：</strong>海尔智家是全球白色家电龙头，品牌矩阵、全球渠道与规模制造构成<strong>宽护城河</strong>，现金流与资产负债表长期稳健。但2026年出现明确的<strong>基本面拐点</strong>：前三季度营收2,218.19亿元（-5.2%）、归母净利149.99亿元（-13.7%）、扣非净利128.19亿元（-24.1%），Q3单季营收-10.1%、扣非-32.2%，经营现金流106.70亿元（-39.0%），前三季自由现金流仅32.45亿元。2025年的高增长含有以旧换新补贴带来的高基数，2026年补贴退坡后需求透支暴露。按正常化归母净利170亿元、12-14倍稳定现金回报型PE，内在价值<strong>22.1-25.8元，中值24.0元</strong>；当前21.50元折价约10.4%，但未达到20%安全边际对应的19.2元合理买点。评级：<strong>观察等待（B）</strong>，品质A-、估值B；已持有者可继续持有收息，未持有者等待19.2元以下或收入增速转正的双重信号。
+  </div>
+
+  <h3>关键事实与首读结论</h3>
+  <table>
+    <thead><tr><th>维度</th><th>数据</th><th>判断</th><th>方向</th></tr></thead>
+    <tbody>
+      <tr><td>2025全年</td><td>营收3,023.47亿（+5.7%）；归母195.53亿（+4.4%）</td><td>补贴驱动下的历史最高利润</td><td class="positive">优秀</td></tr>
+      <tr><td>2026前三季</td><td>营收2,218.19亿（-5.2%）；归母149.99亿（-13.7%）；扣非128.19亿（-24.1%）</td><td>收入与核心利润双降，非经常性收益21.8亿托底</td><td class="negative">拐点向下</td></tr>
+      <tr><td>2026Q3单季</td><td>营收697.04亿（-10.1%）；归母46.82亿（-12.3%）；扣非35.20亿（-32.2%）</td><td>收入降幅逐季扩大，Q3最弱</td><td class="negative">红灯</td></tr>
+      <tr><td>毛利率</td><td>2021年31.3% → 2025年26.7% → 2026Q3 27.2%</td><td>四年下移约4.6pp，价格竞争与结构变化</td><td class="negative">承压</td></tr>
+      <tr><td>经营现金流</td><td>2026前三季106.70亿（-39.0%）；TTM 191.82亿</td><td>净利润现金含量TTM 111.7%，但同比明显走弱</td><td class="negative">走弱</td></tr>
+      <tr><td>自由现金流</td><td>2025年171.51亿 → 2026前三季32.45亿（TTM 94.83亿）</td><td>应收增加、营运资本占用上升</td><td class="negative">红灯</td></tr>
+      <tr><td>资产负债表</td><td>资产3,016.53亿；负债率56.94%；有息负债443.67亿；货币资金410.84亿</td><td>净有息负债约32.83亿，接近净现金</td><td class="positive">稳健</td></tr>
+      <tr><td>股东回报</td><td>2025年度DPS 1.1607元（支付率54.8%）；A/H/D股回购并行，D股7,939万股将注销</td><td>回购+分红合计回报率约6%-7%</td><td class="positive">友好</td></tr>
+      <tr><td>估值</td><td>PE(TTM) 11.6x；PB 1.62x；EV/FCF约22x（TTM口径）</td><td>绝对估值不高，但盈利仍在下行</td><td class="positive">偏低</td></tr>
+      <tr><td>价格位置</td><td>21.50元；52周区间18.36-27.42元</td><td>较高点回撤21.6%，低于250日均线22.30元</td><td class="negative">弱势</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <strong>首读警示：</strong>归母净利降幅（-13.7%）明显小于扣非净利降幅（-24.1%），2026前三季非经常性损益约21.80亿元（2025年同期仅4.81亿元），主要来自投资收益与资产处置。若以核心经营利润衡量，公司实际下滑程度远高于报表净利润所显示的水平。这是本报告最需要警惕的一处口径问题。
+  </div>
+</div>
+<!-- PROMPT 1 -->
+<div class="section" id="p1">
+  <h2>Prompt 1：行业与业务分析</h2>
+
+  <h3>1.1 公司概况</h3>
+  <p>海尔智家股份有限公司（Haier Smart Home Co., Ltd.，600690.SH / 6690.HK / D股）总部位于山东青岛，前身为青岛电冰箱总厂，1993年11月19日在上交所上市，2020年12月23日在港交所上市，并于法兰克福交易所发行D股。公司控股股东为海尔卡奥斯股份有限公司，董事长兼总经理为李华刚，员工总数134,995人。公司是全球规模最大的白色家电制造商之一，业务覆盖中国、北美、欧洲、南亚、东南亚、日本、澳新等市场，旗下拥有海尔、卡萨帝、Leader、GE Appliances、AQUA、Candy、Fisher &amp; Paykel等品牌矩阵。</p>
+  <p>与单纯的家电制造商不同，海尔智家的商业模式强调<strong>“本土化创牌 + 高端品牌分层 + 全域零售效率”</strong>：在海外以本土品牌和本土供应链参与竞争，在国内以卡萨帝承接高端需求、以海尔覆盖大众市场、以Leader获取年轻用户，并通过统仓ToC与日日顺物流压缩渠道库存与交付成本。其盈利对<strong>国内需求周期、原材料成本、海外关税与汇率</strong>高度敏感。</p>
+
+  <h3>1.2 业务结构（2025年度）</h3>
+  <table>
+    <thead><tr><th>业务板块</th><th>收入占比</th><th>毛利占比</th><th>主要内容</th><th>竞争地位</th></tr></thead>
+    <tbody>
+      <tr><td>智慧生活电器</td><td>58.48%</td><td>60.38%</td><td>冰箱/冷柜、洗衣机、厨电、热水器、小家电</td><td>国内份额第一，卡萨帝高端领先</td></tr>
+      <tr><td>智慧暖通方案</td><td>29.42%</td><td>30.29%</td><td>家用空调、中央空调、热泵</td><td>柜机与大挂机份额提升，行业竞争激烈</td></tr>
+      <tr><td>智慧家庭生态及其他</td><td>11.59%</td><td>8.87%</td><td>水家电、生态服务、物流与渠道服务</td><td>协同配套，利润率较低</td></tr>
+    </tbody>
+  </table>
+  <p>2026年1-9月，据奥维云网监测，公司线上市场零售额份额20.6%（同比+2.9pp）、线下25.0%（同比+1.7pp）；GfK中怡康数据显示卡萨帝主要品类份额均提升。也就是说，<strong>公司份额在上升，但行业零售额在收缩</strong>——这是理解2026年报表下滑的关键。</p>
+
+  <h3>1.3 行业格局与周期位置</h3>
+  <p>国内白电已进入存量更新阶段，需求由新房配套转向以旧换新与消费升级。2025年在国家补贴刺激下形成高基数，2026年补贴退坡后出现明显的需求透支，行业零售额同比下滑；同时铜、铝等原材料价格与汇率波动压缩中低端产品毛利。海外方面，北美住宅市场疲软、关税政策不确定，欧洲需求温和，新兴市场仍是增量来源。行业竞争格局相对稳定：海尔、美的、格力三足鼎立，海尔的优势在冰洗与高端品牌，空调业务相对弱势。</p>
+  <div class="info-box">
+    <strong>行业判断：</strong>这是一门<strong>成熟、低速增长、现金流良好但利润率不高</strong>的生意。龙头凭借品牌与渠道可以维持份额，但难以获得定价权式的超额利润；行业下滑期，龙头的收入与利润同样会下滑，只是幅度可能小于二三线品牌。
+  </div>
+
+  <h3>1.4 估值路由判定</h3>
+  <table>
+    <thead><tr><th>候选类型</th><th>是否适配</th><th>依据</th><th>置信度</th></tr></thead>
+    <tbody>
+      <tr><td><strong>类型1：稳定现金回报</strong></td><td><span class="tag tag-go">适配</span></td><td>收入低速增长、ROE 17%左右、分红率55%、经营现金流长期高于净利润</td><td>85%</td></tr>
+      <tr><td>类型2：高回报成长</td><td><span class="tag tag-nogo">不适配</span></td><td>2026年收入负增长，成熟市场渗透率已高，无法支撑高增长假设</td><td>—</td></tr>
+      <tr><td>类型3：资产项目驱动</td><td><span class="tag tag-nogo">不适配</span></td><td>无单一重大在建项目决定价值</td><td>—</td></tr>
+      <tr><td>类型4：强周期资源</td><td><span class="tag tag-nogo">不适配</span></td><td>家电需求有周期性，但盈利不由单一商品价格决定</td><td>—</td></tr>
+      <tr><td>类型5：修复困境</td><td><span class="tag tag-nogo">不适配</span></td><td>公司仍盈利、份额提升，不属于经营困境重组</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <p><strong>路由锁定：类型1（稳定现金回报）</strong>。切换条件：若海外自有品牌收入连续两年恢复双位数增长、ROE回升至20%以上，可重新评估为类型2；若出现连续两年亏损或份额大幅流失，则转入类型5。</p>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>这是一家我年轻时就会喜欢的公司：卖冰箱、洗衣机，产品几十年不变，品牌家喻户晓，不需要巨额研发押注，赚来的现金可以分给股东。2025年营收3,023亿元、归母净利196亿元、经营现金流260亿元，ROE 17%，这不是一家需要靠讲故事融资的企业。</p>
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>先别急着夸。2026年前三季度收入下降5.2%、扣非利润下降24.1%，这不是“稳定”，这是下行。更关键的是，2025年的利润峰值里有补贴的影子。你把补贴退坡后的需求当作永久需求，就会把周期高点当成常态。请把“稳定现金回报”里的“稳定”二字先打个问号。</p>
+  </div>
+  <p><strong>模块结论：</strong>路由仍为类型1，但必须以“正常化盈利”而非2025年峰值利润为估值基础；品质判断需同时记录2026年的下行证据。</p>
+</div>
+
+<!-- PROMPT 2 -->
+<div class="section" id="p2">
+  <h2>Prompt 2：财务报告逐年深度分析</h2>
+
+  <h3>2.1 六年主表（2020-2025）</h3>
+  <table>
+    <thead><tr><th>年度</th><th>营收(亿)</th><th>同比</th><th>毛利率</th><th>归母(亿)</th><th>同比</th><th>扣非(亿)</th><th>净利率</th><th>ROE</th><th>经营现金流</th><th>资本开支</th><th>自由现金流</th><th>负债率</th></tr></thead>
+    <tbody>
+      <tr><td>2020</td><td>2,097.23</td><td>—</td><td>29.68%</td><td>88.83</td><td>—</td><td>64.58</td><td>4.24%</td><td>13.3%</td><td>176.10</td><td>77.83</td><td>98.27</td><td>66.5%</td></tr>
+      <tr><td>2021</td><td>2,271.06</td><td>+8.3%</td><td>31.33%</td><td>130.79</td><td>+47.2%</td><td>118.31</td><td>5.76%</td><td>17.8%</td><td>232.35</td><td>73.72</td><td>158.63</td><td>62.7%</td></tr>
+      <tr><td>2022</td><td>2,435.79</td><td>+7.3%</td><td>31.33%</td><td>147.12</td><td>+12.5%</td><td>139.63</td><td>6.04%</td><td>17.0%</td><td>202.57</td><td>82.10</td><td>120.47</td><td>59.8%</td></tr>
+      <tr><td>2023</td><td>2,742.05</td><td>+12.6%</td><td>27.49%</td><td>165.97</td><td>+12.8%</td><td>158.24</td><td>6.05%</td><td>17.0%</td><td>265.36</td><td>105.42</td><td>159.94</td><td>58.8%</td></tr>
+      <tr><td>2024</td><td>2,860.15</td><td>+4.3%</td><td>27.82%</td><td>187.31</td><td>+12.9%</td><td>178.05</td><td>6.55%</td><td>17.6%</td><td>263.18</td><td>100.80</td><td>162.38</td><td>59.1%</td></tr>
+      <tr><td>2025</td><td>3,023.47</td><td>+5.7%</td><td>26.66%</td><td>195.53</td><td>+4.4%</td><td>186.04</td><td>6.47%</td><td>17.0%</td><td>260.03</td><td>88.52</td><td>171.51</td><td>57.4%</td></tr>
+      <tr style="font-weight:600;"><td>2026Q3累计</td><td>2,218.19</td><td class="negative">-5.2%</td><td>27.18%</td><td>149.99</td><td class="negative">-13.7%</td><td>128.19</td><td>6.76%</td><td>14.2%</td><td>106.70</td><td>74.25</td><td class="negative">32.45</td><td>56.9%</td></tr>
+      <tr><td>TTM</td><td>2,901.12</td><td class="negative">-5.6%</td><td>26.61%</td><td>171.79</td><td class="negative">-18.0%</td><td>145.31</td><td>5.92%</td><td>14.2%</td><td>191.82</td><td>96.99</td><td class="negative">94.83</td><td>56.9%</td></tr>
+    </tbody>
+  </table>
+  <p>注：ROE为归母净利润/平均归母权益，2020年因H股发行与海尔电器私有化导致权益基数变动，取期末口径；TTM同比以上一TTM（2024年报+2025前三季-2024前三季）为基准计算。</p>
+
+  <h3>2.2 逐年关键观察</h3>
+  <ul>
+    <li><strong>2020-2021：</strong>海尔电器私有化完成，H股发行，归母净利从88.83亿元跃升至130.79亿元（+47.2%），毛利率提升至31.3%，这是整合红利期。</li>
+    <li><strong>2022：</strong>营收增长7.3%，归母增长12.5%，毛利率维持31.3%，但销售费用率仍高达15.9%，效率尚未释放。</li>
+    <li><strong>2023：</strong>营收加速至+12.6%，毛利率却骤降3.8pp至27.5%，销售费用率同步降至11.9%。<strong>毛利率与费用率同向大幅变化，更像是渠道与结算口径的调整，而非单纯的盈利能力崩塌；但后续年度毛利率并未回升，说明价格竞争的压力真实存在。</strong></li>
+    <li><strong>2024：</strong>营收+4.3%，归母+12.9%，利润增速快于收入，费用控制与高端结构贡献；ROE升至17.6%。</li>
+    <li><strong>2025：</strong>营收3,023.47亿元（+5.7%），归母195.53亿元（+4.4%），利润增速首次慢于收入；毛利率继续下探至26.66%。这一年是国内补贴刺激下的需求高峰，也是本轮的业绩顶。</li>
+    <li><strong>2026前三季：</strong>营收-5.2%、归母-13.7%、扣非-24.1%；Q3单季营收697.04亿元（-10.1%）、扣非35.20亿元（-32.2%）。非经常性损益21.80亿元（2025年同期4.81亿元）掩盖了核心利润的更深下滑。</li>
+  </ul>
+
+  <h3>2.3 2026年三季报拆解</h3>
+  <table>
+    <thead><tr><th>指标</th><th>2026前三季</th><th>2025前三季</th><th>变化</th><th>解读</th></tr></thead>
+    <tbody>
+      <tr><td>营业总收入</td><td>2,218.19亿</td><td>2,340.54亿</td><td class="negative">-5.23%</td><td>Q3单季-10.1%，降幅扩大</td></tr>
+      <tr><td>毛利率</td><td>27.18%</td><td>27.21%</td><td>-0.03pp</td><td>毛利率基本持平，压力来自收入端</td></tr>
+      <tr><td>销售费用率</td><td>10.63%</td><td>10.62%</td><td>+0.01pp</td><td>费用刚性，收入下滑直接压缩利润</td></tr>
+      <tr><td>管理费用率</td><td>3.94%</td><td>3.76%</td><td class="negative">+0.18pp</td><td>规模负杠杆</td></tr>
+      <tr><td>财务费用率</td><td>0.71%</td><td>-0.11%</td><td class="negative">+0.82pp</td><td>汇兑与利息影响</td></tr>
+      <tr><td>归母净利</td><td>149.99亿</td><td>173.73亿</td><td class="negative">-13.68%</td><td>非经常性收益托底</td></tr>
+      <tr><td>扣非净利</td><td>128.19亿</td><td>168.92亿</td><td class="negative">-24.11%</td><td>核心盈利下滑幅度最大</td></tr>
+      <tr><td>经营现金流</td><td>106.70亿</td><td>174.91亿</td><td class="negative">-39.0%</td><td>应收增加，回款变慢</td></tr>
+      <tr><td>资本开支</td><td>74.25亿</td><td>65.78亿</td><td>+12.9%</td><td>逆势继续投入</td></tr>
+      <tr><td>自由现金流</td><td>32.45亿</td><td>109.13亿</td><td class="negative">-70.3%</td><td>现金创造能力显著弱化</td></tr>
+    </tbody>
+  </table>
+
+  <h3>2.4 芒格复核记录</h3>
+  <div class="dialogue munger">
+    <div class="speaker">芒格（数据复核员）：</div>
+    <p>复核状态：<strong>有条件通过</strong>。已核项目：①营收与归母、扣非均取自利润表原始科目，单位为元，已换算为亿元；②毛利率=（营业总收入-营业成本）/营业总收入，逐期复算一致；③自由现金流=经营活动现金流量净额-购建固定、无形和其他长期资产支付的现金，未使用外部现成FCF；④TTM=2025年报+2026前三季-2025前三季，营收2,901.12亿、归母171.79亿、扣非145.31亿、经营现金流191.82亿、资本开支96.99亿，均复算通过；⑤ROE以归母净利润/平均归母权益计算，2020年因权益变动采用期末口径。</p>
+    <p>发现差异：2026前三季非经常性损益21.80亿元，显著高于2025年同期4.81亿元，导致归母与扣非降幅出现10.4pp的缺口。<strong>未核项目：</strong>非经常性损益的逐项构成（公告摘要未披露明细），仅知投资收益11.99亿元、其他收益8.71亿元。有效性结论：主表数据可用于后续分析，但估值必须以扣非口径做一次交叉校验，不能只用归母。</p>
+  </div>
+</div>
+
+<!-- PROMPT 3 -->
+<div class="section" id="p3">
+  <h2>Prompt 3：多年财务汇总与整体评估</h2>
+
+  <h3>3.1 六年汇总</h3>
+  <table>
+    <thead><tr><th>项目</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2020-2025年化</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入（亿元）</td><td>2,097.23</td><td>2,271.06</td><td>2,435.79</td><td>2,742.05</td><td>2,860.15</td><td>3,023.47</td><td>+7.6%</td></tr>
+      <tr><td>归母净利润（亿元）</td><td>88.83</td><td>130.79</td><td>147.12</td><td>165.97</td><td>187.31</td><td>195.53</td><td>+17.1%</td></tr>
+      <tr><td>基本每股收益（元）</td><td>1.34</td><td>1.41</td><td>1.58</td><td>1.79</td><td>2.02</td><td>2.12</td><td>+9.6%</td></tr>
+      <tr><td>毛利率</td><td>29.68%</td><td>31.33%</td><td>31.33%</td><td>27.49%</td><td>27.82%</td><td>26.66%</td><td>-3.0pp</td></tr>
+      <tr><td>净利率</td><td>4.24%</td><td>5.76%</td><td>6.04%</td><td>6.05%</td><td>6.55%</td><td>6.47%</td><td>+2.2pp</td></tr>
+      <tr><td>ROE</td><td>13.3%</td><td>17.8%</td><td>17.0%</td><td>17.0%</td><td>17.6%</td><td>17.0%</td><td>16.6%（均值）</td></tr>
+      <tr><td>经营现金流（亿元）</td><td>176.10</td><td>232.35</td><td>202.57</td><td>265.36</td><td>263.18</td><td>260.03</td><td>+8.1%</td></tr>
+      <tr><td>自由现金流（亿元）</td><td>98.27</td><td>158.63</td><td>120.47</td><td>159.94</td><td>162.38</td><td>171.51</td><td>+11.8%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.2 现金与股东回报的六年账本</h3>
+  <table>
+    <thead><tr><th>项目</th><th>2020-2025累计</th><th>相对归母净利</th><th>结论</th></tr></thead>
+    <tbody>
+      <tr><td>归母净利润合计</td><td>915.55亿元</td><td>100%</td><td>—</td></tr>
+      <tr><td>经营现金流合计</td><td>1,399.59亿元</td><td>152.9%</td><td>利润含金量高</td></tr>
+      <tr><td>资本开支合计</td><td>528.39亿元</td><td>57.7%</td><td>维持性投入为主</td></tr>
+      <tr><td>自由现金流合计</td><td>871.20亿元</td><td>95.1%</td><td>长期看FCF≈净利润</td></tr>
+      <tr><td>现金分红合计</td><td>约392亿元</td><td>42.8%</td><td>回报逐年提高</td></tr>
+    </tbody>
+  </table>
+  <p>六年数据的核心结论是：<strong>这是一家“利润含金量高、资本开支可控、分红持续提升”的公司</strong>。经营现金流累计为归母净利的1.53倍，自由现金流累计相当于净利润的95%，说明会计利润并未虚增；分红总额约占净利润42.8%，且分红率从2020年的27%提升至2025年的55%，股东回报意愿明确。</p>
+
+  <h3>3.3 整体评估</h3>
+  <div class="highlight-box">
+    <strong>优点：</strong>①ROE连续五年维持在16.8%-17.8%的稳定区间；②自由现金流长期接近净利润，现金创造能力真实；③资产负债表稳健，2026Q3净有息负债仅32.83亿元；④分红率与回购力度持续提升；⑤全球品牌矩阵与份额优势。<br>
+    <strong>缺点：</strong>①毛利率从31.3%降至26.7%，定价权弱于市场认知；②收入增长依赖补贴与并购，内生增长有限；③2026年出现收入、扣非利润、经营现金流三项同步下滑；④应收账款2026Q3达325.02亿元，较2025年末增加20.1%；⑤商誉260.13亿元，占资产8.6%。
+  </div>
+  <p><strong>模块结论：</strong>2020-2025年的财务记录支持“优质稳定现金回报型公司”的定性，但2026年的三季报证明其盈利具有明显的需求周期属性。估值时必须使用跨周期正常化利润，不能将2025年的195.53亿元作为永久基准。</p>
+</div>
+<!-- PROMPT 4 -->
+<div class="section" id="p4">
+  <h2>Prompt 4：经济护城河评估与评级</h2>
+
+  <h3>4.1 护城河维度评分</h3>
+  <table>
+    <thead><tr><th>维度</th><th>评分</th><th>证据</th><th>可持续性</th></tr></thead>
+    <tbody>
+      <tr><td>品牌资产</td><td>4/5</td><td>海尔为国内白电第一品牌；卡萨帝在高端冰洗份额领先；GE Appliances、Fisher &amp; Paykel 等海外品牌具备本地认知</td><td>强，但家电购买频次低、品牌溢价有限</td></tr>
+      <tr><td>规模与制造成本</td><td>4/5</td><td>2025年营收3,023亿元，全球产能布局，采购与制造规模优势明显</td><td>强，但美的规模相当</td></tr>
+      <tr><td>渠道与零售网络</td><td>5/5</td><td>线下零售额份额25.0%、线上20.6%，统仓ToC客户上线率85%，日日顺物流并表后配送效率提升</td><td>强，渠道效率是核心差异</td></tr>
+      <tr><td>转换成本</td><td>2/5</td><td>家电产品标准化，消费者更换周期8-10年，转换成本低</td><td>弱</td></tr>
+      <tr><td>产品与技术创新</td><td>4/5</td><td>AI细胞级解冻冰箱、四筒AI洗衣机等结构创新；研发费用2025年100.96亿元（占营收3.3%）</td><td>中强，但易被模仿</td></tr>
+      <tr><td>全球化与本土化</td><td>4/5</td><td>覆盖中国、北美、欧洲、南亚、东南亚、日本、澳新；海外本土品牌与本土供应链</td><td>中强，受关税与地缘政治影响</td></tr>
+    </tbody>
+  </table>
+  <p><strong>护城河评级：宽（Wide），但非“定价权型”宽护城河。</strong>海尔的优势来自品牌、规模与渠道效率的组合，能够守住份额并维持17%的ROE；但它无法像消费品垄断者那样持续提价——毛利率从31.3%降至26.7%就是证据。</p>
+
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>我同意“宽护城河”的判断，但要说清楚它宽在哪里。宽在渠道和规模：同样一台冰箱，海尔能把货更快、更便宜地送到消费者家里，这是日日顺与统仓ToC的价值。宽在品牌：卡萨帝能让一部分消费者愿意多付钱。过去六年，公司每年都能把利润的95%变成自由现金流，这不是运气。</p>
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>你说的“宽”，在行业下行时值多少钱？2026年前三季收入下降5.2%，扣非下降24.1%——如果护城河真能保护定价权，利润不应该跌得比收入快一倍。家电是耐用消费品，消费者十年买一次，谁便宜买谁；美的和格力就在旁边。护城河保护的是份额，不是利润率。请把评级从“宽”改成“宽但脆弱”。</p>
+  </div>
+  <p><strong>模块结论：</strong>接受芒格的修正。护城河评级维持<strong>宽（Wide）</strong>，但注明“份额保护强、利润率保护弱”。这直接决定估值时不能给予高倍数，只能给予12-14倍的稳定现金回报型中枢。</p>
+</div>
+
+<!-- PROMPT 5 -->
+<div class="section" id="p5">
+  <h2>Prompt 5：管理层品质与企业文化</h2>
+
+  <h3>5.1 治理与执行</h3>
+  <table>
+    <thead><tr><th>维度</th><th>事实</th><th>评价</th></tr></thead>
+    <tbody>
+      <tr><td>控制权</td><td>控股股东海尔卡奥斯股份有限公司；董事长兼总经理李华刚</td><td>控制权稳定，管理层级清晰</td></tr>
+      <tr><td>管理层稳定性</td><td>核心团队长期内部培养，2020年完成海尔电器私有化与H股上市</td><td>战略连续性强</td></tr>
+      <tr><td>资本配置</td><td>2020-2025年累计自由现金流871.20亿元，累计分红约392亿元（42.8%），分红率由27%升至55%</td><td>回报意愿持续提升</td></tr>
+      <tr><td>回购</td><td>2026年3月起A股回购；H股累计回购455万股（9,357.73万港元）；D股回购7,939.24万股（占总股本0.853%）并全部注销</td><td>多市场回购，直接增厚EPS</td></tr>
+      <tr><td>并购记录</td><td>GE Appliances、Fisher &amp; Paykel、Candy、Carrier Commercial Refrigeration、日日顺物流</td><td>全球化执行强，商誉260.13亿元需跟踪</td></tr>
+      <tr><td>审计与信披</td><td>审计机构和信会计师事务所；2026年三季报按期披露，回购与分红公告完整</td><td>无重大瑕疵记录</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 资本配置的细节证据</h3>
+  <ul>
+    <li><strong>分红：</strong>2020年度每股0.366元 → 2025年度合计1.1607元（中期0.2692元+年度0.8915元），支付率54.8%，五年提升约27个百分点。</li>
+    <li><strong>注销式回购：</strong>D股7,939.24万股将全部注销，约占总股本0.853%，在净利润不变的情况下直接提升每股收益约0.86%。</li>
+    <li><strong>回购价格纪律：</strong>2026年10月A股回购价格区间19.70-20.37元，低于本报告估算的内在价值中值24.0元，属于对股东有利的配置。</li>
+    <li><strong>需要观察：</strong>2026年中期“不分配不转增”，而2025年中期曾每股派0.2692元。公司以回购替代部分中期分红，需确认全年分红率是否仍能维持50%以上。</li>
+  </ul>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>管理层的资本配置我打及格偏上：分红率从27%提到55%，回购价格也在20元附近，说明他们知道自己的价值区间。但有两个地方要盯住：第一，商誉260亿元，占资产8.6%，一旦海外盈利不及预期就会减值；第二，2026年中期不分红，若全年支付率跌破50%，“稳定现金回报”的标签就要打折。</p>
+  </div>
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>我接受这两条监督条件。总体判断：管理层诚实、执行力强、股东回报意识在改善，没有发现损害中小股东利益的记录。管理层评级：<strong>良好（A-）</strong>，但不给满分，因为并购型增长的质量仍需时间验证。</p>
+  </div>
+</div>
+
+<!-- PROMPT 6 -->
+<div class="section" id="p6">
+  <h2>Prompt 6：质量筛选与 Go/No-Go 决策</h2>
+
+  <h3>6.1 质量筛选表</h3>
+  <table>
+    <thead><tr><th>筛选项</th><th>阈值</th><th>实际</th><th>结果</th></tr></thead>
+    <tbody>
+      <tr><td>ROE（五年）</td><td>≥15%</td><td>16.6%-17.8%（2021-2025）</td><td><span class="tag tag-go">通过</span></td></tr>
+      <tr><td>毛利率稳定性</td><td>≥25%且波动可控</td><td>26.66%-31.33%，四年下移4.6pp</td><td><span class="tag tag-warn">勉强通过</span></td></tr>
+      <tr><td>净利率</td><td>≥5%</td><td>2025年6.47%；TTM 5.92%</td><td><span class="tag tag-go">通过</span></td></tr>
+      <tr><td>经营现金流/净利润</td><td>≥80%</td><td>2025年133.0%；TTM 111.7%</td><td><span class="tag tag-go">通过</span></td></tr>
+      <tr><td>自由现金流/净利润</td><td>≥60%</td><td>2025年87.7%；TTM 55.2%</td><td><span class="tag tag-warn">TTM未达标</span></td></tr>
+      <tr><td>净有息负债/权益</td><td>≤50%</td><td>32.83/1,230.68=2.7%</td><td><span class="tag tag-go">通过</span></td></tr>
+      <tr><td>分红连续性</td><td>连续10年分红</td><td>32次累计分红569.10亿元</td><td><span class="tag tag-go">通过</span></td></tr>
+      <tr><td>股本稀释</td><td>近三年无重大稀释</td><td>2020-2021年因H股发行摊薄，此后稳定并回购注销</td><td><span class="tag tag-go">通过</span></td></tr>
+      <tr><td>一票否决项</td><td>无</td><td>未发现财务造假、审计受限、持续经营风险</td><td><span class="tag tag-go">通过</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.2 品质评级与估值资格</h3>
+  <table>
+    <thead><tr><th>项目</th><th>结论</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>品质评级</td><td><strong>A-</strong></td><td>宽护城河、ROE 17%、现金流真实、资产负债表稳健；扣分项为毛利率下行与2026年盈利衰退</td></tr>
+      <tr><td>估值资格</td><td><span class="tag tag-go">Go（条件性）</span></td><td>品质通过，进入类型1估值流程；Go只代表“可以估值”，不代表“可以买入”</td></tr>
+      <tr><td>估值路由</td><td>类型1 稳定现金回报</td><td>Prompt 1锁定，Prompt 3证据复核通过</td></tr>
+    </tbody>
+  </table>
+  <p><strong>模块结论：</strong>品质“Go”、价格待定。公司具备被估值的资格，但是否买入完全取决于Prompt 7的内在价值与Prompt 8的价格保护。</p>
+</div>
+
+<!-- PROMPT 7 -->
+<div class="section" id="p7">
+  <h2>Prompt 7：保守估值与内在价值</h2>
+
+  <h3>7.1 正常化账本</h3>
+  <table>
+    <thead><tr><th>项目</th><th>数值</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr><td>2025年归母净利（峰值）</td><td>195.53亿元</td><td>以旧换新补贴高峰，不可作为永久基准</td></tr>
+      <tr><td>2026年TTM归母净利</td><td>171.79亿元</td><td>2025年报+2026前三季-2025前三季</td></tr>
+      <tr><td>2026年TTM扣非净利</td><td>145.31亿元</td><td>核心经营口径，不含非经常性收益</td></tr>
+      <tr><td><strong>正常化归母净利（采用）</strong></td><td><strong>170亿元</strong></td><td>低于三年均值183.6亿元，接近TTM，已扣除补贴峰值</td></tr>
+      <tr><td>注销后股本</td><td>92.19亿股</td><td>92.99亿股-D股回购注销0.79亿股</td></tr>
+      <tr><td><strong>正常化EPS</strong></td><td><strong>1.844元</strong></td><td>170/92.19</td></tr>
+      <tr><td>正常化PE区间</td><td>12-14x</td><td>ROE 17%、股息率5%、增长0-3%；行业估值17.4x，给予折价</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 三情景估值</h3>
+  <table>
+    <thead><tr><th>情景</th><th>关键假设</th><th>归母(亿)</th><th>PE</th><th>权益价值(亿)</th><th>每股(元)</th><th>概率</th></tr></thead>
+    <tbody>
+      <tr><td>悲观</td><td>国内需求继续下滑、北美关税落地、毛利率降至25%</td><td>145</td><td>10.0x</td><td>1,450</td><td class="negative">15.73</td><td>20%</td></tr>
+      <tr><td>中性</td><td>收入企稳、毛利率27%左右、费用率稳定</td><td>170</td><td>13.0x</td><td>2,210</td><td>23.97</td><td>55%</td></tr>
+      <tr><td>乐观</td><td>海外恢复增长、卡萨帝份额提升、回购增厚EPS</td><td>190</td><td>14.5x</td><td>2,755</td><td class="positive">29.88</td><td>25%</td></tr>
+      <tr style="font-weight:600;"><td>概率加权</td><td>—</td><td>—</td><td>—</td><td>—</td><td>23.80</td><td>100%</td></tr>
+    </tbody>
+  </table>
+  <p>概率加权价值23.80元，与中性情景23.97元接近。<strong>内在价值区间22.1-25.8元，中值24.0元。</strong>当前21.50元处于中性价值之下约10.4%，但高于悲观情景15.73元约36.7%。</p>
+
+  <h3>7.3 交叉验证</h3>
+  <table>
+    <thead><tr><th>方法</th><th>输入</th><th>结果</th><th>与主估值差异</th></tr></thead>
+    <tbody>
+      <tr><td>DCF（所有者收益）</td><td>正常化自由现金流160亿、永续增长2.5%、折现率9.5%；扣除净有息负债32.83亿与少数股东权益68.16亿</td><td>2,241.87亿 → 24.32元</td><td>+1.3%，一致</td></tr>
+      <tr><td>扣非口径敏感性</td><td>核心利润150亿、12-14x</td><td>19.5-22.8元，中值21.2元</td><td>低于主估值，接近现价</td></tr>
+      <tr><td>股息贴现（简化）</td><td>DPS 1.1607元、增长2%、要求回报10%</td><td>14.5元</td><td>过于保守，仅作下限参考</td></tr>
+      <tr><td>EV/EBITDA</td><td>正常化EBITDA约330亿、8x，扣净负债与少数股东</td><td>约25元</td><td>与主估值一致</td></tr>
+    </tbody>
+  </table>
+  <div class="alert-box">
+    <strong>估值的关键分歧：</strong>若以扣非TTM 145亿元为核心、不给非经常性收益任何倍数，合理价值仅18.9-22.0元；若承认投资收益与政府补助的持续性、采用170亿元正常化利润，合理价值22.1-25.8元。当前21.50元恰好落在两种口径的交界处——<strong>市场定价的是“核心利润不再增长”，而不是“公司破产”</strong>。这正是安全边际不足的根源。
+  </div>
+
+  <h3>7.4 保守性账本</h3>
+  <table>
+    <thead><tr><th>风险</th><th>计价位置</th><th>是否重复</th></tr></thead>
+    <tbody>
+      <tr><td>国内需求下行、补贴退坡</td><td>悲观情景利润145亿元</td><td>否，不再叠加折现率</td></tr>
+      <tr><td>北美关税与地缘政治</td><td>悲观情景+概率权重20%</td><td>否</td></tr>
+      <tr><td>毛利率长期下移</td><td>正常化利润170亿元已低于峰值</td><td>否</td></tr>
+      <tr><td>商誉减值260亿元</td><td>未单独计入，作为悲观情景的尾部风险</td><td>否</td></tr>
+      <tr><td>少数股东分流</td><td>DCF中扣除68.16亿元</td><td>否</td></tr>
+      <tr><td>净有息负债</td><td>DCF中扣除32.83亿元</td><td>否</td></tr>
+      <tr><td>未覆盖的剩余风险</td><td>Prompt 8的价格保护（20%安全边际）</td><td>仅在此层计价一次</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>我不反对24元这个中值，但必须把话说透：它建立在170亿元正常化利润上，而TTM扣非只有145亿元。你等于假设2027年利润会回升17%。如果2027年继续下滑，24元就是幻觉。所以估值必须标注为“条件性”——条件就是收入增速转正、扣非止跌。</p>
+  </div>
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>接受。24元是“正常化情形”的价值，不是“必然实现”的价值。正因为如此，我不会在21.5元买入，而会等到19.2元以下——那时即使按扣非口径估值，也接近合理。</p>
+  </div>
+  <p><strong>模块结论：</strong>内在价值区间22.1-25.8元，中值24.0元，概率加权23.8元；DCF交叉验证24.32元。估值成立的前提是2027年盈利企稳。</p>
+</div>
+<!-- PROMPT 8 -->
+<div class="section" id="p8">
+  <h2>Prompt 8：安全边际分析与投资决策</h2>
+
+  <h3>8.1 价格保护</h3>
+  <table>
+    <thead><tr><th>项目</th><th>数值</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>内在价值中值</td><td>24.0元</td><td>正常化170亿元×13x，DCF交叉验证24.32元</td></tr>
+      <tr><td>当前A股价格</td><td>21.50元</td><td>2026-11-06盘中</td></tr>
+      <tr><td>当前折价</td><td>10.4%</td><td>(24.0-21.50)/24.0</td></tr>
+      <tr><td>合理买点（中值×80%）</td><td>19.2元</td><td>提供20%安全边际</td></tr>
+      <tr><td>安全买点（中值×70%）</td><td>16.8元</td><td>提供30%安全边际</td></tr>
+      <tr><td>当前价距合理买点</td><td class="negative">+12.0%</td><td>21.50/19.2-1，尚未进入买点</td></tr>
+    </tbody>
+  </table>
+  <p>现价21.50元比内在价值中值低10.4%，看似便宜，但<strong>10%的折价不足以覆盖“盈利仍在下降”这一未定价风险</strong>。对于一家2026年扣非利润下降24.1%、自由现金流下降70.3%的公司，20%的安全边际是纪律底线，而不是可以商量的折扣。</p>
+
+  <h3>8.2 预期回报测算（三年持有）</h3>
+  <table>
+    <thead><tr><th>买入价</th><th>三年后EPS</th><th>退出PE</th><th>目标价</th><th>价格回报</th><th>累计分红</th><th>总回报</th><th>年化</th></tr></thead>
+    <tbody>
+      <tr><td>21.50元（现价）</td><td>1.957元</td><td>13x</td><td>25.44元</td><td>+18.3%</td><td>约13.2%</td><td>31.5%</td><td class="negative">9.6%</td></tr>
+      <tr><td>19.2元（合理买点）</td><td>1.957元</td><td>13x</td><td>25.44元</td><td>+32.5%</td><td>约13.2%</td><td>45.7%</td><td class="positive">13.4%</td></tr>
+      <tr><td>16.8元（安全买点）</td><td>1.957元</td><td>13x</td><td>25.44元</td><td>+51.4%</td><td>约13.2%</td><td>64.6%</td><td class="positive">18.0%</td></tr>
+    </tbody>
+  </table>
+  <p>测算假设：正常化EPS 1.844元、年增长2%、退出PE 13x、股息率按4.4%年均增长2%。当前价格的预期年化回报9.6%，<strong>低于稳定现金回报型要求的10%</strong>；只有跌至19.2元，回报才达到13.4%，足以补偿风险。这是“好公司、合理价格、但不够便宜”的典型状态。</p>
+
+  <h3>8.3 机会成本与A/H选择</h3>
+  <table>
+    <thead><tr><th>选项</th><th>价格</th><th>折合人民币</th><th>PE(TTM)</th><th>股息率</th><th>相对吸引力</th></tr></thead>
+    <tbody>
+      <tr><td>A股（600690.SH）</td><td>21.50元</td><td>21.50元</td><td>11.6x</td><td>4.14%</td><td>基准</td></tr>
+      <tr><td>H股（6690.HK）</td><td>21.32港元</td><td>约19.40元</td><td>约10.4x</td><td>约4.8%</td><td class="positive">折价约9.8%，更优</td></tr>
+      <tr><td>现金/国债</td><td>—</td><td>—</td><td>—</td><td>约2.0%</td><td>收益低但无风险</td></tr>
+    </tbody>
+  </table>
+  <p>注：港元兑人民币按1 HKD≈0.91 CNY估算，仅用于A/H比较，不构成汇率预测。H股在同等基本面下便宜约9.8%，且股息率更高，若必须在两者中选择，<strong>H股的性价比优于A股</strong>；但两者均未达到安全买点。</p>
+
+  <h3>8.4 决策</h3>
+  <div class="highlight-box">
+    <strong>决策：观察等待（B），不买入/不新增。</strong>理由：①品质A-，通过；②现价21.50元虽低于24.0元中值，但折价仅10.4%，未达到20%安全边际；③2026年收入、扣非利润、自由现金流同步下滑，盈利拐点尚未确认；④预期年化回报9.6%，低于10%要求；⑤H股更便宜，A股不是最优选择。<br><br>
+    <strong>若已持有：</strong>继续持有收息（股息率4.1%-5.4%），不因下跌而恐慌卖出，但<strong>不在21元以上加仓</strong>。
+  </div>
+</div>
+
+<!-- PROMPT 9 -->
+<div class="section" id="p9">
+  <h2>Prompt 9：未来展望与关键监控点</h2>
+
+  <h3>9.1 核心变量</h3>
+  <table>
+    <thead><tr><th>变量</th><th>当前状态</th><th>对内在价值的影响</th><th>方向</th></tr></thead>
+    <tbody>
+      <tr><td>国内需求与补贴</td><td>2026年补贴退坡，行业零售额下滑</td><td>收入每降5%，正常化利润约降8%-10%</td><td class="negative">关键</td></tr>
+      <tr><td>毛利率</td><td>2026Q3 27.07%（同比-0.81pp）</td><td>每降1pp，利润约减少22亿元</td><td class="negative">关键</td></tr>
+      <tr><td>北美关税</td><td>政策不确定，GE Appliances承压</td><td>悲观情景的主要来源</td><td class="negative">关键</td></tr>
+      <tr><td>回购注销</td><td>D股7,939万股注销、A/H股回购持续</td><td>股本减少约1%，EPS增厚</td><td class="positive">正面</td></tr>
+      <tr><td>分红率</td><td>2025年度54.8%，2026年中期未分配</td><td>若维持50%以上，股息率托底</td><td>待验证</td></tr>
+      <tr><td>商誉</td><td>260.13亿元（占资产8.6%）</td><td>减值将直接冲击净资产</td><td class="negative">尾部风险</td></tr>
+    </tbody>
+  </table>
+
+  <h3>9.2 关键监控点</h3>
+  <table>
+    <thead><tr><th>指标</th><th>当前值</th><th>健康阈值</th><th>跟踪频率</th></tr></thead>
+    <tbody>
+      <tr><td>单季营收同比</td><td>2026Q3 -10.1%</td><td>转正或降幅收窄至-3%以内</td><td>每季度</td></tr>
+      <tr><td>单季扣非同比</td><td>2026Q3 -32.2%</td><td>降幅收窄至-10%以内</td><td>每季度</td></tr>
+      <tr><td>毛利率</td><td>27.18%（前三季）</td><td>≥27.5%</td><td>每季度</td></tr>
+      <tr><td>经营现金流/净利润</td><td>TTM 111.7%</td><td>≥90%</td><td>每半年</td></tr>
+      <tr><td>应收账款同比</td><td>325.02亿元，较2025年末+20.1%</td><td>增速不高于营收增速</td><td>每季度</td></tr>
+      <tr><td>2026年度分红率</td><td>待定（2025年54.8%）</td><td>≥50%</td><td>2027年3月</td></tr>
+      <tr><td>回购注销进度</td><td>D股0.853%已确定注销</td><td>按期完成</td><td>每月</td></tr>
+    </tbody>
+  </table>
+
+  <h3>9.3 事前预测卡（冻结于2026-11-06）</h3>
+  <table>
+    <thead><tr><th>预测项</th><th>区间</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr><td>2026全年营收</td><td>2,860-2,881亿元（同比-4.7%至-5.4%）</td><td>前三季2,218.19亿元，Q4按-3%至-6%推算</td></tr>
+      <tr><td>2026全年归母净利</td><td>165-175亿元（同比-10.5%至-15.7%）</td><td>前三季149.99亿元，Q4约15-25亿元</td></tr>
+      <tr><td>2026全年扣非净利</td><td>135-148亿元（同比-20.5%至-27.4%）</td><td>前三季128.19亿元，Q4约7-20亿元</td></tr>
+      <tr><td>2026年度每股分红</td><td>≥0.85元（支付率≥50%）</td><td>2025年度1.1607元，2026年中期未分配</td></tr>
+      <tr><td>2027Q1营收同比</td><td>转正概率40%，降幅收窄概率60%</td><td>高基数在2026Q2后逐步消化</td></tr>
+    </tbody>
+  </table>
+  <div class="info-box">
+    <strong>预测纪律：</strong>以上预测在2027年3-4月年报披露后按<code>score_forecast.py</code>评分；若实际值落在区间外，需在下一版报告中修正正常化利润假设，而不是事后调整区间。
+  </div>
+</div>
+
+<!-- PROMPT 10 -->
+<div class="section" id="p10">
+  <h2>Prompt 10：最终结论与行动计划</h2>
+
+  <h3>10.1 决策矩阵</h3>
+  <table>
+    <thead><tr><th>维度</th><th>评级</th><th>权重</th></tr></thead>
+    <tbody>
+      <tr><td>品质</td><td class="positive">A-（宽护城河、ROE 17%、现金流真实）</td><td>40%</td></tr>
+      <tr><td>估值</td><td>B（24.0元中值，现价折价10.4%）</td><td>30%</td></tr>
+      <tr><td>价格保护</td><td class="negative">不足（未达19.2元买点）</td><td>25%</td></tr>
+      <tr><td>财务安全</td><td class="positive">稳健（净有息负债32.83亿元）</td><td>5%</td></tr>
+      <tr style="font-weight:600;"><td>综合</td><td><span class="tag tag-warn">观察等待（B）</span></td><td>100%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="label">综合评级</div>
+      <div class="value" style="color:var(--accent);">观察</div>
+      <div class="sub">不买入 / 不新增</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">内在价值中值</div>
+      <div class="value">24.0<span class="unit"> 元</span></div>
+      <div class="sub">区间22.1-25.8元</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">合理买点</div>
+      <div class="value">19.2<span class="unit"> 元</span></div>
+      <div class="sub">中值×80%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">安全买点</div>
+      <div class="value">16.8<span class="unit"> 元</span></div>
+      <div class="sub">中值×70%</div>
+    </div>
+  </div>
+
+  <h3>10.2 行动计划</h3>
+  <table>
+    <thead><tr><th>触发条件</th><th>价格/信号</th><th>动作</th><th>仓位</th></tr></thead>
+    <tbody>
+      <tr><td>当前观察</td><td>A股21.50元</td><td>不买入/不新增；H股优先于A股</td><td>0%</td></tr>
+      <tr><td>进入合理买点</td><td>≤19.2元</td><td>首批建仓</td><td>10-15%</td></tr>
+      <tr><td>进入安全买点</td><td>≤16.8元</td><td>加仓至目标仓位</td><td>20-25%</td></tr>
+      <tr><td>基本面确认</td><td>单季营收转正且毛利率≥27.5%</td><td>可在22元以下小仓位试探</td><td>10%</td></tr>
+      <tr><td>估值上限</td><td>≥29.9元（乐观情景）</td><td>减仓/止盈</td><td>降至0-5%</td></tr>
+      <tr><td>已持有者</td><td>任何价格</td><td>继续持有收息，不在21元以上加仓</td><td>维持</td></tr>
+      <tr><td>止损条件</td><td>连续两季扣非降幅扩大且经营现金流转负</td><td>重新评估，必要时清仓</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.3 巴菲特—芒格最终陈述</h3>
+  <div class="dialogue">
+    <div class="speaker">巴菲特：</div>
+    <p>海尔智家是一家好公司：全球白电龙头，品牌矩阵完整，份额还在提升，六年里把915亿元利润中的871亿元变成了自由现金流，分红率从27%提到55%。这些都是事实，不是故事。但好公司不等于好投资。2026年的报表告诉我，它的利润对需求周期比市场想象的更敏感。24元是我愿意为它付的钱，21.5元只比这个数低10%，不够。等待19.2元，或者等待收入转正。</p>
+  </div>
+  <div class="dialogue munger">
+    <div class="speaker">芒格：</div>
+    <p>我同意等待，但理由要更硬：不是“价格没到”，而是“盈利还没见底”。扣非跌24%、自由现金流跌70%、中期分红取消——这三件事同时出现，说明管理层自己也在收缩。等他们把2026年年报交出来，看经营现金流是否恢复、分红率是否守住50%，再谈买入。宁可错过，不可买错。</p>
+  </div>
+
+  <div class="success-box">
+    <strong>最终结论：观察等待（B，不买入/不新增）</strong><br><br>
+    海尔智家是巴芒框架下“<strong>好公司、合理但不便宜的价格、尚未确认的盈利拐点</strong>”的样本。公司品质A-：宽护城河、ROE 17%、六年自由现金流871亿元、分红率55%、净有息负债仅32.83亿元。但2026年前三季度营收2,218.19亿元（-5.2%）、归母149.99亿元（-13.7%）、扣非128.19亿元（-24.1%）、自由现金流32.45亿元（-70.3%），证明其盈利具有明显的需求周期属性。按正常化归母170亿元、12-14倍PE，内在价值22.1-25.8元（中值24.0元）；当前21.50元折价10.4%，未达到19.2元合理买点，预期年化回报9.6%，低于10%要求回报率。<strong>因此当前不构成买入；19.2元以下进入合理买点，16.8元以下具备安全边际，或等待单季收入转正与现金流修复的双重确认。</strong>已持有者可继续持有收息，未持有者等待更聪明的价格。
+  </div>
+
+  <h3>10.4 主要风险</h3>
+  <ul>
+    <li><strong>需求风险：</strong>国内补贴退坡后的需求透支可能延续至2027年，收入降幅超预期。</li>
+    <li><strong>关税与地缘风险：</strong>北美市场占比较高，关税政策变化将直接压缩海外利润。</li>
+    <li><strong>毛利率风险：</strong>原材料与价格战可能使毛利率跌破26%，正常化利润需下修。</li>
+    <li><strong>商誉风险：</strong>260.13亿元商誉若减值，将冲击净资产与ROE。</li>
+    <li><strong>口径风险：</strong>非经常性收益占归母净利14.5%，核心利润质量弱于报表表面。</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>分析框架：BR7UCE Value Investing Analysis Framework V10.1（BR7-VIA-V10.1）｜原创作者：Br7uce（br7）</p>
+  <p>数据来源：海尔智家2020-2025年年度报告、2026年第三季度报告、公司公告（上交所）、通达信F10财务数据；行情截至2026年11月6日盘中。</p>
+  <p>免责声明：本报告基于公开信息编写，不构成任何投资建议。投资有风险，入市需谨慎。分析框架署名仅标明分析框架来源，不代表 Br7uce 对具体分析结论、数据准确性或投资行为作出背书。</p>
+  <p>Copyright © 2026 Br7uce. All Rights Reserved. 本报告基于 BR7-VIA-V10.1 生成，不构成投资建议。</p>
+</div>
+
+</div>
+</body>
+</html>
